@@ -3,7 +3,6 @@
     "runtime": "org.kde.Sdk",
     "runtime-version": "5.15",
     "sdk": "org.kde.Sdk",
-    "platform-extensions": ["org.kde.Sdk.debug"],
     "command": "qtcreator",
     "rename-desktop-file": "org.qt-project.qtcreator.desktop",
     "rename-appdata-file": "org.qt-project.qtcreator.appdata.xml",
