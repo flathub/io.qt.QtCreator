@@ -15,7 +15,7 @@
         "--device=dri"
     ],
     "build-options" : {
-        "append-ld-library-path": "/app/lib",
+        "append-ld-library-path": "/app/llvm/lib",
         "no-debuginfo": true
     },
     "modules": [
@@ -26,6 +26,7 @@
             "builddir": true,
             "config-opts": [
                 "-DCMAKE_BUILD_TYPE=MinSizeRel",
+                "-DCMAKE_INSTALL_PREFIX=/app/llvm",
                 "-DLLVM_ENABLE_RTTI=ON",
                 "-DLLVM_ENABLE_PROJECTS=clang;clang-tools-extra",
                 "-DLLVM_PARALLEL_LINK_JOBS=1",
@@ -52,9 +53,9 @@
             "name": "qt-creator",
             "buildsystem": "cmake-ninja",
             "config-opts": [
-                "-DCMAKE_PREFIX_PATH=/app",
+                "-DCMAKE_PREFIX_PATH=/app/llvm",
                 "-DCMAKE_BUILD_TYPE=Release",
-                "-DLLVM_INSTALL_PREFIX=/app",
+                "-DLLVM_INSTALL_PREFIX=/app/llvm",
                 "-Wno-dev"
             ],
             "sources": [
@@ -75,7 +76,8 @@
             "cleanup": [
                 "/include",
                 "*.a",
-                "*.la"
+                "*.la",
+                "/app/llvm"
             ]
         }
     ]
