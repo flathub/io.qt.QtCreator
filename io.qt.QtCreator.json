@@ -76,9 +76,11 @@
             "cleanup": [
                 "/include",
                 "*.a",
-                "*.la",
-                "/app/llvm"
+                "*.la"
             ]
         }
+    ],
+    "cleanup": [
+        "/llvm"
     ]
 }
