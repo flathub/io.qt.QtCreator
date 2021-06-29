@@ -61,7 +61,7 @@
                 {
                     "type": "git",
                     "url": "https://code.qt.io/qt-creator/qt-creator.git",
-                    "tag": "v4.14.2"
+                    "tag": "v4.15.1"
                 },
                 {
                    "type": "patch",
