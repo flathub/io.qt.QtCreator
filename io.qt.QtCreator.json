@@ -53,7 +53,7 @@
             "buildsystem": "cmake-ninja",
             "builddir": true,
             "config-opts": [
-                "-DCMAKE_INSTALL_PREFIX=/app",
+                "-DCMAKE_PREFIX_PATH=/app/llvm",
                 "-Wno-dev"
             ],
             "sources": [
