@@ -49,6 +49,22 @@
             ]
         },
         {
+            "name": "qt6",
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "config-opts": [
+                "-DCMAKE_INSTALL_PREFIX=/app",
+                "-Wno-dev"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://code.qt.io/qt/qt5.git",
+                    "tag": "v6.1.2"
+                }
+            ]
+        },
+        {
             "name": "qt-creator",
             "buildsystem": "cmake-ninja",
             "config-opts": [
