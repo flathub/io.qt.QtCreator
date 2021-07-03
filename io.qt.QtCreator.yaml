@@ -158,6 +158,15 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtdatavis3d.git
         tag: v6.1.2
+  - name: qt-shadertools
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtshadertools.git
+        tag: v6.1.2
   - name: qt-quick3d
     buildsystem: cmake-ninja
     builddir: true
@@ -193,15 +202,6 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtscxml.git
-        tag: v6.1.2
-  - name: qt-shadertools
-    buildsystem: cmake-ninja
-    builddir: true
-    config-opts:
-      - -Wno-dev
-    sources:
-      - type: git
-        url: git://code.qt.io/qt/qtshadertools.git
         tag: v6.1.2
   - name: qt-svg
     buildsystem: cmake-ninja
