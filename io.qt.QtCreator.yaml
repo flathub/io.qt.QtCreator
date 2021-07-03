@@ -94,15 +94,15 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtcoap.git
         tag: v6.1.2
-  - name: qt-datavis3d
-    buildsystem: cmake-ninja
-    builddir: true
-    config-opts:
-      - -Wno-dev
-    sources:
-      - type: git
-        url: git://code.qt.io/qt/qtdatavis3d.git
-        tag: v6.1.2
+#  - name: qt-datavis3d
+#    buildsystem: cmake-ninja
+#    builddir: true
+#    config-opts:
+#      - -Wno-dev
+#    sources:
+#      - type: git
+#        url: git://code.qt.io/qt/qtdatavis3d.git
+#        tag: v6.1.2
   - name: qt-declarative
     buildsystem: cmake-ninja
     builddir: true
