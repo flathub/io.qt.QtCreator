@@ -49,15 +49,6 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtbase.git
         tag: v6.1.2
-#  - name: qt-3d
-#    buildsystem: cmake-ninja
-#    builddir: true
-#    config-opts:
-#      - -Wno-dev
-#    sources:
-#      - type: git
-#        url: git://code.qt.io/qt/qt3d.git
-#        tag: v6.1.2
   - name: qt-qt5compat
     buildsystem: cmake-ninja
     builddir: true
@@ -94,15 +85,6 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtcoap.git
         tag: v6.1.2
-#  - name: qt-datavis3d
-#    buildsystem: cmake-ninja
-#    builddir: true
-#    config-opts:
-#      - -Wno-dev
-#    sources:
-#      - type: git
-#        url: git://code.qt.io/qt/qtdatavis3d.git
-#        tag: v6.1.2
   - name: qt-declarative
     buildsystem: cmake-ninja
     builddir: true
@@ -157,6 +139,24 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtopcua.git
         tag: v6.1.2
+#  - name: qt-3d
+#    buildsystem: cmake-ninja
+#    builddir: true
+#    config-opts:
+#      - -Wno-dev
+#    sources:
+#      - type: git
+#        url: git://code.qt.io/qt/qt3d.git
+#        tag: v6.1.2
+#  - name: qt-datavis3d
+#    buildsystem: cmake-ninja
+#    builddir: true
+#    config-opts:
+#      - -Wno-dev
+#    sources:
+#      - type: git
+#        url: git://code.qt.io/qt/qtdatavis3d.git
+#        tag: v6.1.2
   - name: qt-quick3d
     buildsystem: cmake-ninja
     builddir: true
