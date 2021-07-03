@@ -39,7 +39,7 @@ modules:
       - type: git
         url: https://code.qt.io/clang/llvm-project.git
         branch: release_110-based
-  - name: qt6
+  - name: qt-base
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
@@ -47,7 +47,214 @@ modules:
       - -Wno-dev
     sources:
       - type: git
-        url: git://code.qt.io/qt/qt5.git
+        url: git://code.qt.io/qt/qtbase.git
+        tag: v6.1.2
+#  - name: qt-3d
+#    buildsystem: cmake-ninja
+#    builddir: true
+#    config-opts:
+#      - -Wno-dev
+#    sources:
+#      - type: git
+#        url: git://code.qt.io/qt/qt3d.git
+#        tag: v6.1.2
+  - name: qt-qt5compat
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qt5compat.git
+        tag: v6.1.2
+  - name: qt-qtactiveqt
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtactiveqt.git
+        tag: v6.1.2
+  - name: qt-qtcharts
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtcharts.git
+        tag: v6.1.2
+  - name: qt-coap
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtcoap.git
+        tag: v6.1.2
+  - name: qt-datavis3d
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtdatavis3d.git
+        tag: v6.1.2
+  - name: qt-declarative
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtdeclarative.git
+        tag: v6.1.2
+  - name: qt-imageformats
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtimageformats.git
+        tag: v6.1.2
+  - name: qt-lottie
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtlottie.git
+        tag: v6.1.2
+  - name: qt-mqtt
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtmqtt.git
+        tag: v6.1.2
+  - name: qt-networkauth
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtnetworkauth.git
+        tag: v6.1.2
+  - name: qt-opcua
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtopcua.git
+        tag: v6.1.2
+  - name: qt-quick3d
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtquick3d.git
+        tag: v6.1.2
+  - name: qt-quickcontrols2
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtquickcontrols2.git
+        tag: v6.1.2
+  - name: qt-quicktimeline
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtquicktimeline.git
+        tag: v6.1.2
+  - name: qt-scxml
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtscxml.git
+        tag: v6.1.2
+  - name: qt-shadertools
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtshadertools.git
+        tag: v6.1.2
+  - name: qt-svg
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtsvg.git
+        tag: v6.1.2
+  - name: qt-wayland
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtwayland.git
+        tag: v6.1.2
+  - name: qt-virtualkeyboard
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtvirtualkeyboard.git
+        tag: v6.1.2
+  - name: qt-translations
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qttranslations.git
+        tag: v6.1.2
+  - name: qt-tools
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qttools.git
+        tag: v6.1.2
+  - name: qt-doc
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtdoc.git
         tag: v6.1.2
   - name: qt-creator
     buildsystem: cmake-ninja
