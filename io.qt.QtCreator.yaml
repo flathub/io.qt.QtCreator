@@ -275,6 +275,3 @@ cleanup-commands:
   - cp /app/llvm/lib/*.11 /app/lib
 cleanup:
   - /llvm
-  - /include
-  - '*.a'
-  - '*.la'
