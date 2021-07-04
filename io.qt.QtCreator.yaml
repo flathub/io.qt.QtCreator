@@ -230,15 +230,6 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtvirtualkeyboard.git
         tag: v6.1.2
-#  - name: qt-translations
-#    buildsystem: cmake-ninja
-#    builddir: true
-#    config-opts:
-#      - -Wno-dev
-#    sources:
-#      - type: git
-#        url: git://code.qt.io/qt/qttranslations.git
-#        tag: v6.1.2
   - name: qt-tools
     buildsystem: cmake-ninja
     builddir: true
@@ -257,6 +248,15 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtdoc.git
+        tag: v6.1.2
+  - name: qt-translations
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qttranslations.git
         tag: v6.1.2
   - name: qt-creator
     buildsystem: cmake-ninja
