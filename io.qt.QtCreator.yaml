@@ -13,7 +13,7 @@ finish-args:
   - --filesystem=host
   - --device=dri
 build-options:
-  append-ld-library-path: /app/llvm/lib
+  append-ld-library-path: /app/lib
   no-debuginfo: true
 modules:
   - name: clang
@@ -22,7 +22,6 @@ modules:
     builddir: true
     config-opts:
       - -DCMAKE_BUILD_TYPE=MinSizeRel
-      - -DCMAKE_INSTALL_PREFIX=/app/llvm
       - -DLLVM_ENABLE_RTTI=ON
       - -DLLVM_ENABLE_PROJECTS=clang;clang-tools-extra
       - -DLLVM_INCLUDE_DOCS=OFF
@@ -44,7 +43,6 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DCMAKE_PREFIX_PATH=/app/llvm
       - -Wno-dev
     sources:
       - type: git
@@ -234,7 +232,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DCMAKE_PREFIX_PATH=/app/llvm
+      - -DCMAKE_PREFIX_PATH=/app
       - -Wno-dev
     sources:
       - type: git
@@ -261,9 +259,8 @@ modules:
   - name: qt-creator
     buildsystem: cmake-ninja
     config-opts:
-      - -DCMAKE_PREFIX_PATH=/app/llvm
+      - -DCMAKE_PREFIX_PATH=/app
       - -DCMAKE_BUILD_TYPE=Release
-      - -DLLVM_INSTALL_PREFIX=/app/llvm
       - -Wno-dev
     sources:
       - type: git
@@ -273,7 +270,6 @@ modules:
         path: 0001.patch
       - type: patch
         path: 0002.patch
-cleanup-commands:
-  - cp /app/llvm/lib/*.11 /app/lib
-cleanup:
-  - /llvm
+    # TODO: Add cleanup-commands section to register the new Qt version: https://github.com/qt-creator/qt-creator/tree/v4.15.1/src/tools/sdktool#add-a-qt-version
+      # TODO: Add kit using the new Qt version
+# TODO: Cleanup llvm/clang stuff
