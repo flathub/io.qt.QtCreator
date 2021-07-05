@@ -39,6 +39,7 @@ modules:
         url: https://code.qt.io/clang/llvm-project.git
         branch: release_110-based
 # TODO: probably should skip building tests or actually run them
+# TODO: install examples (do they have to be build?)
   - name: qt-base
     buildsystem: cmake-ninja
     builddir: true
@@ -270,6 +271,13 @@ modules:
         path: 0001.patch
       - type: patch
         path: 0002.patch
-    # TODO: Add cleanup-commands section to register the new Qt version: https://github.com/qt-creator/qt-creator/tree/v4.15.1/src/tools/sdktool#add-a-qt-version
-      # TODO: Add kit using the new Qt version
-# TODO: Cleanup llvm/clang stuff
+cleanup:
+ # TODO: Cleanup llvm/clang stuff better - '/app/lib/libclang*.a'
+  - '/lib/libclang*.a'
+  - '/lib/libLLVM*.a'
+  - '/include/llvm'
+  - '/bin/clang*'
+  - '/bin/llvm*'
+cleanup-commands:
+  - /app/libexec/qtcreator/sdktool addQt --id qt6 --name Qt6 --qmake /app/bin/qmake --type Qt4ProjectManager.QtVersion.Desktop
+  - /app/libexec/qtcreator/sdktool addKit --id qt6 --name Qt6 --devicetype Desktop --qt qt6
