@@ -38,13 +38,12 @@ modules:
       - type: git
         url: https://code.qt.io/clang/llvm-project.git
         branch: release_110-based
-# TODO: probably should skip building tests or actually run them
-# TODO: install examples (do they have to be build?)
   - name: qt-base
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -Wno-dev
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qtbase.git
@@ -53,7 +52,8 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -Wno-dev
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qt5compat.git
@@ -62,7 +62,8 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -Wno-dev
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qtactiveqt.git
@@ -71,7 +72,8 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -Wno-dev
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qtcharts.git
@@ -80,7 +82,8 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -Wno-dev
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qtcoap.git
@@ -89,7 +92,8 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -Wno-dev
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qtdeclarative.git
@@ -98,7 +102,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -Wno-dev
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qtimageformats.git
@@ -107,7 +111,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -Wno-dev
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qtlottie.git
@@ -116,7 +120,8 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -Wno-dev
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qtmqtt.git
@@ -125,7 +130,8 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -Wno-dev
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qtnetworkauth.git
@@ -134,7 +140,8 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -Wno-dev
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qtopcua.git
@@ -143,7 +150,8 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -Wno-dev
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qt3d.git
@@ -152,7 +160,8 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -Wno-dev
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qtdatavis3d.git
@@ -161,7 +170,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -Wno-dev
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qtshadertools.git
@@ -170,7 +179,8 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -Wno-dev
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qtquick3d.git
@@ -179,7 +189,8 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -Wno-dev
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qtquickcontrols2.git
@@ -188,7 +199,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -Wno-dev
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qtquicktimeline.git
@@ -197,7 +208,8 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -Wno-dev
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qtscxml.git
@@ -206,7 +218,8 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -Wno-dev
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qtsvg.git
@@ -215,7 +228,8 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -Wno-dev
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qtwayland.git
@@ -224,7 +238,8 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -Wno-dev
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qtvirtualkeyboard.git
@@ -234,7 +249,8 @@ modules:
     builddir: true
     config-opts:
       - -DCMAKE_PREFIX_PATH=/app
-      - -Wno-dev
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qttools.git
@@ -243,7 +259,8 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -Wno-dev
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qtdoc.git
@@ -272,7 +289,7 @@ modules:
       - type: patch
         path: 0002.patch
 cleanup:
- # TODO: Cleanup llvm/clang stuff better - '/app/lib/libclang*.a'
+ # TODO: Cleanup llvm/clang stuff better
   - '/lib/libclang*.a'
   - '/lib/libLLVM*.a'
   - '/include/llvm'
@@ -280,4 +297,4 @@ cleanup:
   - '/bin/llvm*'
 cleanup-commands:
   - /app/libexec/qtcreator/sdktool addQt --id qt6 --name Qt6 --qmake /app/bin/qmake --type Qt4ProjectManager.QtVersion.Desktop
-  - /app/libexec/qtcreator/sdktool addKit --id qt6 --name Qt6 --devicetype Desktop --qt qt6
+  - /app/libexec/qtcreator/sdktool addKit --id qt6 --name Qt6 --devicetype Desktop --device "Desktop Device" --qt qt6
