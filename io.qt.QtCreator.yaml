@@ -92,7 +92,7 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtactiveqt.git
         tag: v6.1.2
- - name: qt-qtcharts
+  - name: qt-qtcharts
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
@@ -316,7 +316,7 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtquicktimeline.git
         tag: v6.1.2
- - name: qt-scxml
+  - name: qt-scxml
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
