@@ -42,8 +42,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-# FIXME: QT_BUILD_EXAMPLES=ON installs built examples and not the source
-      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_EXAMPLES=OFF
       - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
@@ -53,7 +52,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_EXAMPLES=OFF
       - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
@@ -63,7 +62,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_EXAMPLES=OFF
       - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
@@ -73,7 +72,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_EXAMPLES=OFF
       - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
@@ -83,7 +82,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_EXAMPLES=OFF
       - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
@@ -93,7 +92,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_EXAMPLES=OFF
       - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
@@ -121,8 +120,16 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_EXAMPLES=OFF
       - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtmqtt.git
+        tag: v6.1.2
+  - name: qt-mqtt-examples
+    buildsystem: simple
+    build-commands:
+      - install -d ./examples /app/examples
     sources:
       - type: git
         url: git://code.qt.io/qt/qtmqtt.git
@@ -131,7 +138,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_EXAMPLES=OFF
       - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
@@ -141,7 +148,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_EXAMPLES=OFF
       - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
@@ -151,7 +158,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_EXAMPLES=OFF
       - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
@@ -161,7 +168,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_EXAMPLES=OFF
       - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
@@ -180,7 +187,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_EXAMPLES=OFF
       - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
@@ -190,7 +197,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_EXAMPLES=OFF
       - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
@@ -209,7 +216,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_EXAMPLES=OFF
       - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
@@ -219,7 +226,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_EXAMPLES=OFF
       - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
@@ -229,7 +236,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_EXAMPLES=OFF
       - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
@@ -239,7 +246,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_EXAMPLES=OFF
       - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
@@ -250,7 +257,7 @@ modules:
     builddir: true
     config-opts:
       - -DCMAKE_PREFIX_PATH=/app
-      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_EXAMPLES=OFF
       - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
@@ -260,7 +267,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_EXAMPLES=OFF
       - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
