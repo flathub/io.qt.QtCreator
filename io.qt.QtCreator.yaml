@@ -42,6 +42,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
+# FIXME: QT_BUILD_EXAMPLES=ON installs built examples and not the source
       - -DQT_BUILD_EXAMPLES=ON
       - -DQT_BUILD_TESTS=OFF
     sources:
@@ -289,12 +290,46 @@ modules:
       - type: patch
         path: 0002.patch
 cleanup:
- # TODO: Cleanup llvm/clang stuff better
+  - '/include/llvm'
+  - '/include/clang'
+  - '/include/llvm-c'
+  - '/share/clang'
+  - '/lib/clang'
+  - '/lib/cmake/llvm'
   - '/lib/libclang*.a'
   - '/lib/libLLVM*.a'
-  - '/include/llvm'
+  - '/bin/diagtool'
   - '/bin/clang*'
   - '/bin/llvm*'
+  - '/bin/git-clang-format'
+  - '/bin/c-index-test'
+  - '/bin/scan-build'
+  - '/libexec/ccc-analyzer'
+  - '/libexec/c++-analyzer'
+  - '/share/man'
+  - '/share/scan-build'
+  - '/bin/scan-view'
+  - '/share/scan-view'
+  - '/bin/modularize'
+  - '/include/clang-tidy'
+  - '/lib/libfindAllSymbols.a'
+  - '/bin/find-all-symbols'
+  - '/bin/pp-trace'
+  - '/include/clang-c'
+  - '/bin/hmaptool'
+  - '/bin/bugpoint'
+  - '/bin/dsymutil'
+  - '/bin/llc'
+  - '/bin/lli'
+  - '/bin/obj2yaml'
+  - '/bin/opt'
+  - '/share/opt-viewer'
+  - '/bin/sancov'
+  - '/bin/sanstats'
+  - '/bin/verify-uselistorder'
+  - '/bin/yaml2obj'
+  - '/lib/cmake/clang'
 cleanup-commands:
   - /app/libexec/qtcreator/sdktool addQt --id qt6 --name Qt6 --qmake /app/bin/qmake --type Qt4ProjectManager.QtVersion.Desktop
+# FIXME: Even though we set the device param here and Qt Creator tells us the id is "Desktop Device", it is still not selected by default
   - /app/libexec/qtcreator/sdktool addKit --id qt6 --name Qt6 --devicetype Desktop --device "Desktop Device" --qt qt6
