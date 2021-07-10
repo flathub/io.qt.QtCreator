@@ -42,7 +42,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DQT_BUILD_EXAMPLES=OFF
+      - -DQT_BUILD_EXAMPLES=ON
       - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
@@ -52,34 +52,95 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DQT_BUILD_EXAMPLES=OFF
+      - -DQT_BUILD_EXAMPLES=ON
       - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qtdeclarative.git
-        tag: v6.1.2
-  - name: qt-doc
-    buildsystem: cmake-ninja
-    builddir: true
-    config-opts:
-      - -DQT_BUILD_EXAMPLES=OFF
-      - -DQT_BUILD_TESTS=OFF
-    sources:
-      - type: git
-        url: git://code.qt.io/qt/qtdoc.git
         tag: v6.1.2
   - name: qt-tools
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
       - -DCMAKE_PREFIX_PATH=/app
-      - -DQT_BUILD_EXAMPLES=OFF
+      - -DQT_BUILD_EXAMPLES=ON
       - -DQT_BUILD_TESTS=OFF
     sources:
       - type: git
         url: git://code.qt.io/qt/qttools.git
         tag: v6.1.2
-# TODO: Add modules for docs of the above or try to include it like below
+  - name: qt-base-docs
+    buildsystem: simple
+    builddir: true
+    build-commands:
+      - mkdir build
+      - cd build && cmake -G Ninja .. -DCMAKE_INSTALL_PREFIX=/app -DCMAKE_PREFIX_PATH=/app -DQT_BUILD_EXAMPLES=ON -DQT_BUILD_TESTS=OFF
+      - cd build && ninja docs
+      - cd build && ninja install_docs
+      - cp -rn examples/aggregate /app/doc/qtbase/
+      - cp -rn examples/corelib /app/doc/qtbase/
+      - cp -rn examples/dbus /app/doc/qtbase/
+      - cp -rn examples/embedded /app/doc/qtbase/
+      - cp -rn examples/gui /app/doc/qtbase/
+      - cp -rn examples/network /app/doc/qtbase/
+      - cp -rn examples/opengl /app/doc/qtbase/
+      - cp -rn examples/qmake /app/doc/qtbase/
+      - cp -rn examples/qpa /app/doc/qtbase/
+      - cp -rn examples/qtconcurrent /app/doc/qtbase/
+      - cp -rn examples/qtestlib /app/doc/qtbase/
+      - cp -rn examples/sql /app/doc/qtbase/
+      - cp -rn examples/vulkan /app/doc/qtbase/
+      - cp -rn examples/widgets /app/doc/qtbase/
+      - cp -rn examples/xml /app/doc/qtbase/
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtbase.git
+        tag: v6.1.2
+  - name: qt-declarative-docs
+    buildsystem: simple
+    builddir: true
+    build-commands:
+      - mkdir build
+      - cd build && cmake -G Ninja .. -DCMAKE_INSTALL_PREFIX=/app -DCMAKE_PREFIX_PATH=/app -DQT_BUILD_EXAMPLES=ON -DQT_BUILD_TESTS=OFF
+      - cd build && ninja docs
+      - cd build && ninja install_docs
+      - cp -rn examples/qml /app/doc/qtdeclarative/
+      - cp -rn examples/qmltest /app/doc/qtdeclarative/
+      - cp -rn examples/quick /app/doc/qtdeclarative/
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtdeclarative.git
+        tag: v6.1.2
+  - name: qt-tools-docs
+    buildsystem: simple
+    builddir: true
+    build-commands:
+      - mkdir build
+      - cd build && cmake -G Ninja .. -DCMAKE_INSTALL_PREFIX=/app -DCMAKE_PREFIX_PATH=/app -DQT_BUILD_EXAMPLES=ON -DQT_BUILD_TESTS=OFF
+      - cd build && ninja docs
+      - cd build && ninja install_docs
+      - cp -rn examples/assistant /app/doc/qttools/
+      - cp -rn examples/designer /app/doc/qttools/
+      - cp -rn examples/help /app/doc/qttools/
+      - cp -rn examples/linguist /app/doc/qttools/
+      - cp -rn examples/uitools /app/doc/qttools/
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qttools.git
+        tag: v6.1.2
+  - name: qt-doc
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtdoc.git
+        tag: v6.1.2
   - name: qt-translations
     buildsystem: cmake-ninja
     builddir: true
