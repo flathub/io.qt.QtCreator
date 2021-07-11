@@ -134,7 +134,8 @@ modules:
     build-commands:
       - ninja docs
       - ninja install_docs
-      - cp -rn ../examples /app/doc/qtdoc/
+      - cp -rn ../examples/demos /app/doc/qtdoc/
+      - cp -rn ../examples/tutorials /app/doc/qtdoc/
     config-opts:
       - -DQT_BUILD_EXAMPLES=ON
       - -DQT_BUILD_TESTS=OFF
