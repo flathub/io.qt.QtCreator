@@ -78,20 +78,20 @@ modules:
       - cd build && ninja docs
       - cd build && ninja install_docs
       - cp -rn examples/aggregate /app/doc/qtbase/
-      - cp -rn examples/corelib /app/doc/qtbase/
-      - cp -rn examples/dbus /app/doc/qtbase/
+      - cp -rn examples/corelib /app/doc/qtcore/
+      - cp -rn examples/dbus /app/doc/qtdbus/
       - cp -rn examples/embedded /app/doc/qtbase/
-      - cp -rn examples/gui /app/doc/qtbase/
-      - cp -rn examples/network /app/doc/qtbase/
-      - cp -rn examples/opengl /app/doc/qtbase/
+      - cp -rn examples/gui /app/doc/qtgui/
+      - cp -rn examples/network /app/doc/qtnetwork/
+      - cp -rn examples/opengl /app/doc/qtopengl/
       - cp -rn examples/qmake /app/doc/qtbase/
       - cp -rn examples/qpa /app/doc/qtbase/
-      - cp -rn examples/qtconcurrent /app/doc/qtbase/
-      - cp -rn examples/qtestlib /app/doc/qtbase/
-      - cp -rn examples/sql /app/doc/qtbase/
-      - cp -rn examples/vulkan /app/doc/qtbase/
-      - cp -rn examples/widgets /app/doc/qtbase/
-      - cp -rn examples/xml /app/doc/qtbase/
+      - cp -rn examples/qtconcurrent /app/doc/qtconcurrent/
+      - cp -rn examples/qtestlib /app/doc/qttestlib/
+      - cp -rn examples/sql /app/doc/qtsql/
+      - cp -rn examples/vulkan /app/doc/qtgui/
+      - cp -rn examples/widgets /app/doc/qtwidgets/
+      - cp -rn examples/xml /app/doc/qtxml/
     sources:
       - type: git
         url: git://code.qt.io/qt/qtbase.git
@@ -104,9 +104,9 @@ modules:
       - cd build && cmake -G Ninja .. -DCMAKE_INSTALL_PREFIX=/app -DCMAKE_PREFIX_PATH=/app -DQT_BUILD_EXAMPLES=ON -DQT_BUILD_TESTS=OFF
       - cd build && ninja docs
       - cd build && ninja install_docs
-      - cp -rn examples/qml /app/doc/qtdeclarative/
+      - cp -rn examples/qml /app/doc/qtqml/
       - cp -rn examples/qmltest /app/doc/qtdeclarative/
-      - cp -rn examples/quick /app/doc/qtdeclarative/
+      - cp -rn examples/quick /app/doc/qtquick/
     sources:
       - type: git
         url: git://code.qt.io/qt/qtdeclarative.git
@@ -119,11 +119,11 @@ modules:
       - cd build && cmake -G Ninja .. -DCMAKE_INSTALL_PREFIX=/app -DCMAKE_PREFIX_PATH=/app -DQT_BUILD_EXAMPLES=ON -DQT_BUILD_TESTS=OFF
       - cd build && ninja docs
       - cd build && ninja install_docs
-      - cp -rn examples/assistant /app/doc/qttools/
-      - cp -rn examples/designer /app/doc/qttools/
-      - cp -rn examples/help /app/doc/qttools/
-      - cp -rn examples/linguist /app/doc/qttools/
-      - cp -rn examples/uitools /app/doc/qttools/
+      - cp -rn examples/assistant /app/doc/qtassistant/
+      - cp -rn examples/designer /app/doc/qtdesigner/
+      - cp -rn examples/help /app/doc/qthelp/
+      - cp -rn examples/linguist /app/doc/qtlinguist/
+      - cp -rn examples/uitools /app/doc/qtuitools/
     sources:
       - type: git
         url: git://code.qt.io/qt/qttools.git
@@ -134,6 +134,7 @@ modules:
     build-commands:
       - ninja docs
       - ninja install_docs
+      - cp -rn ../examples /app/doc/qtdoc/
     config-opts:
       - -DQT_BUILD_EXAMPLES=ON
       - -DQT_BUILD_TESTS=OFF
@@ -170,7 +171,7 @@ modules:
     build-commands:
       - ninja docs
       - ninja install_docs
-      - cp -rn ../examples/activeqt/ /app/doc/qtactiveqt/
+      - cp -rn ../examples/activeqt/ /app/doc/activeqt/
     config-opts:
       - -DQT_BUILD_EXAMPLES=ON
       - -DQT_BUILD_TESTS=OFF
@@ -319,7 +320,7 @@ modules:
     build-commands:
       - ninja docs
       - ninja install_docs
-      - cp -rn ../examples/quickcontrols2/ /app/doc/qtquickcontrols2/
+      - cp -rn ../examples/quickcontrols2/ /app/doc/qtquickcontrols/
     config-opts:
       - -DQT_BUILD_EXAMPLES=ON
       - -DQT_BUILD_TESTS=OFF
@@ -342,7 +343,7 @@ modules:
       - ninja docs
       - ninja install_docs
       - cp -rn ../examples/scxml/ /app/doc/qtscxml/
-      - cp -rn ../examples/statemachine /app/doc/qtscxml/
+      - cp -rn ../examples/statemachine /app/doc/qtstatemachine/
     builddir: true
     config-opts:
       - -DQT_BUILD_EXAMPLES=ON
@@ -371,7 +372,7 @@ modules:
     build-commands:
       - ninja docs
       - ninja install_docs
-      - cp -rn ../examples/wayland/ /app/doc/qtwayland/
+      - cp -rn ../examples/wayland/ /app/doc/qtwaylandcompositor/
     config-opts:
       - -DQT_BUILD_EXAMPLES=ON
       - -DQT_BUILD_TESTS=OFF
