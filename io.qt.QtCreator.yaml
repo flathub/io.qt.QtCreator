@@ -2,6 +2,8 @@ app-id: io.qt.QtCreator
 runtime: org.kde.Sdk
 runtime-version: '5.15'
 sdk: org.kde.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.openjdk
 command: qtcreator
 rename-desktop-file: org.qt-project.qtcreator.desktop
 rename-appdata-file: org.qt-project.qtcreator.appdata.xml
@@ -12,6 +14,7 @@ finish-args:
   - --socket=fallback-x11
   - --filesystem=host
   - --device=dri
+  - --env=PATH=/app/bin:/app/jre/bin:/usr/bin
 build-options:
   append-ld-library-path: /app/lib
   no-debuginfo: true
@@ -409,6 +412,10 @@ modules:
         path: 0001.patch
       - type: patch
         path: 0002.patch
+  - name: openjdk
+    buildsystem: simple
+    build-commands:
+      - /usr/lib/sdk/openjdk/install.sh
 cleanup:
   - '/include/llvm'
   - '/include/clang'
