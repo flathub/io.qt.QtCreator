@@ -1,0 +1,454 @@
+app-id: io.qt.QtCreator
+runtime: org.kde.Sdk
+runtime-version: '5.15'
+sdk: org.kde.Sdk
+command: qtcreator
+rename-desktop-file: org.qt-project.qtcreator.desktop
+rename-appdata-file: org.qt-project.qtcreator.appdata.xml
+rename-icon: QtProject-qtcreator
+finish-args:
+  - --share=ipc
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --filesystem=host
+  - --device=dri
+build-options:
+  append-ld-library-path: /app/lib
+  no-debuginfo: true
+modules:
+  - name: clang
+    buildsystem: cmake-ninja
+    subdir: llvm
+    builddir: true
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=MinSizeRel
+      - -DLLVM_ENABLE_RTTI=ON
+      - -DLLVM_ENABLE_PROJECTS=clang;clang-tools-extra
+      - -DLLVM_INCLUDE_DOCS=OFF
+      - -DLLVM_INCLUDE_TESTS=OFF
+      - -DLLVM_INCLUDE_EXAMPLES=OFF
+      - -DLLVM_INCLUDE_BENCHMARKS=OFF
+      - -DLLVM_ENABLE_BINDINGS=OFF
+      - -DLLVM_INSTALL_UTILS=OFF
+      - -DLLVM_ENABLE_UNWIND_TABLES=OFF
+      - -DLLVM_TARGETS_TO_BUILD=host
+      - -DLLVM_PARALLEL_LINK_JOBS=1
+      - -Wno-dev
+    sources:
+      - type: git
+        url: https://code.qt.io/clang/llvm-project.git
+        branch: release_110-based
+  - name: qt-base
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtbase.git
+        tag: v6.1.2
+  - name: qt-declarative
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtdeclarative.git
+        tag: v6.1.2
+  - name: qt-tools
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DCMAKE_PREFIX_PATH=/app
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qttools.git
+        tag: v6.1.2
+  - name: qt-base-docs
+    buildsystem: simple
+    builddir: true
+    build-commands:
+      - mkdir build
+      - cd build && cmake -G Ninja .. -DCMAKE_INSTALL_PREFIX=/app -DCMAKE_PREFIX_PATH=/app -DQT_BUILD_EXAMPLES=ON -DQT_BUILD_TESTS=OFF
+      - cd build && ninja docs
+      - cd build && ninja install_docs
+      - cp -rn examples/aggregate /app/doc/qtbase/
+      - cp -rn examples/corelib /app/doc/qtcore/
+      - cp -rn examples/dbus /app/doc/qtdbus/
+      - cp -rn examples/embedded /app/doc/qtbase/
+      - cp -rn examples/gui /app/doc/qtgui/
+      - cp -rn examples/network /app/doc/qtnetwork/
+      - cp -rn examples/opengl /app/doc/qtopengl/
+      - cp -rn examples/qmake /app/doc/qtbase/
+      - cp -rn examples/qpa /app/doc/qtbase/
+      - cp -rn examples/qtconcurrent /app/doc/qtconcurrent/
+      - cp -rn examples/qtestlib /app/doc/qttestlib/
+      - cp -rn examples/sql /app/doc/qtsql/
+      - cp -rn examples/vulkan /app/doc/qtgui/
+      - cp -rn examples/widgets /app/doc/qtwidgets/
+      - cp -rn examples/xml /app/doc/qtxml/
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtbase.git
+        tag: v6.1.2
+  - name: qt-declarative-docs
+    buildsystem: simple
+    builddir: true
+    build-commands:
+      - mkdir build
+      - cd build && cmake -G Ninja .. -DCMAKE_INSTALL_PREFIX=/app -DCMAKE_PREFIX_PATH=/app -DQT_BUILD_EXAMPLES=ON -DQT_BUILD_TESTS=OFF
+      - cd build && ninja docs
+      - cd build && ninja install_docs
+      - cp -rn examples/qml /app/doc/qtqml/
+      - cp -rn examples/qmltest /app/doc/qtdeclarative/
+      - cp -rn examples/quick /app/doc/qtquick/
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtdeclarative.git
+        tag: v6.1.2
+  - name: qt-tools-docs
+    buildsystem: simple
+    builddir: true
+    build-commands:
+      - mkdir build
+      - cd build && cmake -G Ninja .. -DCMAKE_INSTALL_PREFIX=/app -DCMAKE_PREFIX_PATH=/app -DQT_BUILD_EXAMPLES=ON -DQT_BUILD_TESTS=OFF
+      - cd build && ninja docs
+      - cd build && ninja install_docs
+      - cp -rn examples/assistant /app/doc/qtassistant/
+      - cp -rn examples/designer /app/doc/qtdesigner/
+      - cp -rn examples/help /app/doc/qthelp/
+      - cp -rn examples/linguist /app/doc/qtlinguist/
+      - cp -rn examples/uitools /app/doc/qtuitools/
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qttools.git
+        tag: v6.1.2
+  - name: qt-doc
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/demos /app/doc/qtdoc/
+      - cp -rn ../examples/tutorials /app/doc/qtdoc/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtdoc.git
+        tag: v6.1.2
+  - name: qt-translations
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qttranslations.git
+        tag: v6.1.2
+  - name: qt-qt5compat
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/core5/ /app/doc/qt5compat/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qt5compat.git
+        tag: v6.1.2
+  - name: qt-activeqt
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/activeqt/ /app/doc/activeqt/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtactiveqt.git
+        tag: v6.1.2
+  - name: qt-qtcharts
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/charts/ /app/doc/qtcharts/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtcharts.git
+        tag: v6.1.2
+  - name: qt-coap
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/coap/ /app/doc/qtcoap/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtcoap.git
+        tag: v6.1.2
+  - name: qt-imageformats
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtimageformats.git
+        tag: v6.1.2
+  - name: qt-lottie
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtlottie.git
+        tag: v6.1.2
+  - name: qt-mqtt
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/mqtt/ /app/doc/qtmqtt/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtmqtt.git
+        tag: v6.1.2
+  - name: qt-networkauth
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/oauth/ /app/doc/qtnetworkauth/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtnetworkauth.git
+        tag: v6.1.2
+  - name: qt-opcua
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/opcua/ /app/doc/qtopcua/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtopcua.git
+        tag: v6.1.2
+  - name: qt-3d
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=OFF
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qt3d.git
+        tag: v6.1.2
+  - name: qt-datavis3d
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/datavisualization/ /app/doc/qtdatavis3d/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtdatavis3d.git
+        tag: v6.1.2
+  - name: qt-shadertools
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtshadertools.git
+        tag: v6.1.2
+  - name: qt-quick3d
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/quick3d/ /app/doc/qtquick3d/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtquick3d.git
+        tag: v6.1.2
+  - name: qt-quickcontrols2
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/quickcontrols2/ /app/doc/qtquickcontrols/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtquickcontrols2.git
+        tag: v6.1.2
+  - name: qt-quicktimeline
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtquicktimeline.git
+        tag: v6.1.2
+  - name: qt-scxml
+    buildsystem: cmake-ninja
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/scxml/ /app/doc/qtscxml/
+      - cp -rn ../examples/statemachine /app/doc/qtstatemachine/
+    builddir: true
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtscxml.git
+        tag: v6.1.2
+  - name: qt-svg
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/svg/ /app/doc/qtsvg/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtsvg.git
+        tag: v6.1.2
+  - name: qt-wayland
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/wayland/ /app/doc/qtwaylandcompositor/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtwayland.git
+        tag: v6.1.2
+  - name: qt-virtualkeyboard
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/virtualkeyboard/ /app/doc/qtvirtualkeyboard/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtvirtualkeyboard.git
+        tag: v6.1.2
+  - name: qt-creator
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_PREFIX_PATH=/app
+      - -DCMAKE_BUILD_TYPE=Release
+      - -Wno-dev
+    sources:
+      - type: git
+        url: https://code.qt.io/qt-creator/qt-creator.git
+        tag: v4.15.1
+      - type: patch
+        path: 0001.patch
+      - type: patch
+        path: 0002.patch
+cleanup:
+  - '/include/llvm'
+  - '/include/clang'
+  - '/include/llvm-c'
+  - '/share/clang'
+  - '/lib/clang'
+  - '/lib/cmake/llvm'
+  - '/lib/libclang*.a'
+  - '/lib/libLLVM*.a'
+  - '/bin/diagtool'
+  - '/bin/clang*'
+  - '/bin/llvm*'
+  - '/bin/git-clang-format'
+  - '/bin/c-index-test'
+  - '/bin/scan-build'
+  - '/libexec/ccc-analyzer'
+  - '/libexec/c++-analyzer'
+  - '/share/man'
+  - '/share/scan-build'
+  - '/bin/scan-view'
+  - '/share/scan-view'
+  - '/bin/modularize'
+  - '/include/clang-tidy'
+  - '/lib/libfindAllSymbols.a'
+  - '/bin/find-all-symbols'
+  - '/bin/pp-trace'
+  - '/include/clang-c'
+  - '/bin/hmaptool'
+  - '/bin/bugpoint'
+  - '/bin/dsymutil'
+  - '/bin/llc'
+  - '/bin/lli'
+  - '/bin/obj2yaml'
+  - '/bin/opt'
+  - '/share/opt-viewer'
+  - '/bin/sancov'
+  - '/bin/sanstats'
+  - '/bin/verify-uselistorder'
+  - '/bin/yaml2obj'
+  - '/lib/cmake/clang'
+cleanup-commands:
+  - /app/libexec/qtcreator/sdktool addQt --id qt6 --name Qt6 --qmake /app/bin/qmake --type Qt4ProjectManager.QtVersion.Desktop
+  - /app/libexec/qtcreator/sdktool addKit --id qt6 --name Qt6 --devicetype Desktop --device "Desktop Device" --qt qt6
