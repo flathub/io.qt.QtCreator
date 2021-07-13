@@ -10,6 +10,7 @@ rename-appdata-file: org.qt-project.qtcreator.appdata.xml
 rename-icon: QtProject-qtcreator
 finish-args:
   - --share=ipc
+  - --share=network
   - --socket=wayland
   - --socket=fallback-x11
   - --filesystem=host
