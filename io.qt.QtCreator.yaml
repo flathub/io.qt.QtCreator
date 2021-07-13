@@ -14,7 +14,7 @@ finish-args:
   - --socket=fallback-x11
   - --filesystem=host
   - --device=dri
-  - --env=PATH=/app/bin:/app/jre/bin:/usr/bin
+  - --env=PATH=/app/bin:/app/jre/bin:/app/jdk/bin:/usr/bin
 build-options:
   append-ld-library-path: /app/lib
   no-debuginfo: true
@@ -415,7 +415,7 @@ modules:
   - name: openjdk
     buildsystem: simple
     build-commands:
-      - /usr/lib/sdk/openjdk/install.sh
+      - cd /usr/lib/sdk/openjdk/jvm/openjdk-16 && cp -ra bin conf include jmods lib release /app
 cleanup:
   - '/include/llvm'
   - '/include/clang'
