@@ -408,7 +408,7 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt-creator/qt-creator.git
-        tag: v4.15.1
+        tag: v4.15.2
       - type: patch
         path: 0001.patch
       - type: patch

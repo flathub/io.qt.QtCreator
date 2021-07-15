@@ -23,9 +23,9 @@ index 4706e69b22..888bbb9a8e 100644
 +   <image>https://doc.qt.io/qtcreator/images/qtcreator-qt-quick-editors.png</image>
 + </screenshots>
 + <releases>
-+  <release version="4.15.1" date="2021-06-08">
++  <release version="4.15.2" date="2021-07-14">
 +   <description>
-+    <p>Qt Creator v4.15.1</p>
++    <p>Qt Creator v4.15.2</p>
 +   </description>
 +  </release>
 + </releases>
