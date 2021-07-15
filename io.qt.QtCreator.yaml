@@ -459,4 +459,6 @@ cleanup:
   - '/lib/cmake/clang'
 cleanup-commands:
   - /app/libexec/qtcreator/sdktool addQt --id qt6 --name Qt6 --qmake /app/bin/qmake --type Qt4ProjectManager.QtVersion.Desktop
+  - /app/libexec/qtcreator/sdktool addQt --id qt5 --name Qt5 --qmake /usr/bin/qmake --type Qt4ProjectManager.QtVersion.Desktop
   - /app/libexec/qtcreator/sdktool addKit --id qt6 --name Qt6 --devicetype Desktop --device "Desktop Device" --qt qt6
+  - /app/libexec/qtcreator/sdktool addKit --id qt5 --name Qt5 --devicetype Desktop --device "Desktop Device" --qt qt5
