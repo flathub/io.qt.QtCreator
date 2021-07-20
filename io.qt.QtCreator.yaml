@@ -52,6 +52,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtbase.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-declarative
     buildsystem: cmake-ninja
     builddir: true
@@ -62,6 +67,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtdeclarative.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-tools
     buildsystem: cmake-ninja
     builddir: true
@@ -73,6 +83,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qttools.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-base-docs
     buildsystem: simple
     builddir: true
@@ -100,6 +115,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtbase.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-declarative-docs
     buildsystem: simple
     builddir: true
@@ -115,6 +135,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtdeclarative.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-tools-docs
     buildsystem: simple
     builddir: true
@@ -132,6 +157,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qttools.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-doc
     buildsystem: cmake-ninja
     builddir: true
@@ -147,6 +177,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtdoc.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-translations
     buildsystem: cmake-ninja
     builddir: true
@@ -156,6 +191,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qttranslations.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-qt5compat
     buildsystem: cmake-ninja
     builddir: true
@@ -170,6 +210,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qt5compat.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-activeqt
     buildsystem: cmake-ninja
     builddir: true
@@ -184,6 +229,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtactiveqt.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-qtcharts
     buildsystem: cmake-ninja
     builddir: true
@@ -198,6 +248,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtcharts.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-coap
     buildsystem: cmake-ninja
     builddir: true
@@ -212,6 +267,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtcoap.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-imageformats
     buildsystem: cmake-ninja
     builddir: true
@@ -221,6 +281,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtimageformats.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-lottie
     buildsystem: cmake-ninja
     builddir: true
@@ -230,6 +295,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtlottie.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-mqtt
     buildsystem: cmake-ninja
     builddir: true
@@ -244,6 +314,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtmqtt.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-networkauth
     buildsystem: cmake-ninja
     builddir: true
@@ -258,6 +333,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtnetworkauth.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-opcua
     buildsystem: cmake-ninja
     builddir: true
@@ -272,6 +352,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtopcua.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-3d
     buildsystem: cmake-ninja
     builddir: true
@@ -282,6 +367,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qt3d.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-datavis3d
     buildsystem: cmake-ninja
     builddir: true
@@ -296,6 +386,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtdatavis3d.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-shadertools
     buildsystem: cmake-ninja
     builddir: true
@@ -305,6 +400,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtshadertools.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-quick3d
     buildsystem: cmake-ninja
     builddir: true
@@ -319,6 +419,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtquick3d.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-quickcontrols2
     buildsystem: cmake-ninja
     builddir: true
@@ -333,6 +438,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtquickcontrols2.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-quicktimeline
     buildsystem: cmake-ninja
     builddir: true
@@ -342,6 +452,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtquicktimeline.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-scxml
     buildsystem: cmake-ninja
     build-commands:
@@ -357,6 +472,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtscxml.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-svg
     buildsystem: cmake-ninja
     builddir: true
@@ -371,6 +491,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtsvg.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-wayland
     buildsystem: cmake-ninja
     builddir: true
@@ -385,6 +510,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtwayland.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-virtualkeyboard
     buildsystem: cmake-ninja
     builddir: true
@@ -399,6 +529,11 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtvirtualkeyboard.git
         tag: v6.1.2
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
   - name: qt-creator
     buildsystem: cmake-ninja
     config-opts:
@@ -409,6 +544,11 @@ modules:
       - type: git
         url: https://code.qt.io/qt-creator/qt-creator.git
         tag: v4.15.2
+        x-checker-data:
+          type: anitya
+          project-id: 4136
+          tag-template: v$version
+          stable-only: true
       - type: patch
         path: 0001.patch
       - type: patch
