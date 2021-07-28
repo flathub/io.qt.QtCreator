@@ -57,6 +57,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: 4dcedb8ca4ae0c9c533997074098297abbfcf1c3
   - name: qt-declarative
     buildsystem: cmake-ninja
     builddir: true
@@ -72,6 +73,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: c450bddebad1bef9952c17da3a6d4980c012ab97
   - name: qt-tools
     buildsystem: cmake-ninja
     builddir: true
@@ -88,12 +90,14 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: 9cfbb98844d63809ef446f7c2e2d16e258227b6a
   - name: qt-base-docs
     buildsystem: simple
     builddir: true
     build-commands:
       - mkdir build
-      - cd build && cmake -G Ninja .. -DCMAKE_INSTALL_PREFIX=/app -DCMAKE_PREFIX_PATH=/app -DQT_BUILD_EXAMPLES=ON -DQT_BUILD_TESTS=OFF
+      - cd build && cmake -G Ninja .. -DCMAKE_INSTALL_PREFIX=/app -DCMAKE_PREFIX_PATH=/app
+        -DQT_BUILD_EXAMPLES=ON -DQT_BUILD_TESTS=OFF
       - cd build && ninja docs
       - cd build && ninja install_docs
       - cp -rn examples/aggregate /app/doc/qtbase/
@@ -120,12 +124,14 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: 4dcedb8ca4ae0c9c533997074098297abbfcf1c3
   - name: qt-declarative-docs
     buildsystem: simple
     builddir: true
     build-commands:
       - mkdir build
-      - cd build && cmake -G Ninja .. -DCMAKE_INSTALL_PREFIX=/app -DCMAKE_PREFIX_PATH=/app -DQT_BUILD_EXAMPLES=ON -DQT_BUILD_TESTS=OFF
+      - cd build && cmake -G Ninja .. -DCMAKE_INSTALL_PREFIX=/app -DCMAKE_PREFIX_PATH=/app
+        -DQT_BUILD_EXAMPLES=ON -DQT_BUILD_TESTS=OFF
       - cd build && ninja docs
       - cd build && ninja install_docs
       - cp -rn examples/qml /app/doc/qtqml/
@@ -140,12 +146,14 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: c450bddebad1bef9952c17da3a6d4980c012ab97
   - name: qt-tools-docs
     buildsystem: simple
     builddir: true
     build-commands:
       - mkdir build
-      - cd build && cmake -G Ninja .. -DCMAKE_INSTALL_PREFIX=/app -DCMAKE_PREFIX_PATH=/app -DQT_BUILD_EXAMPLES=ON -DQT_BUILD_TESTS=OFF
+      - cd build && cmake -G Ninja .. -DCMAKE_INSTALL_PREFIX=/app -DCMAKE_PREFIX_PATH=/app
+        -DQT_BUILD_EXAMPLES=ON -DQT_BUILD_TESTS=OFF
       - cd build && ninja docs
       - cd build && ninja install_docs
       - cp -rn examples/assistant /app/doc/qtassistant/
@@ -162,6 +170,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: 9cfbb98844d63809ef446f7c2e2d16e258227b6a
   - name: qt-doc
     buildsystem: cmake-ninja
     builddir: true
@@ -182,6 +191,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: 3b3f5d5f3b073cf26ef4a9c31b50dd04fae90910
   - name: qt-translations
     buildsystem: cmake-ninja
     builddir: true
@@ -196,6 +206,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: 644a26b480922d53f13bfe553c22ef14c46512da
   - name: qt-qt5compat
     buildsystem: cmake-ninja
     builddir: true
@@ -215,6 +226,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: 03302321ac6a9bbb292974e93bb8093b9df37f07
   - name: qt-activeqt
     buildsystem: cmake-ninja
     builddir: true
@@ -234,6 +246,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: a0d3e45088e811e2c58d810077d029fa54c0b683
   - name: qt-qtcharts
     buildsystem: cmake-ninja
     builddir: true
@@ -253,6 +266,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: 33316596d2ee29386d9bc207d7677ef2f6b6e55c
   - name: qt-coap
     buildsystem: cmake-ninja
     builddir: true
@@ -272,6 +286,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: 4074e4a3779a6c2bcfde6976ee152b9bfd973b73
   - name: qt-imageformats
     buildsystem: cmake-ninja
     builddir: true
@@ -286,6 +301,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: 294ea163fd02d0859ecbbf02f73af01280b66202
   - name: qt-lottie
     buildsystem: cmake-ninja
     builddir: true
@@ -300,6 +316,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: 6259a405c1b0b75f9070c0a8db36e19bfe14c03b
   - name: qt-mqtt
     buildsystem: cmake-ninja
     builddir: true
@@ -319,6 +336,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: 0bc4b3f0132be9024b0f90cebe5a69a1da796a91
   - name: qt-networkauth
     buildsystem: cmake-ninja
     builddir: true
@@ -338,6 +356,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: ccad8f5cd0c11dedf9f79bec6a4e78019a053b21
   - name: qt-opcua
     buildsystem: cmake-ninja
     builddir: true
@@ -357,6 +376,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: 4d28a338ba63bccb0997d84eefe362f9dde2d57e
   - name: qt-3d
     buildsystem: cmake-ninja
     builddir: true
@@ -372,6 +392,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: aa0e77766862cbc5f9c79e0268f9d900687034a4
   - name: qt-datavis3d
     buildsystem: cmake-ninja
     builddir: true
@@ -391,6 +412,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: 29ec6342dd4d2145ec62e03224ee71e96f8f808e
   - name: qt-shadertools
     buildsystem: cmake-ninja
     builddir: true
@@ -405,6 +427,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: 771b613bd9daffc7b864796b3bf22b4bc2fbf24b
   - name: qt-quick3d
     buildsystem: cmake-ninja
     builddir: true
@@ -424,6 +447,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: 3eca5f49555bf2c37bbe071a2f8b4d6b1a973d1c
   - name: qt-quickcontrols2
     buildsystem: cmake-ninja
     builddir: true
@@ -443,6 +467,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: 5ae33c6ad2b89caae80008e805ffcca0aadd5521
   - name: qt-quicktimeline
     buildsystem: cmake-ninja
     builddir: true
@@ -457,6 +482,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: 6ade59c3b503da4fe2e81733c557674aea79caef
   - name: qt-scxml
     buildsystem: cmake-ninja
     build-commands:
@@ -477,6 +503,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: fb6b7d4dc0deccf3564134fe09e08e847da27172
   - name: qt-svg
     buildsystem: cmake-ninja
     builddir: true
@@ -496,6 +523,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: 4fed9a17ed7617cb6865d4aa6e5b6de32dcf673b
   - name: qt-wayland
     buildsystem: cmake-ninja
     builddir: true
@@ -515,6 +543,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: 86625613081b06607ca2532fa3652ce4c5e1823d
   - name: qt-virtualkeyboard
     buildsystem: cmake-ninja
     builddir: true
@@ -534,6 +563,7 @@ modules:
           project-id: 7927
           tag-template: v$version
           stable-only: true
+        commit: 524720e38157049826c67aa05ecbc22d460537db
   - name: qt-creator
     buildsystem: cmake-ninja
     config-opts:
@@ -549,6 +579,7 @@ modules:
           project-id: 4136
           tag-template: v$version
           stable-only: true
+        commit: 94d227cd434d09717de95529e5210ec530451e1c
       - type: patch
         path: 0001.patch
       - type: patch
@@ -556,49 +587,54 @@ modules:
   - name: openjdk
     buildsystem: simple
     build-commands:
-      - cd /usr/lib/sdk/openjdk/jvm/openjdk-16 && cp -ra bin conf include jmods lib release /app
+      - cd /usr/lib/sdk/openjdk/jvm/openjdk-16 && cp -ra bin conf include jmods lib
+        release /app
 cleanup:
-  - '/include/llvm'
-  - '/include/clang'
-  - '/include/llvm-c'
-  - '/share/clang'
-  - '/lib/clang'
-  - '/lib/cmake/llvm'
-  - '/lib/libclang*.a'
-  - '/lib/libLLVM*.a'
-  - '/bin/diagtool'
-  - '/bin/clang*'
-  - '/bin/llvm*'
-  - '/bin/git-clang-format'
-  - '/bin/c-index-test'
-  - '/bin/scan-build'
-  - '/libexec/ccc-analyzer'
-  - '/libexec/c++-analyzer'
-  - '/share/man'
-  - '/share/scan-build'
-  - '/bin/scan-view'
-  - '/share/scan-view'
-  - '/bin/modularize'
-  - '/include/clang-tidy'
-  - '/lib/libfindAllSymbols.a'
-  - '/bin/find-all-symbols'
-  - '/bin/pp-trace'
-  - '/include/clang-c'
-  - '/bin/hmaptool'
-  - '/bin/bugpoint'
-  - '/bin/dsymutil'
-  - '/bin/llc'
-  - '/bin/lli'
-  - '/bin/obj2yaml'
-  - '/bin/opt'
-  - '/share/opt-viewer'
-  - '/bin/sancov'
-  - '/bin/sanstats'
-  - '/bin/verify-uselistorder'
-  - '/bin/yaml2obj'
-  - '/lib/cmake/clang'
+  - /include/llvm
+  - /include/clang
+  - /include/llvm-c
+  - /share/clang
+  - /lib/clang
+  - /lib/cmake/llvm
+  - /lib/libclang*.a
+  - /lib/libLLVM*.a
+  - /bin/diagtool
+  - /bin/clang*
+  - /bin/llvm*
+  - /bin/git-clang-format
+  - /bin/c-index-test
+  - /bin/scan-build
+  - /libexec/ccc-analyzer
+  - /libexec/c++-analyzer
+  - /share/man
+  - /share/scan-build
+  - /bin/scan-view
+  - /share/scan-view
+  - /bin/modularize
+  - /include/clang-tidy
+  - /lib/libfindAllSymbols.a
+  - /bin/find-all-symbols
+  - /bin/pp-trace
+  - /include/clang-c
+  - /bin/hmaptool
+  - /bin/bugpoint
+  - /bin/dsymutil
+  - /bin/llc
+  - /bin/lli
+  - /bin/obj2yaml
+  - /bin/opt
+  - /share/opt-viewer
+  - /bin/sancov
+  - /bin/sanstats
+  - /bin/verify-uselistorder
+  - /bin/yaml2obj
+  - /lib/cmake/clang
 cleanup-commands:
-  - /app/libexec/qtcreator/sdktool addQt --id qt6 --name Qt6 --qmake /app/bin/qmake --type Qt4ProjectManager.QtVersion.Desktop
-  - /app/libexec/qtcreator/sdktool addQt --id qt5 --name Qt5 --qmake /usr/bin/qmake --type Qt4ProjectManager.QtVersion.Desktop
-  - /app/libexec/qtcreator/sdktool addKit --id qt6 --name Qt6 --devicetype Desktop --device "Desktop Device" --qt qt6
-  - /app/libexec/qtcreator/sdktool addKit --id qt5 --name Qt5 --devicetype Desktop --device "Desktop Device" --qt qt5
+  - /app/libexec/qtcreator/sdktool addQt --id qt6 --name Qt6 --qmake /app/bin/qmake
+    --type Qt4ProjectManager.QtVersion.Desktop
+  - /app/libexec/qtcreator/sdktool addQt --id qt5 --name Qt5 --qmake /usr/bin/qmake
+    --type Qt4ProjectManager.QtVersion.Desktop
+  - /app/libexec/qtcreator/sdktool addKit --id qt6 --name Qt6 --devicetype Desktop
+    --device "Desktop Device" --qt qt6
+  - /app/libexec/qtcreator/sdktool addKit --id qt5 --name Qt5 --devicetype Desktop
+    --device "Desktop Device" --qt qt5
