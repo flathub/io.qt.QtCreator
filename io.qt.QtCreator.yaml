@@ -579,6 +579,8 @@ modules:
           project-id: 4136
           tag-template: v$version-beta\\d
           stable-only: false
+      - type: patch
+        path: 0001.patch
   - name: openjdk
     buildsystem: simple
     build-commands:
