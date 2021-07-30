@@ -569,21 +569,17 @@ modules:
     config-opts:
       - -DCMAKE_PREFIX_PATH=/app
       - -DCMAKE_BUILD_TYPE=Release
+      - -DSHOW_BUILD_DATE=ON
       - -Wno-dev
     sources:
       - type: git
         url: https://code.qt.io/qt-creator/qt-creator.git
-        tag: v4.15.2
+        tag: v5.0.0-beta1
         x-checker-data:
           type: anitya
           project-id: 4136
-          tag-template: v$version
-          stable-only: true
-        commit: 94d227cd434d09717de95529e5210ec530451e1c
-      - type: patch
-        path: 0001.patch
-      - type: patch
-        path: 0002.patch
+          tag-template: v$version-beta\\d
+          stable-only: false
   - name: openjdk
     buildsystem: simple
     build-commands:
