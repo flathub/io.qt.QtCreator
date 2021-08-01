@@ -604,6 +604,7 @@ modules:
           project-id: 14862
           tag-template: v$version
           stable-only: true
+        commit: fca73257a803dd8d0524e2e0d6927733c500be78
     cleanup:
       - /share/doc/clazy/
       - /bin/clazy
