@@ -589,6 +589,24 @@ modules:
     build-commands:
       - cd /usr/lib/sdk/openjdk/jvm/openjdk-16 && cp -ra bin conf include jmods lib
         release /app
+  - name: clazy
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DLINK_CLAZY_TO_LLVM=OFF
+      - -DCLAZY_MAN_PAGE=OFF
+    sources:
+      - type: git
+        url: https://invent.kde.org/sdk/clazy.git
+        tag: v1.10
+        x-checker-data:
+          type: anitya
+          project-id: 14862
+          tag-template: v$version
+          stable-only: true
+    cleanup:
+      - /share/doc/clazy/
+      - /bin/clazy
 cleanup:
   - /include/llvm
   - /include/clang
@@ -599,7 +617,6 @@ cleanup:
   - /lib/libclang*.a
   - /lib/libLLVM*.a
   - /bin/diagtool
-  - /bin/clang*
   - /bin/llvm*
   - /bin/git-clang-format
   - /bin/c-index-test
@@ -629,6 +646,27 @@ cleanup:
   - /bin/verify-uselistorder
   - /bin/yaml2obj
   - /lib/cmake/clang
+  - /bin/clang
+  - /bin/clang++
+  - /bin/clang-11
+  - /bin/clang-apply-replacements
+  - /bin/clang-change-namespace
+  - /bin/clang-check
+  - /bin/clang-cl
+  - /bin/clang-cpp
+  - /bin/clangd
+  - /bin/clang-doc
+  - /bin/clang-extdef-mapping
+  - /bin/clang-format
+  - /bin/clang-include-fixer
+  - /bin/clang-move
+  - /bin/clang-offload-bundler
+  - /bin/clang-offload-wrapper
+  - /bin/clang-query
+  - /bin/clang-refactor
+  - /bin/clang-rename
+  - /bin/clang-reorder-fields
+  - /bin/clang-scan-deps
 cleanup-commands:
   - /app/libexec/qtcreator/sdktool addQt --id qt6 --name Qt6 --qmake /app/bin/qmake
     --type Qt4ProjectManager.QtVersion.Desktop
