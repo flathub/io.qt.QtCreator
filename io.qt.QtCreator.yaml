@@ -581,10 +581,6 @@ modules:
           tag-template: v$version
           stable-only: true
         commit: 72536eb1555db00723dfbd72c80c940ccabfb2b3
-      - type: patch
-        path: 0001.patch
-      - type: patch
-        path: 0002.patch
   - name: openjdk
     buildsystem: simple
     build-commands:
