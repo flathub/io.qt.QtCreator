@@ -573,13 +573,13 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt-creator/qt-creator.git
-        tag: v4.15.2
+        tag: v5.0.0
         x-checker-data:
           type: anitya
           project-id: 4136
           tag-template: v$version
           stable-only: true
-        commit: 94d227cd434d09717de95529e5210ec530451e1c
+        commit: 72536eb1555db00723dfbd72c80c940ccabfb2b3
       - type: patch
         path: 0001.patch
       - type: patch
@@ -604,6 +604,7 @@ modules:
           project-id: 14862
           tag-template: v$version
           stable-only: true
+        commit: fca73257a803dd8d0524e2e0d6927733c500be78
     cleanup:
       - /share/doc/clazy/
       - /bin/clazy
