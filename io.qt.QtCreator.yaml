@@ -569,6 +569,7 @@ modules:
     config-opts:
       - -DCMAKE_PREFIX_PATH=/app
       - -DCMAKE_BUILD_TYPE=Release
+      - -DSHOW_BUILD_DATE=ON
       - -Wno-dev
     sources:
       - type: git
