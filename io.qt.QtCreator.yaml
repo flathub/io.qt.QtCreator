@@ -58,6 +58,21 @@ modules:
           tag-template: v$version
           stable-only: true
         commit: cc60cf83db6bbf9775b1f7747a48d6b7eb24e585
+  - name: qt-shadertools
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtshadertools.git
+        tag: v6.2.0
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
+        commit: d293da49d39d7bbc4faf370764b91bcad89cb4a9
   - name: qt-declarative
     buildsystem: cmake-ninja
     builddir: true
@@ -413,21 +428,6 @@ modules:
           tag-template: v$version
           stable-only: true
         commit: a006ebf9bd181629c7181a5d2b9e1467edda0d97
-  - name: qt-shadertools
-    buildsystem: cmake-ninja
-    builddir: true
-    config-opts:
-      - -DQT_BUILD_TESTS=OFF
-    sources:
-      - type: git
-        url: git://code.qt.io/qt/qtshadertools.git
-        tag: v6.2.0
-        x-checker-data:
-          type: anitya
-          project-id: 7927
-          tag-template: v$version
-          stable-only: true
-        commit: d293da49d39d7bbc4faf370764b91bcad89cb4a9
   - name: qt-quick3d
     buildsystem: cmake-ninja
     builddir: true
