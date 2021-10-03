@@ -448,26 +448,6 @@ modules:
           tag-template: v$version
           stable-only: true
         commit: fcfe19522d0c9259dae47e03f0753551f2be887b
-  - name: qt-quickcontrols2
-    buildsystem: cmake-ninja
-    builddir: true
-    build-commands:
-      - ninja docs
-      - ninja install_docs
-      - cp -rn ../examples/quickcontrols2/ /app/doc/qtquickcontrols/
-    config-opts:
-      - -DQT_BUILD_EXAMPLES=ON
-      - -DQT_BUILD_TESTS=OFF
-    sources:
-      - type: git
-        url: git://code.qt.io/qt/qtquickcontrols2.git
-        tag: v6.1.3
-        x-checker-data:
-          type: anitya
-          project-id: 7927
-          tag-template: v$version
-          stable-only: true
-        commit: ba3447ac67d67d29f602738f5bac01ecd3cd8726
   - name: qt-quicktimeline
     buildsystem: cmake-ninja
     builddir: true
