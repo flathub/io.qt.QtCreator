@@ -564,7 +564,7 @@ modules:
   - name: openjdk
     buildsystem: simple
     build-commands:
-      - cd /usr/lib/sdk/openjdk/jvm/openjdk-16 && cp -ra bin conf include jmods lib
+      - cd /usr/lib/sdk/openjdk/jvm/openjdk-17 && cp -ra bin conf include jmods lib
         release /app
   - name: clazy
     buildsystem: cmake-ninja
