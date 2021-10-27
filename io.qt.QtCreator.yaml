@@ -51,13 +51,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtbase.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: cc60cf83db6bbf9775b1f7747a48d6b7eb24e585
+        commit: 9fa805f7f8dfe96d561e9ed3170770ad768baf93
   - name: qt-shadertools
     buildsystem: cmake-ninja
     builddir: true
@@ -66,13 +66,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtshadertools.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: d293da49d39d7bbc4faf370764b91bcad89cb4a9
+        commit: 36eb23c07dc6386e34a19591442f8e7e2c6395a9
   - name: qt-declarative
     buildsystem: cmake-ninja
     builddir: true
@@ -82,13 +82,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtdeclarative.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: 03e111a81863fbd4ba2ea8f9f9764905d3801f26
+        commit: 973399d8e67c264a55ff0f394865a1b721bd8b5a
   - name: qt-tools
     buildsystem: cmake-ninja
     builddir: true
@@ -99,13 +99,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qttools.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: 0839ca39affda194a86e4d957292a96242e9ffde
+        commit: 6334fa86cd03d6aed4adc07093ef147e34816a02
   - name: qt-base-docs
     buildsystem: simple
     builddir: true
@@ -133,13 +133,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtbase.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: cc60cf83db6bbf9775b1f7747a48d6b7eb24e585
+        commit: 9fa805f7f8dfe96d561e9ed3170770ad768baf93
   - name: qt-declarative-docs
     buildsystem: simple
     builddir: true
@@ -155,13 +155,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtdeclarative.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: 03e111a81863fbd4ba2ea8f9f9764905d3801f26
+        commit: 973399d8e67c264a55ff0f394865a1b721bd8b5a
   - name: qt-tools-docs
     buildsystem: simple
     builddir: true
@@ -179,13 +179,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qttools.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: 0839ca39affda194a86e4d957292a96242e9ffde
+        commit: 6334fa86cd03d6aed4adc07093ef147e34816a02
   - name: qt-doc
     buildsystem: cmake-ninja
     builddir: true
@@ -200,13 +200,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtdoc.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: fc9424a16913c06c4d09e18e8bfcd2cc602e026b
+        commit: 9fbdedfac7acd8bbbb9e30cef4726e5d5e26a364
   - name: qt-translations
     buildsystem: cmake-ninja
     builddir: true
@@ -215,13 +215,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qttranslations.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: a71ea5a51a67dd02d6657038df3c8546392cc9dd
+        commit: b4349ae7d93d851fa1331fdf3a8d4f4bedc9681a
   - name: qt-qt5compat
     buildsystem: cmake-ninja
     builddir: true
@@ -235,13 +235,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qt5compat.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: efecd298f72c3ef671049522c5dc6268396aa625
+        commit: f90d0d0350ebb492563cef16d4cb14879b985171
   - name: qt-activeqt
     buildsystem: cmake-ninja
     builddir: true
@@ -255,13 +255,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtactiveqt.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: 168bee945886c233a24d6f8ac006a7698da11124
+        commit: 2a87733c19fc7d0ff80c1e1449ea784ea9329897
   - name: qt-qtcharts
     buildsystem: cmake-ninja
     builddir: true
@@ -275,13 +275,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtcharts.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: 8df42c1a431e1da1bdb598d39b2cbe6e31e5cc0a
+        commit: cf0eb1cc256ace3c7346f3c7d7d5f57a425ec445
   - name: qt-coap
     buildsystem: cmake-ninja
     builddir: true
@@ -295,13 +295,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtcoap.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: cfca0f531466b59ab819bfc912d1ce98fb6aa859
+        commit: 53283cbbefe4606341a9c6a5eafca5eeea036d1b
   - name: qt-imageformats
     buildsystem: cmake-ninja
     builddir: true
@@ -310,13 +310,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtimageformats.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: 0d5adb0e9cea82aa1ecf3a8b61502320bb951fb5
+        commit: 4b18822799fefe41e3fafedafe016d9cd1455099
   - name: qt-lottie
     buildsystem: cmake-ninja
     builddir: true
@@ -325,13 +325,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtlottie.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: a60e5daef06a89f355f58d15b87ea5a0e175a21f
+        commit: 4a3553eebbe493358d73f07c5436f12fb288068c
   - name: qt-mqtt
     buildsystem: cmake-ninja
     builddir: true
@@ -345,13 +345,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtmqtt.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: 876038bdd39b8903c6534a86b0c7b28470d03a84
+        commit: de7b409a37a6dcad2343ad43d3b831daaf01713d
   - name: qt-networkauth
     buildsystem: cmake-ninja
     builddir: true
@@ -365,13 +365,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtnetworkauth.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: 2a792e64d925c3cfcc28dc783392d705f6a4ff32
+        commit: b5220abc301de2ca8696d85a3febd01ee9e991bf
   - name: qt-opcua
     buildsystem: cmake-ninja
     builddir: true
@@ -385,13 +385,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtopcua.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: 987c336341aa0286906c99d0628f001a65ed9075
+        commit: b044f0ab4d143a271c568140839c36c0fb64a66a
   - name: qt-3d
     buildsystem: cmake-ninja
     builddir: true
@@ -401,13 +401,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qt3d.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: e35a5676f73ab45251142d61e030f226216ce9a2
+        commit: 1d18f16e8adf623695017e694509e9da6a99be8d
   - name: qt-datavis3d
     buildsystem: cmake-ninja
     builddir: true
@@ -421,13 +421,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtdatavis3d.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: a006ebf9bd181629c7181a5d2b9e1467edda0d97
+        commit: 8086edde264382b7f64347e6df550c6a48aefc2b
   - name: qt-quick3d
     buildsystem: cmake-ninja
     builddir: true
@@ -441,13 +441,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtquick3d.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: fcfe19522d0c9259dae47e03f0753551f2be887b
+        commit: 386c5a92104a0bf7e7adb2405d99a907a19e4583
   - name: qt-quicktimeline
     buildsystem: cmake-ninja
     builddir: true
@@ -456,13 +456,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtquicktimeline.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: cb053967ea138941f04348c40c522cd185241ac8
+        commit: f7a573ea3d209ce3a4c9ba4447d6d4867235965f
   - name: qt-scxml
     buildsystem: cmake-ninja
     build-commands:
@@ -477,13 +477,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtscxml.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: 470d82fa5ba6d1161287d0000867a3850ae88238
+        commit: 1d82963dbe060e3241c033f9eeac01bff950f895
   - name: qt-svg
     buildsystem: cmake-ninja
     builddir: true
@@ -497,13 +497,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtsvg.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: 09b5285eb04895cbaa788d59904fa5d18f4353d6
+        commit: bb5a847d9b2f388aa348bdd3158b125a77091ccf
   - name: qt-wayland
     buildsystem: cmake-ninja
     builddir: true
@@ -517,13 +517,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtwayland.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: a990b2aabe9d1b6f7c1aa12a0d39f97b439d422c
+        commit: df542ad35a700d897a6caa0a4900386b9cd16349
   - name: qt-virtualkeyboard
     buildsystem: cmake-ninja
     builddir: true
@@ -537,13 +537,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtvirtualkeyboard.git
-        tag: v6.2.0
+        tag: v6.2.1
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: 9e09d6e47be2b573c534d0d691da2baec9243736
+        commit: 77a380a7d8c9bc0b770b3b411cfd74548d13937a
   - name: qt-creator
     buildsystem: cmake-ninja
     config-opts:
