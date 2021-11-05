@@ -554,13 +554,13 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt-creator/qt-creator.git
-        tag: v5.0.2
+        tag: v5.0.3
         x-checker-data:
           type: anitya
           project-id: 4136
           tag-template: v$version
           stable-only: true
-        commit: 67c0104b8e56a3d3089a309e1e09c6380639249b
+        commit: ad8a04f410e7293bba80c9c02640739f92588deb
   - name: openjdk
     buildsystem: simple
     build-commands:
