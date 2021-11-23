@@ -560,7 +560,6 @@ modules:
           project-id: 4136
           tag-template: v$version
           stable-only: true
-        commit: ad8a04f410e7293bba80c9c02640739f92588deb
   - name: openjdk
     buildsystem: simple
     build-commands:
