@@ -554,7 +554,7 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt-creator/qt-creator.git
-        tag: v5.0.3
+        tag: v6.0.0-rc1
         x-checker-data:
           type: anitya
           project-id: 4136
