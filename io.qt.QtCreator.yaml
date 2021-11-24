@@ -720,6 +720,27 @@ modules:
           tag-template: v$version
           stable-only: true
   # TODO: Check examples
+  - name: qt-websockets
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/websockets /app/doc/qtwebsockets/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtwebsockets.git
+        tag: v6.2.1
+        commit: 85ccfaa6e62dec5eeb3f884eda2159ea68461ee1
+        x-checker-data:
+          type: anitya
+          project-id: 239866
+          tag-template: v$version
+          stable-only: true
+  # TODO: Check examples
   - name: qt-webchannel
     buildsystem: cmake-ninja
     builddir: true
@@ -762,27 +783,6 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 239861
-          tag-template: v$version
-          stable-only: true
-  # TODO: Check examples
-  - name: qt-websockets
-    buildsystem: cmake-ninja
-    builddir: true
-    build-commands:
-      - ninja docs
-      - ninja install_docs
-      - cp -rn ../examples/websockets /app/doc/qtwebsockets/
-    config-opts:
-      - -DQT_BUILD_EXAMPLES=ON
-      - -DQT_BUILD_TESTS=OFF
-    sources:
-      - type: git
-        url: git://code.qt.io/qt/qtwebsockets.git
-        tag: v6.2.1
-        commit: 85ccfaa6e62dec5eeb3f884eda2159ea68461ee1
-        x-checker-data:
-          type: anitya
-          project-id: 239866
           tag-template: v$version
           stable-only: true
   # TODO: Check examples
