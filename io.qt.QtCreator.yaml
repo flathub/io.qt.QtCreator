@@ -4,6 +4,7 @@ runtime-version: '5.15'
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk
+  - org.freedesktop.Sdk.Extension.node16
 command: qtcreator
 rename-desktop-file: org.qt-project.qtcreator.desktop
 rename-appdata-file: org.qt-project.qtcreator.appdata.xml
@@ -21,6 +22,24 @@ build-options:
   append-ld-library-path: /app/lib
   no-debuginfo: true
 modules:
+  - name: bluez
+    buildsystem: autotools
+    config-opts:
+      - --disable-tools
+      - --disable-cups
+      - --disable-monitor
+      - --disable-client
+      - --disable-systemd
+      - --enable-health
+    sources:
+      - type: git
+        url: git://github.com/bluez/bluez.git
+        commit: 8ac79215ffdc3df8ecd294425fbdfd94df57c27b
+        x-checker-data:
+          type: anitya
+          project-id: 10029
+          tag-template: $version
+          stable-only: true
   - name: clang
     buildsystem: cmake-ninja
     subdir: llvm
@@ -43,6 +62,31 @@ modules:
       - type: git
         url: https://code.qt.io/clang/llvm-project.git
         branch: release_110-based
+  - name: clazy
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DLINK_CLAZY_TO_LLVM=OFF
+      - -DCLAZY_MAN_PAGE=OFF
+    sources:
+      - type: git
+        url: https://invent.kde.org/sdk/clazy.git
+        tag: v1.10
+        x-checker-data:
+          type: anitya
+          project-id: 14862
+          tag-template: v$version
+          stable-only: true
+        commit: fca73257a803dd8d0524e2e0d6927733c500be78
+    cleanup:
+      - /share/doc/clazy/
+      - /bin/clazy
+  - name: openjdk
+    buildsystem: simple
+    build-commands:
+      - cd /usr/lib/sdk/openjdk/jvm/openjdk-17 && cp -ra bin conf include jmods lib
+        release /app
+  # TODO: Add Nodejs (Check where install-sdk.sh is installed and execute it using the simple buildsystem)
   - name: qt-base
     buildsystem: cmake-ninja
     builddir: true
@@ -545,31 +589,6 @@ modules:
           tag-template: v$version
           stable-only: true
         commit: 77a380a7d8c9bc0b770b3b411cfd74548d13937a
-  # TODO: Move clazy and openjdk up
-  - name: openjdk
-    buildsystem: simple
-    build-commands:
-      - cd /usr/lib/sdk/openjdk/jvm/openjdk-17 && cp -ra bin conf include jmods lib
-        release /app
-  - name: clazy
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DLINK_CLAZY_TO_LLVM=OFF
-      - -DCLAZY_MAN_PAGE=OFF
-    sources:
-      - type: git
-        url: https://invent.kde.org/sdk/clazy.git
-        tag: v1.10
-        x-checker-data:
-          type: anitya
-          project-id: 14862
-          tag-template: v$version
-          stable-only: true
-        commit: fca73257a803dd8d0524e2e0d6927733c500be78
-    cleanup:
-      - /share/doc/clazy/
-      - /bin/clazy
   - name: qt-connectivity
     buildsystem: cmake-ninja
     builddir: true
@@ -591,7 +610,6 @@ modules:
           project-id: 153467
           tag-template: v$version
           stable-only: true
-  # TODO: Check examples
   - name: qt-serialport
     buildsystem: cmake-ninja
     builddir: true
@@ -612,7 +630,6 @@ modules:
           project-id: 239849
           tag-template: v$version
           stable-only: true
-  # TODO: Check examples
   - name: qt-location
     buildsystem: cmake-ninja
     builddir: true
@@ -634,7 +651,6 @@ modules:
           project-id: 239786
           tag-template: v$version
           stable-only: true
-  # TODO: Check examples
   - name: qt-multimedia
     buildsystem: cmake-ninja
     builddir: true
@@ -656,7 +672,6 @@ modules:
           project-id: 239815
           tag-template: v$version
           stable-only: true
-  # TODO: Check examples
   - name: qt-remoteobjects
     buildsystem: cmake-ninja
     builddir: true
@@ -677,7 +692,6 @@ modules:
           project-id: 239820
           tag-template: v$version
           stable-only: true
-  # TODO: Check examples
   - name: qt-sensors
     buildsystem: cmake-ninja
     builddir: true
@@ -698,7 +712,6 @@ modules:
           project-id: 239824
           tag-template: v$version
           stable-only: true
-  # TODO: Check examples
   - name: qt-serialbus
     buildsystem: cmake-ninja
     builddir: true
@@ -719,7 +732,6 @@ modules:
           project-id: 239831
           tag-template: v$version
           stable-only: true
-  # TODO: Check examples
   - name: qt-websockets
     buildsystem: cmake-ninja
     builddir: true
@@ -740,7 +752,6 @@ modules:
           project-id: 239866
           tag-template: v$version
           stable-only: true
-  # TODO: Check examples
   - name: qt-webchannel
     buildsystem: cmake-ninja
     builddir: true
@@ -761,7 +772,6 @@ modules:
           project-id: 239856
           tag-template: v$version
           stable-only: true
-  # TODO: Check examples
   - name: qt-webengine
     buildsystem: cmake-ninja
     builddir: true
@@ -785,7 +795,6 @@ modules:
           project-id: 239861
           tag-template: v$version
           stable-only: true
-  # TODO: Check examples
   - name: qt-webview
     buildsystem: cmake-ninja
     builddir: true
