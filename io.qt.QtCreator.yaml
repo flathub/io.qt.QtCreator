@@ -677,6 +677,135 @@ modules:
           project-id: 239824
           tag-template: v$version
           stable-only: true
+  # TODO: Check examples
+  - name: qt-serialbus
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/serialbus /app/doc/qtserialbus/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtserialbus.git
+        tag: v6.2.1
+        commit: 5d5e568135c10dae08e98c42b0248b3922580d90
+        x-checker-data:
+          type: anitya
+          project-id: 239831
+          tag-template: v$version
+          stable-only: true
+  # TODO: Check examples
+  - name: qt-serialport
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/serialport /app/doc/qtserialport/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtserialport.git
+        tag: v6.2.1
+        commit: 0f26901f0154b2cc105686f582be005bf3c485b9
+        x-checker-data:
+          type: anitya
+          project-id: 239849
+          tag-template: v$version
+          stable-only: true
+  # TODO: Check examples
+  - name: qt-webchannel
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/webchannel /app/doc/qtwebchannel/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtwebchannel.git
+        tag: v6.2.1
+        commit: 9fa04638fa482cba8e6bb382445c4cd7247a6aa4
+        x-checker-data:
+          type: anitya
+          project-id: 239856
+          tag-template: v$version
+          stable-only: true
+  # TODO: Check examples
+  - name: qt-webengine
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/pdf /app/doc/qtpdf/
+      - cp -rn ../examples/pdfwidgets /app/doc/qtpdf/
+      - cp -rn ../examples/webenginequick /app/doc/qtwebengine/
+      - cp -rn ../examples/webenginewidgets /app/doc/qtwebengine/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtwebengine.git
+        tag: v6.2.1
+        commit: 78e785de96b8af35eec089f2e9ce8f3e6ecb504a
+        x-checker-data:
+          type: anitya
+          project-id: 239861
+          tag-template: v$version
+          stable-only: true
+  # TODO: Check examples
+  - name: qt-websockets
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/websockets /app/doc/qtwebsockets/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtwebsockets.git
+        tag: v6.2.1
+        commit: 85ccfaa6e62dec5eeb3f884eda2159ea68461ee1
+        x-checker-data:
+          type: anitya
+          project-id: 239866
+          tag-template: v$version
+          stable-only: true
+  # TODO: Check examples
+  - name: qt-webview
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/webview /app/doc/qtwebview/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtwebview.git
+        tag: v6.2.1
+        commit: 7ba3cd20f6b088a66778eda9a8a06b2bacfcf103
+        x-checker-data:
+          type: anitya
+          project-id: 239868
+          tag-template: v$version
+          stable-only: true
   - name: qt-creator
     buildsystem: cmake-ninja
     config-opts:
