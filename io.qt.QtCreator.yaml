@@ -566,6 +566,27 @@ modules:
           project-id: 153467
           tag-template: v$version
           stable-only: true
+  - name: qt-location
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/location /app/doc/qtlocation/
+      - cp -rn ../examples/positioning /app/doc/qtpositioning/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtlocation.git
+        tag: v6.2.1
+        commit: 2cf54e0095a0a5918900b5f251426f77fb582d8e
+        x-checker-data:
+          type: anitya
+          project-id: 239786
+          tag-template: v$version
+          stable-only: true
   - name: qt-creator
     buildsystem: cmake-ninja
     config-opts:
