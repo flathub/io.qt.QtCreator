@@ -592,6 +592,27 @@ modules:
           tag-template: v$version
           stable-only: true
   # TODO: Check examples
+  - name: qt-serialport
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/serialport /app/doc/qtserialport/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtserialport.git
+        tag: v6.2.1
+        commit: 0f26901f0154b2cc105686f582be005bf3c485b9
+        x-checker-data:
+          type: anitya
+          project-id: 239849
+          tag-template: v$version
+          stable-only: true
+  # TODO: Check examples
   - name: qt-location
     buildsystem: cmake-ninja
     builddir: true
@@ -696,27 +717,6 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 239831
-          tag-template: v$version
-          stable-only: true
-  # TODO: Check examples
-  - name: qt-serialport
-    buildsystem: cmake-ninja
-    builddir: true
-    build-commands:
-      - ninja docs
-      - ninja install_docs
-      - cp -rn ../examples/serialport /app/doc/qtserialport/
-    config-opts:
-      - -DQT_BUILD_EXAMPLES=ON
-      - -DQT_BUILD_TESTS=OFF
-    sources:
-      - type: git
-        url: git://code.qt.io/qt/qtserialport.git
-        tag: v6.2.1
-        commit: 0f26901f0154b2cc105686f582be005bf3c485b9
-        x-checker-data:
-          type: anitya
-          project-id: 239849
           tag-template: v$version
           stable-only: true
   # TODO: Check examples
