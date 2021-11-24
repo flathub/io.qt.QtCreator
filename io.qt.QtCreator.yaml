@@ -4,7 +4,7 @@ runtime-version: '5.15'
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk
-  - org.freedesktop.Sdk.Extension.node16
+  - org.freedesktop.Sdk.Extension.node14
 command: qtcreator
 rename-desktop-file: org.qt-project.qtcreator.desktop
 rename-appdata-file: org.qt-project.qtcreator.appdata.xml
@@ -30,6 +30,9 @@ modules:
       - --disable-monitor
       - --disable-client
       - --disable-systemd
+      - --disable-udev
+      - --disable-manpages
+      - --disable-datafiles
       - --enable-health
     sources:
       - type: git
