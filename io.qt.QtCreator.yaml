@@ -545,6 +545,27 @@ modules:
           tag-template: v$version
           stable-only: true
         commit: 77a380a7d8c9bc0b770b3b411cfd74548d13937a
+  - name: qt-connectivity
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/bluetooth /app/doc/qtbluetooth/
+      - cp -rn ../examples/nfc /app/doc/qtnfc/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtconnectivity.git
+        tag: v6.2.1
+        commit: 0abbbb3c77063c011b92cdcafc4f1789dd298eaf
+        x-checker-data:
+          type: anitya
+          project-id: 153467
+          tag-template: v$version
+          stable-only: true
   - name: qt-creator
     buildsystem: cmake-ninja
     config-opts:
