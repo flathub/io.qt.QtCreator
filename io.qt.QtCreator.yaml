@@ -16,15 +16,12 @@ finish-args:
   - --socket=fallback-x11
   - --filesystem=host
   - --device=dri
-  # TODO: Check that /app/jre and /app/jdk exist
-  # TODO: Add node dir to path (https://github.com/flathub/org.freedesktop.Sdk.Extension.node14/blob/1b2251e0c40b3650de54a787296e42025df7df11/org.freedesktop.Sdk.Extension.node14.yaml#L78)
-  - --env=PATH=/app/bin:/app/jre/bin:/app/jdk/bin:/usr/bin
+  - --env=PATH=/app/bin:/usr/bin
   - --allow=devel
 build-options:
   append-ld-library-path: /app/lib
   no-debuginfo: true
 modules:
-  # TODO: Cannot be found be connectivity module
   - name: bluez
     buildsystem: autotools
     config-opts:
@@ -47,7 +44,6 @@ modules:
           project-id: 10029
           tag-template: $version
           stable-only: true
-  # TODO: Use version 12 or 13 if possible
   - name: clang
     buildsystem: cmake-ninja
     subdir: llvm
@@ -94,9 +90,10 @@ modules:
     build-commands:
       - cd /usr/lib/sdk/openjdk/jvm/openjdk-17 && cp -ra bin conf include jmods lib
         release /app
-  # TODO: Add Nodejs (Check where install-sdk.sh is installed and execute it using the simple buildsystem)
-  # TODO: Check module dependencies (see build.log)
-  # TODO: Check examples
+  - name: nodejs
+    buildsystem: simple
+    build-commands:
+      - cd /usr/lib/sdk/node14 && cp -ra bin include lib share /app
   - name: qt-base
     buildsystem: cmake-ninja
     builddir: true
@@ -524,7 +521,6 @@ modules:
           tag-template: v$version
           stable-only: true
         commit: 8086edde264382b7f64347e6df550c6a48aefc2b
-  # TODO: No examples?
   - name: qt-quicktimeline
     buildsystem: cmake-ninja
     builddir: true
