@@ -20,6 +20,32 @@ build-options:
   append-ld-library-path: /app/lib
   no-debuginfo: true
 modules:
+  - name: googletest
+    buildsystem: cmake-ninja
+    builddir: true
+    sources:
+      - type: git
+        url: git://github.com/google/googletest.git
+        commit: e2239ee6043f73722e7aa812a459f54a28552929
+        x-checker-data:
+          type: anitya
+          project-id: 18290
+          tag-template: release-$version
+          stable-only: true
+  - name: googlebenchmark
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+    sources:
+      - type: git
+        url: git://github.com/google/benchmark.git
+        commit: f91b6b42b1b9854772a90ae9501464a161707d1e
+        x-checker-data:
+          type: anitya
+          project-id: 229361
+          tag-template: v$version
+          stable-only: true
   - name: clang
     buildsystem: cmake-ninja
     subdir: llvm
