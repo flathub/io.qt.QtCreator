@@ -37,6 +37,7 @@ modules:
       - --disable-manpages
       - --disable-datafiles
       - --enable-health
+      - --enable-library
     sources:
       - type: git
         url: git://github.com/bluez/bluez.git
