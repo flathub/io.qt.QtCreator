@@ -37,6 +37,7 @@ modules:
     builddir: true
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
+      - -DBENCHMARK_ENABLE_TESTING=OFF
     sources:
       - type: git
         url: git://github.com/google/benchmark.git
