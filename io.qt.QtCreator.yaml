@@ -44,6 +44,7 @@ modules:
           project-id: 10029
           tag-template: $version
           stable-only: true
+        tag: '5.62'
   - name: clang
     buildsystem: cmake-ninja
     subdir: llvm
