@@ -4,6 +4,7 @@ runtime-version: '5.15'
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk
+  - org.freedesktop.Sdk.Extension.node14
 command: qtcreator
 rename-desktop-file: org.qt-project.qtcreator.desktop
 rename-appdata-file: org.qt-project.qtcreator.appdata.xml
@@ -15,11 +16,34 @@ finish-args:
   - --socket=fallback-x11
   - --filesystem=host
   - --device=dri
-  - --env=PATH=/app/bin:/app/jre/bin:/app/jdk/bin:/usr/bin
+  - --env=PATH=/app/bin:/usr/bin
+  - --allow=devel
 build-options:
   append-ld-library-path: /app/lib
   no-debuginfo: true
 modules:
+  - name: bluez
+    buildsystem: autotools
+    config-opts:
+      - --disable-tools
+      - --disable-cups
+      - --disable-monitor
+      - --disable-client
+      - --disable-systemd
+      - --disable-udev
+      - --disable-manpages
+      - --disable-datafiles
+      - --enable-health
+      - --enable-library
+    sources:
+      - type: git
+        url: git://github.com/bluez/bluez.git
+        commit: 8ac79215ffdc3df8ecd294425fbdfd94df57c27b
+        x-checker-data:
+          type: anitya
+          project-id: 10029
+          tag-template: $version
+          stable-only: true
   - name: clang
     buildsystem: cmake-ninja
     subdir: llvm
@@ -42,6 +66,34 @@ modules:
       - type: git
         url: https://code.qt.io/clang/llvm-project.git
         branch: release_110-based
+  - name: clazy
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DLINK_CLAZY_TO_LLVM=OFF
+      - -DCLAZY_MAN_PAGE=OFF
+    sources:
+      - type: git
+        url: https://invent.kde.org/sdk/clazy.git
+        tag: v1.10
+        x-checker-data:
+          type: anitya
+          project-id: 14862
+          tag-template: v$version
+          stable-only: true
+        commit: fca73257a803dd8d0524e2e0d6927733c500be78
+    cleanup:
+      - /share/doc/clazy/
+      - /bin/clazy
+  - name: openjdk
+    buildsystem: simple
+    build-commands:
+      - cd /usr/lib/sdk/openjdk/jvm/openjdk-17 && cp -ra bin conf include jmods lib
+        release /app
+  - name: nodejs
+    buildsystem: simple
+    build-commands:
+      - cd /usr/lib/sdk/node14 && cp -ra bin include lib share /app
   - name: qt-base
     buildsystem: cmake-ninja
     builddir: true
@@ -332,6 +384,26 @@ modules:
           tag-template: v$version
           stable-only: true
         commit: 4a3553eebbe493358d73f07c5436f12fb288068c
+  - name: qt-websockets
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/websockets /app/doc/qtwebsockets/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtwebsockets.git
+        tag: v6.2.1
+        commit: 85ccfaa6e62dec5eeb3f884eda2159ea68461ee1
+        x-checker-data:
+          type: anitya
+          project-id: 239866
+          tag-template: v$version
+          stable-only: true
   - name: qt-mqtt
     buildsystem: cmake-ninja
     builddir: true
@@ -392,6 +464,27 @@ modules:
           tag-template: v$version
           stable-only: true
         commit: b044f0ab4d143a271c568140839c36c0fb64a66a
+  - name: qt-multimedia
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/multimedia /app/doc/qtmultimedia/
+      - cp -rn ../examples/multimediawidgets /app/doc/qtmultimedia/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtmultimedia.git
+        tag: v6.2.1
+        commit: fd52722b63db9442f89f3803cc7e59cd8adf3b47
+        x-checker-data:
+          type: anitya
+          project-id: 239815
+          tag-template: v$version
+          stable-only: true
   - name: qt-3d
     buildsystem: cmake-ninja
     builddir: true
@@ -428,6 +521,21 @@ modules:
           tag-template: v$version
           stable-only: true
         commit: 8086edde264382b7f64347e6df550c6a48aefc2b
+  - name: qt-quicktimeline
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtquicktimeline.git
+        tag: v6.2.1
+        x-checker-data:
+          type: anitya
+          project-id: 7927
+          tag-template: v$version
+          stable-only: true
+        commit: f7a573ea3d209ce3a4c9ba4447d6d4867235965f
   - name: qt-quick3d
     buildsystem: cmake-ninja
     builddir: true
@@ -448,21 +556,6 @@ modules:
           tag-template: v$version
           stable-only: true
         commit: 386c5a92104a0bf7e7adb2405d99a907a19e4583
-  - name: qt-quicktimeline
-    buildsystem: cmake-ninja
-    builddir: true
-    config-opts:
-      - -DQT_BUILD_TESTS=OFF
-    sources:
-      - type: git
-        url: git://code.qt.io/qt/qtquicktimeline.git
-        tag: v6.2.1
-        x-checker-data:
-          type: anitya
-          project-id: 7927
-          tag-template: v$version
-          stable-only: true
-        commit: f7a573ea3d209ce3a4c9ba4447d6d4867235965f
   - name: qt-scxml
     buildsystem: cmake-ninja
     build-commands:
@@ -544,6 +637,191 @@ modules:
           tag-template: v$version
           stable-only: true
         commit: 77a380a7d8c9bc0b770b3b411cfd74548d13937a
+  - name: qt-connectivity
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/bluetooth /app/doc/qtbluetooth/
+      - cp -rn ../examples/nfc /app/doc/qtnfc/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtconnectivity.git
+        tag: v6.2.1
+        commit: 0abbbb3c77063c011b92cdcafc4f1789dd298eaf
+        x-checker-data:
+          type: anitya
+          project-id: 153467
+          tag-template: v$version
+          stable-only: true
+  - name: qt-serialport
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/serialport /app/doc/qtserialport/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtserialport.git
+        tag: v6.2.1
+        commit: 0f26901f0154b2cc105686f582be005bf3c485b9
+        x-checker-data:
+          type: anitya
+          project-id: 239849
+          tag-template: v$version
+          stable-only: true
+  - name: qt-location
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/location /app/doc/qtlocation/
+      - cp -rn ../examples/positioning /app/doc/qtpositioning/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtlocation.git
+        tag: v6.2.1
+        commit: 2cf54e0095a0a5918900b5f251426f77fb582d8e
+        x-checker-data:
+          type: anitya
+          project-id: 239786
+          tag-template: v$version
+          stable-only: true
+  - name: qt-remoteobjects
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/remoteobjects /app/doc/qtremoteobjects/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtremoteobjects.git
+        tag: v6.2.1
+        commit: 300501c76494029831c7eb534a08e0ab17110ef9
+        x-checker-data:
+          type: anitya
+          project-id: 239820
+          tag-template: v$version
+          stable-only: true
+  - name: qt-sensors
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/sensors /app/doc/qtsensors/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtsensors.git
+        tag: v6.2.1
+        commit: e8b2c06015fd731a8ee8d81436b083a0e65f985a
+        x-checker-data:
+          type: anitya
+          project-id: 239824
+          tag-template: v$version
+          stable-only: true
+  - name: qt-serialbus
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/serialbus /app/doc/qtserialbus/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtserialbus.git
+        tag: v6.2.1
+        commit: 5d5e568135c10dae08e98c42b0248b3922580d90
+        x-checker-data:
+          type: anitya
+          project-id: 239831
+          tag-template: v$version
+          stable-only: true
+  - name: qt-webchannel
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/webchannel /app/doc/qtwebchannel/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtwebchannel.git
+        tag: v6.2.1
+        commit: 9fa04638fa482cba8e6bb382445c4cd7247a6aa4
+        x-checker-data:
+          type: anitya
+          project-id: 239856
+          tag-template: v$version
+          stable-only: true
+  - name: qt-webengine
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/pdf /app/doc/qtpdf/
+      - cp -rn ../examples/pdfwidgets /app/doc/qtpdf/
+      - cp -rn ../examples/webenginequick /app/doc/qtwebengine/
+      - cp -rn ../examples/webenginewidgets /app/doc/qtwebengine/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtwebengine.git
+        tag: v6.2.1
+        commit: 78e785de96b8af35eec089f2e9ce8f3e6ecb504a
+        x-checker-data:
+          type: anitya
+          project-id: 239861
+          tag-template: v$version
+          stable-only: true
+  - name: qt-webview
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/webview /app/doc/qtwebview/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtwebview.git
+        tag: v6.2.1
+        commit: 7ba3cd20f6b088a66778eda9a8a06b2bacfcf103
+        x-checker-data:
+          type: anitya
+          project-id: 239868
+          tag-template: v$version
+          stable-only: true
   - name: qt-creator
     buildsystem: cmake-ninja
     config-opts:
@@ -561,30 +839,7 @@ modules:
           project-id: 4136
           tag-template: v$version
           stable-only: true
-  - name: openjdk
-    buildsystem: simple
-    build-commands:
-      - cd /usr/lib/sdk/openjdk/jvm/openjdk-17 && cp -ra bin conf include jmods lib
-        release /app
-  - name: clazy
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DLINK_CLAZY_TO_LLVM=OFF
-      - -DCLAZY_MAN_PAGE=OFF
-    sources:
-      - type: git
-        url: https://invent.kde.org/sdk/clazy.git
-        tag: v1.10
-        x-checker-data:
-          type: anitya
-          project-id: 14862
-          tag-template: v$version
-          stable-only: true
-        commit: fca73257a803dd8d0524e2e0d6927733c500be78
-    cleanup:
-      - /share/doc/clazy/
-      - /bin/clazy
+        commit: 335f85c525bde542c2d6b73f0a402265fc560287
 cleanup:
   - /include/llvm
   - /include/clang
