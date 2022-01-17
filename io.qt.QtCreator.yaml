@@ -38,13 +38,13 @@ modules:
     sources:
       - type: git
         url: git://github.com/bluez/bluez.git
-        commit: 8ac79215ffdc3df8ecd294425fbdfd94df57c27b
+        commit: da07239606d62526287d55f35a778770b04196ea
         x-checker-data:
           type: anitya
           project-id: 10029
           tag-template: $version
           stable-only: true
-        tag: '5.62'
+        tag: '5.63'
   - name: clang
     buildsystem: cmake-ninja
     subdir: llvm
