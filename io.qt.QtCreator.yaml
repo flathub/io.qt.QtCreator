@@ -76,13 +76,13 @@ modules:
     sources:
       - type: git
         url: https://invent.kde.org/sdk/clazy.git
-        tag: v1.10
+        tag: v1.11
         x-checker-data:
           type: anitya
           project-id: 14862
           tag-template: v$version
           stable-only: true
-        commit: fca73257a803dd8d0524e2e0d6927733c500be78
+        commit: 821296032a16932cabe012649b4ce898de6e34eb
     cleanup:
       - /share/doc/clazy/
       - /bin/clazy
