@@ -693,8 +693,10 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtlocation.git
-        tag: v6.2.1
-        commit: 2cf54e0095a0a5918900b5f251426f77fb582d8e
+# No tag was created, so we'll use the branch for now
+        branch: 6.2.3
+#        tag: v6.2.1
+#        commit: 2cf54e0095a0a5918900b5f251426f77fb582d8e
         x-checker-data:
           type: anitya
           project-id: 239786
