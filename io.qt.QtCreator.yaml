@@ -679,6 +679,26 @@ modules:
           project-id: 239849
           tag-template: v$version
           stable-only: true
+  - name: qt-positioning
+    buildsystem: cmake-ninja
+    builddir: true
+    build-commands:
+      - ninja docs
+      - ninja install_docs
+      - cp -rn ../examples/positioning /app/doc/qtpositioning/
+    config-opts:
+      - -DQT_BUILD_EXAMPLES=ON
+      - -DQT_BUILD_TESTS=OFF
+    sources:
+      - type: git
+        url: git://code.qt.io/qt/qtpositioning.git
+        tag: v6.2.3
+        commit: 517517cd9f26ca74f4da5811e8a27734f9cbb993
+        x-checker-data:
+          type: anitya
+          project-id: 242491
+          tag-template: v$version
+          stable-only: true
   - name: qt-location
     buildsystem: cmake-ninja
     builddir: true
@@ -686,7 +706,6 @@ modules:
       - ninja docs
       - ninja install_docs
       - cp -rn ../examples/location /app/doc/qtlocation/
-      - cp -rn ../examples/positioning /app/doc/qtpositioning/
     config-opts:
       - -DQT_BUILD_EXAMPLES=ON
       - -DQT_BUILD_TESTS=OFF
