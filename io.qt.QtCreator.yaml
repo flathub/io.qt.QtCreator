@@ -693,7 +693,7 @@ modules:
       - type: git
         url: git://code.qt.io/qt/qtpositioning.git
         tag: v6.2.3
-        commit: 517517cd9f26ca74f4da5811e8a27734f9cbb993
+        commit: 9effdfe927505c24f305ee2a362337de91fc0397
         x-checker-data:
           type: anitya
           project-id: 242491
