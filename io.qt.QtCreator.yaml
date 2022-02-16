@@ -699,28 +699,29 @@ modules:
           project-id: 242491
           tag-template: v$version
           stable-only: true
-  - name: qt-location
-    buildsystem: cmake-ninja
-    builddir: true
-    build-commands:
-      - ninja docs
-      - ninja install_docs
-      - cp -rn ../examples/location /app/doc/qtlocation/
-    config-opts:
-      - -DQT_BUILD_EXAMPLES=ON
-      - -DQT_BUILD_TESTS=OFF
-    sources:
-      - type: git
-        url: git://code.qt.io/qt/qtlocation.git
-# No tag was created, so we'll use the branch for now
-        branch: 6.2.3
-#        tag: v6.2.1
-#        commit: 2cf54e0095a0a5918900b5f251426f77fb582d8e
-        x-checker-data:
-          type: anitya
-          project-id: 239786
-          tag-template: v$version
-          stable-only: true
+# FIXME: The Qt Location module build is broken: https://github.com/qt/qtlocation/blob/6db775f6d9d72cf8ee9d66333b8424e74be1e352/src/CMakeLists.txt#L2
+#  - name: qt-location
+#    buildsystem: cmake-ninja
+#    builddir: true
+#    build-commands:
+#      - ninja docs
+#      - ninja install_docs
+#      - cp -rn ../examples/location /app/doc/qtlocation/
+#    config-opts:
+#      - -DQT_BUILD_EXAMPLES=ON
+#      - -DQT_BUILD_TESTS=OFF
+#    sources:
+#      - type: git
+#        url: git://code.qt.io/qt/qtlocation.git
+## No tag was created, so we'll use the branch for now
+#        branch: 6.2.3
+##        tag: v6.2.1
+##        commit: 2cf54e0095a0a5918900b5f251426f77fb582d8e
+#        x-checker-data:
+#          type: anitya
+#          project-id: 239786
+#          tag-template: v$version
+#          stable-only: true
   - name: qt-remoteobjects
     buildsystem: cmake-ninja
     builddir: true
