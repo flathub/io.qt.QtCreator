@@ -20,7 +20,6 @@ finish-args:
   - --allow=devel
 build-options:
   append-ld-library-path: /app/lib
-  no-debuginfo: true
 modules:
   - name: bluez
     buildsystem: autotools
