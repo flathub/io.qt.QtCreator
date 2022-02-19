@@ -46,6 +46,9 @@ modules:
         tag: '5.63'
   - name: clang
     buildsystem: cmake-ninja
+    build-options:
+      cflags: -g1
+      cxxflags: -g1
     subdir: llvm
     builddir: true
     config-opts:
