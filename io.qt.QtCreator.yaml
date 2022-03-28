@@ -17,6 +17,11 @@ finish-args:
   - --device=dri
   - --env=PATH=/app/bin:/usr/bin
   - --allow=devel
+add-extensions:
+  io.qt.QtCreator.Extension:
+    directory: extensions
+    subdirectories: true
+    autodelete: true
 modules:
   - name: clang
     buildsystem: cmake-ninja
@@ -79,6 +84,10 @@ modules:
           tag-template: v$version
           stable-only: true
         commit: 638b93591be0b1ddad4b342c85071d8ac7a8f1fb
+  - name: create-extension-directory
+    buildsystem: simple
+    build-commands:
+      - install -d /app/extensions
 cleanup:
   - /include/llvm
   - /include/clang
