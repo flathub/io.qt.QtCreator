@@ -1,7 +1,7 @@
 app-id: io.qt.QtCreator
-runtime: org.kde.Sdk
-runtime-version: '5.15-21.08'
-sdk: org.kde.Sdk
+runtime: org.freedesktop.Sdk
+runtime-version: '21.08'
+sdk: org.freedesktop.Sdk//21.08
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.qt6
 command: qtcreator
@@ -15,7 +15,7 @@ finish-args:
   - --socket=fallback-x11
   - --filesystem=host
   - --device=dri
-  - --env=PATH=/app/bin:/usr/bin
+  - --env=PATH=/app/bin:/usr/lib/sdk/qt6/bin
   - --allow=devel
 add-extensions:
   io.qt.QtCreator.Extension:
@@ -149,12 +149,7 @@ cleanup:
   - /bin/clang-reorder-fields
   - /bin/clang-scan-deps
 cleanup-commands:
-  # TODO: Qt6 is no longer located there because of the extension
-  - /app/libexec/qtcreator/sdktool addQt --id qt6 --name Qt6 --qmake /app/bin/qmake
-    --type Qt4ProjectManager.QtVersion.Desktop
-  - /app/libexec/qtcreator/sdktool addQt --id qt5 --name Qt5 --qmake /usr/bin/qmake
+  - /app/libexec/qtcreator/sdktool addQt --id qt6 --name Qt6 --qmake /usr/lib/sdk/qt6/bin/qmake
     --type Qt4ProjectManager.QtVersion.Desktop
   - /app/libexec/qtcreator/sdktool addKit --id qt6 --name Qt6 --devicetype Desktop
     --device "Desktop Device" --qt qt6
-  - /app/libexec/qtcreator/sdktool addKit --id qt5 --name Qt5 --devicetype Desktop
-    --device "Desktop Device" --qt qt5
