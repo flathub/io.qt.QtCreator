@@ -15,7 +15,7 @@ finish-args:
   - --socket=fallback-x11
   - --filesystem=host
   - --device=dri
-  - --env=PATH=/app/bin:/usr/lib/sdk/qt6/bin
+  - --env=PATH=/app/bin:/usr/bin:/app/qt6/bin
   - --allow=devel
 add-extensions:
   io.qt.QtCreator.Extension:
@@ -67,10 +67,18 @@ modules:
     cleanup:
       - /share/doc/clazy/
       - /bin/clazy
+  - name: qt6
+    buildsystem: simple
+    build-commands:
+      - cp -r /usr/lib/sdk/qt6 /app
+      - cp qt.conf /app/qt6/bin
+    sources:
+      - type: file
+        path: ./qt.conf
   - name: qt-creator
     buildsystem: cmake-ninja
     config-opts:
-      - -DCMAKE_PREFIX_PATH=/usr/lib/sdk/qt6
+      - -DCMAKE_PREFIX_PATH=/app/qt6
       - -DCMAKE_BUILD_TYPE=Release
       - -DSHOW_BUILD_DATE=ON
       - -Wno-dev
@@ -149,7 +157,7 @@ cleanup:
   - /bin/clang-reorder-fields
   - /bin/clang-scan-deps
 cleanup-commands:
-  - /app/libexec/qtcreator/sdktool addQt --id qt6 --name Qt6 --qmake /usr/lib/sdk/qt6/bin/qmake
+  - /app/libexec/qtcreator/sdktool addQt --id qt6 --name Qt6 --qmake /app/qt6/bin/qmake
     --type Qt4ProjectManager.QtVersion.Desktop
   - /app/libexec/qtcreator/sdktool addKit --id qt6 --name Qt6 --devicetype Desktop
     --device "Desktop Device" --qt qt6
