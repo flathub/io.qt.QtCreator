@@ -4,7 +4,7 @@ runtime-version: '21.08'
 sdk: org.freedesktop.Sdk//21.08
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.qt6
-command: qtcreator
+command: startup.py
 rename-desktop-file: org.qt-project.qtcreator.desktop
 rename-appdata-file: org.qt-project.qtcreator.appdata.xml
 rename-icon: QtProject-qtcreator
@@ -96,6 +96,10 @@ modules:
     buildsystem: simple
     build-commands:
       - install -d /app/extensions
+      - cp startup.py /app/bin/
+    sources:
+      - type: file
+        path: ./startup.py
 cleanup:
   - /include/llvm
   - /include/clang
@@ -157,7 +161,7 @@ cleanup:
   - /bin/clang-reorder-fields
   - /bin/clang-scan-deps
 cleanup-commands:
-  - /app/libexec/qtcreator/sdktool addQt --id qt6 --name Qt6 --qmake /app/qt6/bin/qmake
+  - /app/libexec/qtcreator/sdktool addQt --id qt6 --name "Qt %{Qt:Version} (Qt6)" --qmake /app/qt6/bin/qmake
     --type Qt4ProjectManager.QtVersion.Desktop
   - /app/libexec/qtcreator/sdktool addKit --id qt6 --name Qt6 --devicetype Desktop
     --device "Desktop Device" --qt qt6
