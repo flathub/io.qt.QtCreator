@@ -1,6 +1,6 @@
 app-id: io.qt.QtCreator
 runtime: org.kde.Sdk
-runtime-version: '5.15-21.08'
+runtime-version: 5.15-21.08
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk
@@ -857,13 +857,13 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt-creator/qt-creator.git
-        tag: v7.0.2
+        tag: v8.0.0
         x-checker-data:
           type: anitya
           project-id: 4136
           tag-template: v$version
           stable-only: true
-        commit: ac1e86fe74b6719171998c18a222658aa4252cbe
+        commit: 5c341854e08b2dae02aa1333c76395a964581bd5
 cleanup:
   - /include/llvm
   - /include/clang
