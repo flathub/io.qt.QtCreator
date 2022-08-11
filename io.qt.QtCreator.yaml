@@ -857,13 +857,13 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt-creator/qt-creator.git
-        tag: v8.0.0
+        tag: v8.0.1
         x-checker-data:
           type: anitya
           project-id: 4136
           tag-template: v$version
           stable-only: true
-        commit: 5c341854e08b2dae02aa1333c76395a964581bd5
+        commit: 9c963ce8aee3c181cef20e2b86dfd2aefc607a4a
 cleanup:
   - /include/llvm
   - /include/clang
