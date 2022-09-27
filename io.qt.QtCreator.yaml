@@ -106,13 +106,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtbase.git
-        tag: v6.3.1
+        tag: v6.3.2
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: 8483dcde90f40cdfd0a0ec4245b03610b46b6cae
+        commit: 12dc1dc09d73f5400e1e77181749793885ed9ffc
   - name: qt-shadertools
     buildsystem: cmake-ninja
     builddir: true
@@ -188,13 +188,13 @@ modules:
     sources:
       - type: git
         url: git://code.qt.io/qt/qtbase.git
-        tag: v6.3.1
+        tag: v6.3.2
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: 8483dcde90f40cdfd0a0ec4245b03610b46b6cae
+        commit: 12dc1dc09d73f5400e1e77181749793885ed9ffc
   - name: qt-declarative-docs
     buildsystem: simple
     builddir: true
