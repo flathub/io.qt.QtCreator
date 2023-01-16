@@ -37,13 +37,13 @@ modules:
     sources:
       - type: git
         url: https://github.com/bluez/bluez
-        commit: da07239606d62526287d55f35a778770b04196ea
+        commit: 63b01d0b0661d6a0048107dcb9e6f12ceac409e0
         x-checker-data:
           type: anitya
           project-id: 10029
           tag-template: $version
           stable-only: true
-        tag: '5.63'
+        tag: '5.66'
   - name: clang
     buildsystem: cmake-ninja
     build-options:
@@ -107,13 +107,13 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt/qtbase
-        tag: v6.3.1
+        tag: v6.4.2
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: 8483dcde90f40cdfd0a0ec4245b03610b46b6cae
+        commit: e3e40c44d3f998a433a6a1080297c5f28e9a768f
   - name: qt-shadertools
     buildsystem: cmake-ninja
     builddir: true
@@ -138,13 +138,13 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt/qtdeclarative
-        tag: v6.3.1
+        tag: v6.4.2
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: 47ef121e1a436fd46129cdaa1a4398c82045eb97
+        commit: 1b58f30087eedf42f16572d8ae1d6a5b18f3d698
   - name: qt-tools
     buildsystem: cmake-ninja
     builddir: true
@@ -189,13 +189,13 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt/qtbase
-        tag: v6.3.1
+        tag: v6.4.2
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: 8483dcde90f40cdfd0a0ec4245b03610b46b6cae
+        commit: e3e40c44d3f998a433a6a1080297c5f28e9a768f
   - name: qt-declarative-docs
     buildsystem: simple
     builddir: true
@@ -211,13 +211,13 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt/qtdeclarative
-        tag: v6.3.1
+        tag: v6.4.2
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: 47ef121e1a436fd46129cdaa1a4398c82045eb97
+        commit: 1b58f30087eedf42f16572d8ae1d6a5b18f3d698
   - name: qt-tools-docs
     buildsystem: simple
     builddir: true
