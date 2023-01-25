@@ -37,13 +37,13 @@ modules:
     sources:
       - type: git
         url: https://github.com/bluez/bluez
-        commit: da07239606d62526287d55f35a778770b04196ea
+        commit: 63b01d0b0661d6a0048107dcb9e6f12ceac409e0
         x-checker-data:
           type: anitya
           project-id: 10029
           tag-template: $version
           stable-only: true
-        tag: '5.63'
+        tag: '5.66'
   - name: clang
     buildsystem: cmake-ninja
     build-options:
@@ -155,13 +155,13 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt/qttools
-        tag: v6.3.1
+        tag: v6.4.2
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: ef3f15649faed5c412ab1c9a6d743fb596db78dc
+        commit: 2ddbe1df490a4f9a7963a3dc78a8d865165cbf5b
   - name: qt-base-docs
     buildsystem: simple
     builddir: true
@@ -235,13 +235,13 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt/qttools
-        tag: v6.3.1
+        tag: v6.4.2
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: ef3f15649faed5c412ab1c9a6d743fb596db78dc
+        commit: 2ddbe1df490a4f9a7963a3dc78a8d865165cbf5b
   - name: qt-doc
     buildsystem: cmake-ninja
     builddir: true
@@ -256,13 +256,13 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt/qtdoc
-        tag: v6.3.1
+        tag: v6.4.2
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: 2e6fd2b6b89044d4e7c1304919db9a8f5bb0c3eb
+        commit: 13e4cc3af758de146c33261341e4c036bcca163c
   - name: qt-translations
     buildsystem: cmake-ninja
     builddir: true
@@ -381,13 +381,13 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt/qtlottie
-        tag: v6.3.1
+        tag: v6.4.2
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: e427ac788b3212ba7abca85ccb90b32ccfbf0ec0
+        commit: 29e386f4361b16b891a00b261b850bef8ab2aecd
   - name: qt-websockets
     buildsystem: cmake-ninja
     builddir: true
@@ -401,8 +401,8 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt/qtwebsockets
-        tag: v6.3.1
-        commit: 5e0691b7589fb9b5e97048208617e32070334e6c
+        tag: v6.4.2
+        commit: ae9a4ad36f5dcbe9e9a68cab9ea15f9f8b5350e3
         x-checker-data:
           type: anitya
           project-id: 239866
@@ -461,13 +461,13 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt/qtopcua
-        tag: v6.3.1
+        tag: v6.4.2
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: 48f9323eba155319276ed5ca9b59d8d6a3919b42
+        commit: c9f505795e9c32461461fa88fdfbf1b382e7bb02
   - name: qt-multimedia
     buildsystem: cmake-ninja
     builddir: true
@@ -482,8 +482,8 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt/qtmultimedia
-        tag: v6.3.1
-        commit: 4c581fa100c186d81d53d83379171e5c3a4a2cfa
+        tag: v6.4.2
+        commit: 8943fec3308c310437e99203a3b2c9aba8b6ff7f
         x-checker-data:
           type: anitya
           project-id: 239815
@@ -574,13 +574,13 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt/qtscxml
-        tag: v6.3.1
+        tag: v6.4.2
         x-checker-data:
           type: anitya
           project-id: 7927
           tag-template: v$version
           stable-only: true
-        commit: fcf2a1e57ab18df07ee7dd0b9055082e9dc99883
+        commit: f69662705acdd71d204b829856ccf3ee834a7ff8
   - name: qt-svg
     buildsystem: cmake-ninja
     builddir: true
@@ -758,8 +758,8 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt/qtsensors
-        tag: v6.3.1
-        commit: 648bd837c669e6f5f7c6eb8ed4d0428ccdc00b4b
+        tag: v6.4.2
+        commit: 9eb18a98cc085d3815c21433e3fe96d4e52f02fa
         x-checker-data:
           type: anitya
           project-id: 239824
@@ -778,8 +778,8 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt/qtserialbus
-        tag: v6.3.1
-        commit: da85691035d132165f653725bee32f584bc5ec6b
+        tag: v6.4.2
+        commit: 2b24135d47abb73b1040424a0d8cf5de98393b30
         x-checker-data:
           type: anitya
           project-id: 239831
@@ -798,8 +798,8 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt/qtwebchannel
-        tag: v6.3.1
-        commit: 0ea9cc740b846754b81d77e00478e9e896c43620
+        tag: v6.4.2
+        commit: 3c890bbdb807a9d1e96c3253921d6d672ce4df81
         x-checker-data:
           type: anitya
           project-id: 239856
@@ -821,8 +821,8 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt/qtwebengine
-        tag: v6.3.1
-        commit: b981601dedffaa21b474e3acf254e77a490c9173
+        tag: v6.4.2
+        commit: 207b66fa6e010d07352b92b4bc148bca8026e7fa
         x-checker-data:
           type: anitya
           project-id: 239861
@@ -841,8 +841,8 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt/qtwebview
-        tag: v6.3.1
-        commit: d74a09ecff596e169521f581a9b7837b1a584d4b
+        tag: v6.4.2
+        commit: 2d6af23bbdefe5b69c34ea69026cff4f47dd952b
         x-checker-data:
           type: anitya
           project-id: 239868
@@ -858,13 +858,13 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt-creator/qt-creator
-        tag: v8.0.1
+        tag: v9.0.1
         x-checker-data:
           type: anitya
           project-id: 4136
           tag-template: v$version
           stable-only: true
-        commit: 9c963ce8aee3c181cef20e2b86dfd2aefc607a4a
+        commit: 938231cf0d94f6ff3e3e5ad86ef1f962969d38ce
 cleanup:
   - /include/llvm
   - /include/clang
