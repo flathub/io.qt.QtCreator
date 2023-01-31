@@ -68,8 +68,8 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/clang/llvm-project
-        branch: release_110-based
-        commit: e43a39a3ed2ec0a05638956cdebfd2f7cf164692
+        branch: release_140-based
+        commit: a8ed6c28965138fa1f2449e4ce3e9f391380d17b
   - name: clazy
     buildsystem: cmake-ninja
     config-opts:
