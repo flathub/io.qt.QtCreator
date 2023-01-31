@@ -912,7 +912,6 @@ cleanup:
   - /bin/clang-check
   - /bin/clang-cl
   - /bin/clang-cpp
-  - /bin/clangd
   - /bin/clang-doc
   - /bin/clang-extdef-mapping
   - /bin/clang-format
