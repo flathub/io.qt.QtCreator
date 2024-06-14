@@ -41,4 +41,5 @@ modules:
           tag-template: v$version
           stable-only: true
         commit: 1ad2c04e0ea5aae60ae7236229f4588846c40229
-
+      - type: patch
+        path: 0001-Fix-errors-and-warnings-in-appdata.xml.patch
