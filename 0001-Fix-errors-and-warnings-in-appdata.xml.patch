@@ -1,0 +1,71 @@
+From 4bd6dcd311f210cd6c0e3b227df6696880e3ed84 Mon Sep 17 00:00:00 2001
+From: Marco Bubke <marco.bubke@qt.io>
+Date: Fri, 14 Jun 2024 19:36:17 +0200
+Subject: [PATCH] Fix errors and warnings in appdata.xml
+
+{
+    "errors": [
+        "appstream-missing-developer-name",
+        "appstream-failed-validation"
+    ],
+    "warnings": [
+        "appstream-summary-too-long",
+        "appstream-screenshot-missing-caption"
+    ],
+    "appstream": [
+        "W: io.qt.QtCreator:29: screenshot-default-missing",
+        "E: io.qt.QtCreator:~: desktop-app-launchable-missing"
+    ],
+"message": "Please consult the documentation at
+https://docs.flathub.org/docs/for-app-authors/linter"
+}
+
+Change-Id: Ief1cb6300c0976962bfbf436db9d69bc4a97850c
+---
+ .../org.qt-project.qtcreator.appdata.xml.cmakein   | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
+
+diff --git a/share/metainfo/org.qt-project.qtcreator.appdata.xml.cmakein b/share/metainfo/org.qt-project.qtcreator.appdata.xml.cmakein
+index 32d10990aaa..b35b35c95f8 100644
+--- a/share/metainfo/org.qt-project.qtcreator.appdata.xml.cmakein
++++ b/share/metainfo/org.qt-project.qtcreator.appdata.xml.cmakein
+@@ -3,7 +3,10 @@
+ <component type="desktop">
+  <id>org.qt-project.qtcreator.desktop</id>
+  <name>Qt Creator</name>
+- <summary>Provides a cross-platform, complete integrated development environment (IDE) for application developers to create applications for multiple platforms and devices</summary>
++ <developer id="org.qt-project">
++   <name>Qt Project</name>
++ </developer>
++ <summary>Cross-platform integrated development environment (IDE)</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0</project_license>
+  <description>
+@@ -23,16 +26,23 @@
+    newcomers to Qt.
+   </p>
+  </description>
++ <launchable type="desktop-id">org.qt-project.qtcreator.desktop</launchable>
+ 
+  <url type="homepage">https://www.qt.io/ide/</url>
+  <project_group>Qt</project_group>
+  <content_rating type="oars-1.1" />
+  <screenshots>
++  <screenshot type="default">
++   <caption>Application development life-cycle</caption>
++   <image>https://doc.qt.io/qtcreator/images/qt-app-dev-flow.webp</image>
++  </screenshot>
+   <screenshot>
++   <caption>welcome page</caption>
+    <image>https://doc.qt.io/qtcreator/images/qtcreator-breakdown.png</image>
+   </screenshot>
+   <screenshot>
+-   <image>https://doc.qt.io/qtcreator/images/qtcreator-gs-build-example-open.png</image>
++   <caption>example page</caption>
++   <image>https://doc.qt.io/qtcreator/images/qtcreator-examples-open.webp</image>
+   </screenshot>
+  </screenshots>
+  <releases>
+-- 
+2.45.2
+
