@@ -21,6 +21,8 @@ finish-args:
   - --allow=devel
 build-options:
   append-ld-library-path: /app/lib
+  prepend-path: /usr/lib/sdk/llvm18/bin
+  prepend-ld-library-path: /usr/lib/sdk/llvm18/lib
 modules:
   - name: qt-creator
     buildsystem: cmake-ninja
@@ -43,3 +45,10 @@ modules:
         commit: 1ad2c04e0ea5aae60ae7236229f4588846c40229
       - type: patch
         path: 0001-Fix-errors-and-warnings-in-appdata.xml.patch
+    post-install:
+      - "cp -a /usr/lib/sdk/llvm18/bin/* /app/bin/"
+      - "cp -a /usr/lib/sdk/llvm18/lib/* /app/lib/"
+      - "cp -a /usr/lib/sdk/llvm18/libexec/* /app/libexec/"
+      - "cp -a /usr/lib/sdk/llvm18/share/* /app/share/"
+      - "install -d /app/extensions"
+
