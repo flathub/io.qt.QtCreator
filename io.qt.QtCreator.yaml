@@ -69,9 +69,4 @@ modules:
       - type: git
         url: https://github.com/rui314/mold.git
         tag: v2.32.0
-  - shared-modules/libdecor/libdecor.json
-  - shared-modules/SDL2/SDL2-with-libdecor.json
-  - shared-modules/glew/glew.json
-  - shared-modules/glu/glu-9.json
-  - shared-modules/intltool/intltool-0.51.json
 
