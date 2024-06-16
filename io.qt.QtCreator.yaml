@@ -39,6 +39,8 @@ modules:
       - -DSHOW_BUILD_DATE=ON
       - -DWITH_QMLDESIGNER=OFF
       - -DCLANGTOOLING_LINK_CLANG_DYLIB=ON
+      - -DWITH_ONLINE_DOCS=ON
+      - -DBUILD_DEVELOPER_DOCS=ON
       - -Wno-dev
     sources:
       - type: git
