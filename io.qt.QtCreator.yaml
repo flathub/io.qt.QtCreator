@@ -72,4 +72,12 @@ modules:
       - type: git
         url: https://github.com/rui314/mold.git
         tag: v2.32.0
-
+  - name: docs
+    buildsystem: simple
+    sources:
+      - type: archive
+        url: https://github.com/qt-creator/qt-creator/releases/download/v13.0.2/qtcreator-linux-x64-13.0.2.7z
+        sha256: 9c01936ddafd285c71828926caa49f355d7c80d6967f13689092b83ad5ccb55e
+        strip-components: 0
+    build-commands:
+      - "cp -r share/doc/qtcreator $FLATPAK_DEST/share/doc"
