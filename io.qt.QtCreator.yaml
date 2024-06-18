@@ -41,6 +41,7 @@ modules:
       - -DCLANGTOOLING_LINK_CLANG_DYLIB=ON
       - -DWITH_ONLINE_DOCS=ON
       - -DBUILD_DEVELOPER_DOCS=ON
+      - -DBUILD_DOCS_BY_DEFAULT=ON
       - -Wno-dev
     sources:
       - type: git
@@ -54,6 +55,8 @@ modules:
         commit: 1ad2c04e0ea5aae60ae7236229f4588846c40229
       - type: patch
         path: 0001-Fix-errors-and-warnings-in-appdata.xml.patch
+      - type: patch
+        path: 0001-Docs-Add-option-to-build-docs-by-default.patch
     post-install:
       - "cp -a /usr/lib/sdk/llvm18/bin/* /app/bin/"
       - "cp -a /usr/lib/sdk/llvm18/lib/* /app/lib/"
