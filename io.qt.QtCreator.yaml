@@ -72,6 +72,11 @@ modules:
       - type: git
         url: https://github.com/rui314/mold.git
         tag: v2.32.0
+        x-checker-data:
+          type: anitya
+          project-id: 241732
+          tag-template: v$version
+          stable-only: true
   - name: docs
     buildsystem: simple
     sources:
