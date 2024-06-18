@@ -41,6 +41,7 @@ modules:
       - -DCLANGTOOLING_LINK_CLANG_DYLIB=ON
       - -DWITH_ONLINE_DOCS=ON
       - -DBUILD_DEVELOPER_DOCS=ON
+      - -DBUILD_DOCS_BY_DEFAULT=ON
       - -Wno-dev
     sources:
       - type: git
@@ -53,6 +54,8 @@ modules:
           stable-only: true
       - type: patch
         path: 0001-Fix-errors-and-warnings-in-appdata.xml.patch
+      - type: patch
+        path: 0001-Docs-Add-option-to-build-docs-by-default.patch
     post-install:
       - "cp -a /usr/lib/sdk/llvm18/bin/* /app/bin/"
       - "cp -a /usr/lib/sdk/llvm18/lib/* /app/lib/"
@@ -68,8 +71,12 @@ modules:
       - type: git
         url: https://github.com/rui314/mold.git
         tag: v2.32.0
-  - shared-modules/libdecor/libdecor.json
-  - shared-modules/SDL2/SDL2-with-libdecor.json
-  - shared-modules/glew/glew.json
-  - shared-modules/glu/glu-9.json
-  - shared-modules/intltool/intltool-0.51.json
+  - name: docs
+    buildsystem: simple
+    sources:
+      - type: archive
+        url: https://github.com/qt-creator/qt-creator/releases/download/v14.0.0/qtcreator-linux-x64-14.0.0.7z
+        sha256: 0d0c13e60eda4d93390e5d8971ef564654e89265128e7bc03fb7e7694290a694
+        strip-components: 0
+    build-commands:
+      - "cp -r share/doc/qtcreator $FLATPAK_DEST/share/doc"
