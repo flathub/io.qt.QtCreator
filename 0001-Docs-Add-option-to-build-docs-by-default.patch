@@ -1,0 +1,116 @@
+From 0f8ed527d905beda2ac6b4306d94b41c8c9e731c Mon Sep 17 00:00:00 2001
+From: Marco Bubke <marco.bubke@qt.io>
+Date: Tue, 18 Jun 2024 15:09:15 +0200
+Subject: [PATCH] Docs: Add option to build docs by default
+
+Change-Id: I6cb8c2b163f5d01040952aecced287334d616976
+---
+ cmake/QtCreatorDocumentation.cmake | 25 ++++++++++++++++++++-----
+ doc/CMakeLists.txt                 |  8 +++++++-
+ 2 files changed, 27 insertions(+), 6 deletions(-)
+
+diff --git a/cmake/QtCreatorDocumentation.cmake b/cmake/QtCreatorDocumentation.cmake
+index 9587a77e0b1..bf679d2188f 100644
+--- a/cmake/QtCreatorDocumentation.cmake
++++ b/cmake/QtCreatorDocumentation.cmake
+@@ -5,6 +5,18 @@ add_feature_info("Build documentation" WITH_DOCS "")
+ option(WITH_ONLINE_DOCS "Build online documentation" OFF)
+ add_feature_info("Build online documentation" WITH_ONLINE_DOCS "")
+ 
++option(BUILD_DOCS_BY_DEFAULT "Build documentation by default" OFF)
++add_feature_info("Build documentation by default" BUILD_DOCS_BY_DEFAULT "")
++
++
++if (BUILD_DOCS_BY_DEFAULT)
++set(EXCLUDE_DOCS_FROM_ALL "")
++set(INCLUDE_DOCS_INTO_ALL "ALL")
++else()
++set(EXCLUDE_DOCS_FROM_ALL "EXCLUDE_FROM_ALL")
++set(INCLUDE_DOCS_INTO_ALL "")
++endif()
++
+ # Get information on directories from qmake
+ # as this is not yet exported by cmake.
+ # Used for QT_INSTALL_DOCS
+@@ -46,13 +58,13 @@ endfunction()
+ function(_setup_doc_targets)
+   # Set up important targets:
+   if (NOT TARGET html_docs)
+-    add_custom_target(html_docs COMMENT "Build HTML documentation")
++    add_custom_target(html_docs ${INCLUDE_DOCS_INTO_ALL} COMMENT "Build HTML documentation")
+   endif()
+   if (NOT TARGET qch_docs)
+-    add_custom_target(qch_docs COMMENT "Build QCH documentation")
++    add_custom_target(qch_docs ${INCLUDE_DOCS_INTO_ALL} COMMENT "Build QCH documentation")
+   endif()
+   if (NOT TARGET docs)
+-    add_custom_target(docs COMMENT "Build documentation")
++    add_custom_target(docs ${INCLUDE_DOCS_INTO_ALL} COMMENT "Build documentation")
+     add_dependencies(docs html_docs qch_docs)
+   endif()
+ endfunction()
+@@ -114,6 +126,7 @@ function(_setup_qdoc_targets _qdocconf_file _retval)
+ 
+   set(_html_target "html_docs_${_target}")
+   add_custom_target("${_html_target}"
++      ${INCLUDE_DOCS_INTO_ALL}
+       ${_full_qdoc_command} -outputdir "${_html_outputdir}" "${_qdocconf_file}"
+       ${_qdoc_index_args} ${_qdoc_include_args}
+     COMMENT "Build HTML documentation from ${_qdocconf_file}"
+@@ -126,7 +139,7 @@ function(_setup_qdoc_targets _qdocconf_file _retval)
+ 
+   # Install HTML files as a special component
+   install(DIRECTORY "${_html_outputdir}" DESTINATION "${_arg_INSTALL_DIR}"
+-    COMPONENT html_docs EXCLUDE_FROM_ALL)
++    COMPONENT html_docs ${EXCLUDE_DOCS_FROM_ALL})
+ 
+   set("${_retval}" "${_html_outputdir}" PARENT_SCOPE)
+ endfunction()
+@@ -154,6 +167,7 @@ function(_setup_qhelpgenerator_targets _qdocconf_file _html_outputdir)
+   set(_qch_target "qch_docs_${_target}")
+   set(_html_target "html_docs_${_target}")
+   add_custom_target("${_qch_target}"
++    ${INCLUDE_DOCS_INTO_ALL}
+     Qt::qhelpgenerator "${_html_outputdir}/${_target}.qhp" -o "${_qch_outputdir}/${_target}.qch"
+     COMMENT "Build QCH documentation from ${_qdocconf_file}"
+     WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+@@ -163,7 +177,7 @@ function(_setup_qhelpgenerator_targets _qdocconf_file _html_outputdir)
+   add_dependencies(qch_docs "${_qch_target}")
+ 
+   install(FILES "${_qch_outputdir}/${_target}.qch" DESTINATION "${_arg_INSTALL_DIR}"
+-    COMPONENT qch_docs EXCLUDE_FROM_ALL)
++    COMPONENT qch_docs ${EXCLUDE_DOCS_FROM_ALL})
+ endfunction()
+ 
+ # Helper functions:
+@@ -283,6 +297,7 @@ function(add_qtc_doc_attribution target attribution_file output_file qdocconf_fi
+   file(MAKE_DIRECTORY ${output_dir})
+   # add target
+   add_custom_target(${target}
++      ${INCLUDE_DOCS_INTO_ALL}
+       Qt6::qtattributionsscanner -o "${output_file}" --basedir "${PROJECT_SOURCE_DIR}" ${attribution_file}
+     COMMENT "Create attributions ${output_file} from ${attribution_file}"
+     DEPENDS "${attribution_file}"
+diff --git a/doc/CMakeLists.txt b/doc/CMakeLists.txt
+index f78240e4fb0..dc887877646 100644
+--- a/doc/CMakeLists.txt
++++ b/doc/CMakeLists.txt
+@@ -67,8 +67,14 @@ if(WITH_ONLINE_DOCS)
+   _add_doc(${IDE_DOC_FILE_ONLINE} "qtcreatordev/qtcreator-dev-online.qdocconf")
+ endif()
+ 
++if (BUILD_DOCS_BY_DEFAULT)
++set(EXCLUDE_DOCS_FROM_ALL "")
++else()
++set(EXCLUDE_DOCS_FROM_ALL "EXCLUDE_FROM_ALL")
++endif()
++
+ install(DIRECTORY config
+   DESTINATION ${IDE_HEADER_INSTALL_PATH}/doc
+   COMPONENT Devel
+-  EXCLUDE_FROM_ALL
++  ${EXCLUDE_DOCS_FROM_ALL}
+ )
+-- 
+2.45.2
+
