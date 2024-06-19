@@ -1,6 +1,8 @@
 app-id: io.qt.QtCreator
 runtime: org.kde.Sdk
 runtime-version: '6.7'
+base: io.qt.qtwebengine.BaseApp
+base-version: '6.7'
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.llvm18
@@ -18,10 +20,17 @@ finish-args:
   - --filesystem=host
   - --device=dri
   - --allow=devel
+  - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
 build-options:
   prepend-path: /usr/lib/sdk/llvm18/bin
   prepend-ld-library-path: /usr/lib/sdk/llvm18/lib
+  arch:
+    aarch64:
+      prepend-pkg-config-path: /app/lib/aarch64-linux-gnu/pkgconfig
+    x86_64:
+      prepend-pkg-config-path: /app/lib/x86_64-linux-gnu/pkgconfig
 modules:
+  - shared-modules/libsecret/libsecret.json
   - name: qt-creator
     buildsystem: cmake-ninja
     config-opts:
@@ -30,6 +39,9 @@ modules:
       - -DSHOW_BUILD_DATE=ON
       - -DWITH_QMLDESIGNER=OFF
       - -DCLANGTOOLING_LINK_CLANG_DYLIB=ON
+      - -DWITH_ONLINE_DOCS=ON
+      - -DBUILD_DEVELOPER_DOCS=ON
+      - -DBUILD_DOCS_BY_DEFAULT=ON
       - -Wno-dev
     sources:
       - type: git
@@ -42,6 +54,8 @@ modules:
           stable-only: true
       - type: patch
         path: 0001-Fix-errors-and-warnings-in-appdata.xml.patch
+      - type: patch
+        path: 0001-Docs-Add-option-to-build-docs-by-default.patch
     post-install:
       - "cp -a /usr/lib/sdk/llvm18/bin/* /app/bin/"
       - "cp -a /usr/lib/sdk/llvm18/lib/* /app/lib/"
@@ -57,3 +71,12 @@ modules:
       - type: git
         url: https://github.com/rui314/mold.git
         tag: v2.32.0
+  - name: docs
+    buildsystem: simple
+    sources:
+      - type: archive
+        url: https://github.com/qt-creator/qt-creator/releases/download/v14.0.0/qtcreator-linux-x64-14.0.0.7z
+        sha256: 0d0c13e60eda4d93390e5d8971ef564654e89265128e7bc03fb7e7694290a694
+        strip-components: 0
+    build-commands:
+      - "cp -r share/doc/qtcreator $FLATPAK_DEST/share/doc"
