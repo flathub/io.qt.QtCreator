@@ -20,7 +20,6 @@ finish-args:
   - --filesystem=host
   - --device=dri
   - --allow=devel
-  - --talk-name=org.freedesktop.Flatpak
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
 build-options:
   prepend-path: /usr/lib/sdk/llvm18/bin
