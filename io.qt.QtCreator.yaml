@@ -85,6 +85,11 @@ modules:
         url: https://github.com/qt-creator/qt-creator/releases/download/v14.0.0/qtcreator-linux-x64-14.0.0.7z
         sha256: 0d0c13e60eda4d93390e5d8971ef564654e89265128e7bc03fb7e7694290a694
         strip-components: 0
+        x-checker-data:
+          type: anitya
+          project-id: 4136
+          url-template: https://github.com/qt-creator/qt-creator/releases/download/v$version/qtcreator-linux-x64-$version.7z
+          stable-only: false
     build-commands:
       - "cp -r share/doc/qtcreator $FLATPAK_DEST/share/doc"
   - name: tcl
@@ -96,6 +101,11 @@ modules:
       - type: archive
         url: https://downloads.sourceforge.net/sourceforge/tcl/tcl8.6.14-src.tar.gz
         sha256: 5880225babf7954c58d4fb0f5cf6279104ce1cd6aa9b71e9a6322540e1c4de66
+        x-checker-data:
+          type: anitya
+          project-id: 4941
+          url-template: https://downloads.sourceforge.net/sourceforge/tcl/tcl$version-src.tar.gz
+          stable-only: true
   - name: tk
     buildsystem: autotools
     subdir: unix
@@ -105,6 +115,11 @@ modules:
       - type: archive
         url: https://downloads.sourceforge.net/sourceforge/tcl/tk8.6.14-src.tar.gz
         sha256: 8ffdb720f47a6ca6107eac2dd877e30b0ef7fac14f3a84ebbd0b3612cee41a94
+        x-checker-data:
+          type: anitya
+          project-id: 11426
+          url-template: https://downloads.sourceforge.net/sourceforge/tcl/tk$version-src.tar.gz
+          stable-only: true
     post-install:
       - "ln -s /app/bin/wish8.6 /app/bin/wish"
   - name: gitk
@@ -121,3 +136,43 @@ modules:
           stable-only: true
     build-commands:
       - "cd gitk-git; make prefix=/app install"
+  - name: gcc
+    config-opts:
+      - --with-bugurl=https://flathub.org
+      - --enable-languages=c,c++,fortran,lto
+      - --enable-__cxa_atexit
+      - --enable-checking=release
+      - --enable-clocale=gnu
+      - --enable-default-pie
+      - --enable-default-ssp
+      - --enable-gnu-indirect-function
+      - --enable-install-libiberty
+      - --enable-libstdcxx-debug
+      - --enable-libstdcxx-time
+      - --enable-libstdcxx-static-eh-pool
+      - --enable-linker-build-id
+      - --enable-plugin
+      - --enable-shared
+      - --enable-threads=posix
+      - --disable-bootstrap
+      - --disable-libssp
+      - --disable-libstdcxx-pch
+      - --disable-libunwind-exceptions
+      - --disable-multilib
+      - --disable-stage1-checking
+      - --disable-werror
+      - --with-linker-hash-style=gnu
+      - --with-system-zlib
+    sources:
+      - type: archive
+        url: https://ftp.gnu.org/gnu/gcc/gcc-14.1.0/gcc-14.1.0.tar.xz
+        sha256: e283c654987afe3de9d8080bc0bd79534b5ca0d681a73a11ff2b5d3767426840
+        x-checker-data:
+          type: anitya
+          project-id: 6502
+          url-template: https://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz
+          stable-only: true
+      - type: archive
+        url: https://ftp.gnu.org/gnu/mpc/mpc-1.3.1.tar.gz
+        sha256: ab642492f5cf882b74aa0cb730cd410a81edcdbec895183ce930e706c1c759b8
+        dest: mpc
