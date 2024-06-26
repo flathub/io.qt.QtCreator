@@ -122,20 +122,6 @@ modules:
           stable-only: true
     post-install:
       - "ln -s /app/bin/wish8.6 /app/bin/wish"
-  - name: gitk
-    buildsystem: simple
-    sources:
-      - type: git
-        url: https://github.com/git/git.git
-        tag: v2.45.2
-        commit: bea9ecd24b0c3bf06cab4a851694fe09e7e51408
-        x-checker-data:
-          type: anitya
-          project-id: 5350
-          tag-template: v$version
-          stable-only: true
-    build-commands:
-      - "cd gitk-git; make prefix=/app install"
   - name: gcc
     config-opts:
       - --with-bugurl=https://flathub.org
