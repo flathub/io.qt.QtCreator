@@ -46,17 +46,13 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt-creator/qt-creator
-        tag: v14.0.0-beta1
-        commit: b66a80004515ed29dc84345d3ec4e543247748ae
+        tag: v14.0.0-beta2
+        commit: 44e36686c8ea5dd6601f80ab57c27bd34e1f7894
         x-checker-data:
           type: anitya
           project-id: 4136
           tag-template: v$version.*
           stable-only: false
-      - type: patch
-        path: 0001-Fix-errors-and-warnings-in-appdata.xml.patch
-      - type: patch
-        path: 0001-Docs-Add-option-to-build-docs-by-default.patch
     post-install:
       - "cp -a /usr/lib/sdk/llvm18/bin/* /app/bin/"
       - "cp -a /usr/lib/sdk/llvm18/lib/* /app/lib/"
@@ -122,43 +118,3 @@ modules:
           stable-only: true
     post-install:
       - "ln -s /app/bin/wish8.6 /app/bin/wish"
-  - name: gcc
-    config-opts:
-      - --with-bugurl=https://flathub.org
-      - --enable-languages=c,c++,fortran,lto
-      - --enable-__cxa_atexit
-      - --enable-checking=release
-      - --enable-clocale=gnu
-      - --enable-default-pie
-      - --enable-default-ssp
-      - --enable-gnu-indirect-function
-      - --enable-install-libiberty
-      - --enable-libstdcxx-debug
-      - --enable-libstdcxx-time
-      - --enable-libstdcxx-static-eh-pool
-      - --enable-linker-build-id
-      - --enable-plugin
-      - --enable-shared
-      - --enable-threads=posix
-      - --disable-bootstrap
-      - --disable-libssp
-      - --disable-libstdcxx-pch
-      - --disable-libunwind-exceptions
-      - --disable-multilib
-      - --disable-stage1-checking
-      - --disable-werror
-      - --with-linker-hash-style=gnu
-      - --with-system-zlib
-    sources:
-      - type: archive
-        url: https://ftp.gnu.org/gnu/gcc/gcc-14.1.0/gcc-14.1.0.tar.xz
-        sha256: e283c654987afe3de9d8080bc0bd79534b5ca0d681a73a11ff2b5d3767426840
-        x-checker-data:
-          type: anitya
-          project-id: 6502
-          url-template: https://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz
-          stable-only: true
-      - type: archive
-        url: https://ftp.gnu.org/gnu/mpc/mpc-1.3.1.tar.gz
-        sha256: ab642492f5cf882b74aa0cb730cd410a81edcdbec895183ce930e706c1c759b8
-        dest: mpc
