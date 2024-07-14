@@ -46,12 +46,12 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt-creator/qt-creator
-        tag: v14.0.0-beta2
-        commit: 44e36686c8ea5dd6601f80ab57c27bd34e1f7894
+        tag: v14.0.0-rc1
+        commit: 332db8de18cdc9d62d5eae9c50190d630d8dccbf
         x-checker-data:
           type: anitya
           project-id: 4136
-          tag-template: v$version.*
+          tag-template: v$version
           stable-only: false
     post-install:
       - "cp -a /usr/lib/sdk/llvm18/bin/* /app/bin/"
