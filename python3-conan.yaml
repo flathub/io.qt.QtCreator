@@ -1,0 +1,100 @@
+# Generated with flatpak-pip-generator --runtime=org.kde.Sdk//6.7 --checker-data --yaml conan
+name: python3-conan
+buildsystem: simple
+build-commands:
+  - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+    --prefix=${FLATPAK_DEST} "conan" --no-build-isolation
+sources:
+  - type: file
+    url: https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz
+    sha256: d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b
+    x-checker-data:
+      name: MarkupSafe
+      type: pypi
+  - type: file
+    url: https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz
+    sha256: bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43
+    x-checker-data:
+      name: PyYAML
+      type: pypi
+  - type: file
+    url: https://files.pythonhosted.org/packages/1c/d5/c84e1a17bf61d4df64ca866a1c9a913874b4e9bdc131ec689a0ad013fb36/certifi-2024.7.4-py3-none-any.whl
+    sha256: c198e21b1289c2ab85ee4e67bb4b4ef3ead0892059901a8d5b622f24a1101e90
+    x-checker-data:
+      name: certifi
+      packagetype: bdist_wheel
+      type: pypi
+  - type: file
+    url: https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz
+    sha256: f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5
+    x-checker-data:
+      name: charset-normalizer
+      type: pypi
+  - type: file
+    url: https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl
+    sha256: 4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6
+    x-checker-data:
+      name: colorama
+      packagetype: bdist_wheel
+      type: pypi
+  - type: file
+    url: https://files.pythonhosted.org/packages/65/0c/da2e95e26fbeee882eebd843a5ff57c309211dad272fa1441a89337798cc/conan-2.5.0.tar.gz
+    sha256: b280b4139251c4e232d23ae60f291605f023324de224ab82d2cf60dffcfb8fcb
+    x-checker-data:
+      name: conan
+      type: pypi
+  - type: file
+    url: https://files.pythonhosted.org/packages/f4/2c/c90a3adaf0ddb70afe193f5ebfb539612af57cffe677c3126be533df3098/distro-1.8.0-py3-none-any.whl
+    sha256: 99522ca3e365cac527b44bde033f64c6945d90eb9f769703caaec52b09bbd3ff
+    x-checker-data:
+      name: distro
+      packagetype: bdist_wheel
+      type: pypi
+  - type: file
+    url: https://files.pythonhosted.org/packages/61/bf/fd60001b3abc5222d8eaa4a204cd8c0ae78e75adc688f33ce4bf25b7fafa/fasteners-0.19-py3-none-any.whl
+    sha256: 758819cb5d94cdedf4e836988b74de396ceacb8e2794d21f82d131fd9ee77237
+    x-checker-data:
+      name: fasteners
+      packagetype: bdist_wheel
+      type: pypi
+  - type: file
+    url: https://files.pythonhosted.org/packages/e5/3e/741d8c82801c347547f8a2a06aa57dbb1992be9e948df2ea0eda2c8b79e8/idna-3.7-py3-none-any.whl
+    sha256: 82fee1fc78add43492d3a1898bfa6d8a904cc97d8427f683ed8e798d07761aa0
+    x-checker-data:
+      name: idna
+      packagetype: bdist_wheel
+      type: pypi
+  - type: file
+    url: https://files.pythonhosted.org/packages/31/80/3a54838c3fb461f6fec263ebf3a3a41771bd05190238de3486aae8540c36/jinja2-3.1.4-py3-none-any.whl
+    sha256: bc5dd2abb727a5319567b7a813e6a2e7318c39f4f487cfe6c89c6f9c7d25197d
+    x-checker-data:
+      name: jinja2
+      packagetype: bdist_wheel
+      type: pypi
+  - type: file
+    url: https://files.pythonhosted.org/packages/c1/b2/ad3cd464101435fdf642d20e0e5e782b4edaef1affdf2adfc5c75660225b/patch-ng-1.17.4.tar.gz
+    sha256: 627abc5bd723c8b481e96849b9734b10065426224d4d22cd44137004ac0d4ace
+    x-checker-data:
+      name: patch-ng
+      type: pypi
+  - type: file
+    url: https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl
+    sha256: a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427
+    x-checker-data:
+      name: python_dateutil
+      packagetype: bdist_wheel
+      type: pypi
+  - type: file
+    url: https://files.pythonhosted.org/packages/f9/9b/335f9764261e915ed497fcdeb11df5dfd6f7bf257d4a6a2a686d80da4d54/requests-2.32.3-py3-none-any.whl
+    sha256: 70761cfe03c773ceb22aa2f671b4757976145175cdfca038c02654d061d6dcc6
+    x-checker-data:
+      name: requests
+      packagetype: bdist_wheel
+      type: pypi
+  - type: file
+    url: https://files.pythonhosted.org/packages/ae/6a/99eaaeae8becaa17a29aeb334a18e5d582d873b6f084c11f02581b8d7f7f/urllib3-1.26.19-py2.py3-none-any.whl
+    sha256: 37a0344459b199fce0e80b0d3569837ec6b6937435c5244e7fd73fa6006830f3
+    x-checker-data:
+      name: urllib3
+      packagetype: bdist_wheel
+      type: pypi
