@@ -108,3 +108,4 @@ modules:
         sha256: 8ffdb720f47a6ca6107eac2dd877e30b0ef7fac14f3a84ebbd0b3612cee41a94
     post-install:
       - "ln -s /app/bin/wish8.6 /app/bin/wish"
+  - python3-conan.yaml
