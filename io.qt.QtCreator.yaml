@@ -92,6 +92,11 @@ modules:
       - type: archive
         url: https://downloads.sourceforge.net/sourceforge/tcl/tcl8.6.14-src.tar.gz
         sha256: 5880225babf7954c58d4fb0f5cf6279104ce1cd6aa9b71e9a6322540e1c4de66
+        x-checker-data:
+          type: anitya
+          project-id: 4941
+          url-template: https://downloads.sourceforge.net/sourceforge/tcl/tcl$version-src.tar.gz
+          stable-only: true
   - name: tk
     buildsystem: autotools
     subdir: unix
@@ -101,6 +106,11 @@ modules:
       - type: archive
         url: https://downloads.sourceforge.net/sourceforge/tcl/tk8.6.14-src.tar.gz
         sha256: 8ffdb720f47a6ca6107eac2dd877e30b0ef7fac14f3a84ebbd0b3612cee41a94
+        x-checker-data:
+          type: anitya
+          project-id: 11426
+          url-template: https://downloads.sourceforge.net/sourceforge/tcl/tk$version-src.tar.gz
+          stable-only: true
     post-install:
       - "ln -s /app/bin/wish8.6 /app/bin/wish"
   - python3-conan.yaml
