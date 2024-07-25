@@ -46,18 +46,13 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt-creator/qt-creator
-        tag: v13.0.2
-        commit: 1ad2c04e0ea5aae60ae7236229f4588846c40229
+        tag: v14.0.0
+        commit: 370c2d7787ec291565f4749e370fdecea77d12b1
         x-checker-data:
           type: anitya
           project-id: 4136
           tag-template: v$version
           stable-only: true
-        commit: 1ad2c04e0ea5aae60ae7236229f4588846c40229
-      - type: patch
-        path: 0001-Fix-errors-and-warnings-in-appdata.xml.patch
-      - type: patch
-        path: 0001-Docs-Add-option-to-build-docs-by-default.patch
     post-install:
       - "cp -a /usr/lib/sdk/llvm18/bin/* /app/bin/"
       - "cp -a /usr/lib/sdk/llvm18/lib/* /app/lib/"
@@ -108,17 +103,4 @@ modules:
         sha256: 8ffdb720f47a6ca6107eac2dd877e30b0ef7fac14f3a84ebbd0b3612cee41a94
     post-install:
       - "ln -s /app/bin/wish8.6 /app/bin/wish"
-  - name: gitk
-    buildsystem: simple
-    sources:
-      - type: git
-        url: https://github.com/git/git.git
-        tag: v2.45.2
-        commit: bea9ecd24b0c3bf06cab4a851694fe09e7e51408
-        x-checker-data:
-          type: anitya
-          project-id: 5350
-          tag-template: v$version
-          stable-only: true
-    build-commands:
-      - "cd gitk-git; make prefix=/app install"
+  - python3-conan.yaml
