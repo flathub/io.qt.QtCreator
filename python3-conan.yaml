@@ -98,3 +98,6 @@ sources:
       name: urllib3
       packagetype: bdist_wheel
       type: pypi
+      versions:
+        - <: 2.0.0
+
