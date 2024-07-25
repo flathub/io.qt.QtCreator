@@ -78,9 +78,14 @@ modules:
     buildsystem: simple
     sources:
       - type: archive
-        url: https://github.com/qt-creator/qt-creator/releases/download/v13.0.2/qtcreator-linux-x64-13.0.2.7z
-        sha256: 9c01936ddafd285c71828926caa49f355d7c80d6967f13689092b83ad5ccb55e
+        url: https://github.com/qt-creator/qt-creator/releases/download/v14.0.0/qtcreator-linux-x64-14.0.0.7z
+        sha256: 8e97479e69ddd926dc19daf9024f3188dfa99c88af0e747ad94c8769ec806cc3
         strip-components: 0
+        x-checker-data:
+          type: anitya
+          project-id: 4136
+          url-template: https://github.com/qt-creator/qt-creator/releases/download/v$version/qtcreator-linux-x64-$version.7z
+          stable-only: true
     build-commands:
       - "cp -r share/doc/qtcreator $FLATPAK_DEST/share/doc"
   - name: tcl
