@@ -22,6 +22,7 @@ finish-args:
   - --device=dri
   - --allow=devel
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
+  - --env=VCPKG_ROOT=/app/vcpkg
 build-options:
   prepend-path: /usr/lib/sdk/llvm18/bin
   prepend-ld-library-path: /usr/lib/sdk/llvm18/lib
@@ -120,3 +121,5 @@ modules:
     post-install:
       - ln -s /app/bin/wish8.6 /app/bin/wish
   - python3-conan.yaml
+  - vcpkg.yaml
+
