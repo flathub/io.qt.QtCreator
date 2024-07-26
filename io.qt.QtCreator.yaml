@@ -54,11 +54,11 @@ modules:
           tag-template: v$version
           stable-only: true
     post-install:
-      - "cp -a /usr/lib/sdk/llvm18/bin/* /app/bin/"
-      - "cp -a /usr/lib/sdk/llvm18/lib/* /app/lib/"
-      - "cp -a /usr/lib/sdk/llvm18/libexec/* /app/libexec/"
-      - "cp -a /usr/lib/sdk/llvm18/share/* /app/share/"
-      - "install -d /app/extensions"
+      - cp -a /usr/lib/sdk/llvm18/bin/* /app/bin/
+      - cp -a /usr/lib/sdk/llvm18/lib/* /app/lib/
+      - cp -a /usr/lib/sdk/llvm18/libexec/* /app/libexec/
+      - cp -a /usr/lib/sdk/llvm18/share/* /app/share/
+      - install -d /app/extensions
   - name: mold
     buildsystem: cmake-ninja
     config-opts:
@@ -67,8 +67,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/rui314/mold.git
-        tag: v2.32.0
-        commit: ec04bfda9d01a18f4738f53d37756e99c648600d
+        tag: v2.32.1
+        commit: cf1c02d097fc57113b7f9fabf1bc15f810b8b27c
         x-checker-data:
           type: anitya
           project-id: 241732
@@ -87,7 +87,7 @@ modules:
           url-template: https://github.com/qt-creator/qt-creator/releases/download/v$version/qtcreator-linux-x64-$version.7z
           stable-only: true
     build-commands:
-      - "cp -r share/doc/qtcreator $FLATPAK_DEST/share/doc"
+      - cp -r share/doc/qtcreator $FLATPAK_DEST/share/doc
   - name: tcl
     buildsystem: autotools
     subdir: unix
@@ -117,5 +117,5 @@ modules:
           url-template: https://downloads.sourceforge.net/sourceforge/tcl/tk$version-src.tar.gz
           stable-only: true
     post-install:
-      - "ln -s /app/bin/wish8.6 /app/bin/wish"
+      - ln -s /app/bin/wish8.6 /app/bin/wish
   - python3-conan.yaml
