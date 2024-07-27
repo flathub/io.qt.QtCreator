@@ -23,6 +23,7 @@ finish-args:
   - --allow=devel
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
   - --env=VCPKG_ROOT=/app/vcpkg
+  - --env=LLVM_INSTALL_DIR=/app
 build-options:
   prepend-path: /usr/lib/sdk/llvm18/bin
   prepend-ld-library-path: /usr/lib/sdk/llvm18/lib
@@ -56,10 +57,7 @@ modules:
           tag-template: v$version
           stable-only: true
     post-install:
-      - cp -a /usr/lib/sdk/llvm18/bin/* /app/bin/
-      - cp -a /usr/lib/sdk/llvm18/lib/* /app/lib/
-      - cp -a /usr/lib/sdk/llvm18/libexec/* /app/libexec/
-      - cp -a /usr/lib/sdk/llvm18/share/* /app/share/
+      - cp -a /usr/lib/sdk/llvm18/* /app
       - install -d /app/extensions
   - name: docs
     buildsystem: simple
@@ -82,4 +80,3 @@ modules:
   - fmt.yaml
   - vcpkg-tool.yaml
   - vcpkg.yaml
-
