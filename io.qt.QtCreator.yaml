@@ -22,7 +22,7 @@ finish-args:
   - --device=dri
   - --allow=devel
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
-  - --env=VCPKG_ROOT=/app/vcpkg
+  - --env=VCPKG_ROOT=$HOME/.local/share/vcpkg
   - --env=LLVM_INSTALL_DIR=/app
 build-options:
   prepend-path: /usr/lib/sdk/llvm18/bin
@@ -79,4 +79,3 @@ modules:
   - python3-conan.yaml
   - fmt.yaml
   - vcpkg-tool.yaml
-  - vcpkg.yaml
