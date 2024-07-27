@@ -22,7 +22,8 @@ finish-args:
   - --device=dri
   - --allow=devel
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
-  - --env=VCPKG_ROOT=/app/vcpkg
+  - --env=VCPKG_ROOT=$HOME/.local/share/vcpkg
+  - --env=LLVM_INSTALL_DIR=/app
 build-options:
   prepend-path: /usr/lib/sdk/llvm18/bin
   prepend-ld-library-path: /usr/lib/sdk/llvm18/lib
@@ -56,26 +57,8 @@ modules:
           tag-template: v$version
           stable-only: true
     post-install:
-      - cp -a /usr/lib/sdk/llvm18/bin/* /app/bin/
-      - cp -a /usr/lib/sdk/llvm18/lib/* /app/lib/
-      - cp -a /usr/lib/sdk/llvm18/libexec/* /app/libexec/
-      - cp -a /usr/lib/sdk/llvm18/share/* /app/share/
+      - cp -a /usr/lib/sdk/llvm18/* /app
       - install -d /app/extensions
-  - name: mold
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DCMAKE_PREFIX_PATH=/app
-      - -DCMAKE_BUILD_TYPE=Release
-    sources:
-      - type: git
-        url: https://github.com/rui314/mold.git
-        tag: v2.32.1
-        commit: cf1c02d097fc57113b7f9fabf1bc15f810b8b27c
-        x-checker-data:
-          type: anitya
-          project-id: 241732
-          tag-template: v$version
-          stable-only: true
   - name: docs
     buildsystem: simple
     sources:
@@ -90,36 +73,9 @@ modules:
           stable-only: true
     build-commands:
       - cp -r share/doc/qtcreator $FLATPAK_DEST/share/doc
-  - name: tcl
-    buildsystem: autotools
-    subdir: unix
-    build-options:
-      no-debuginfo: true
-    sources:
-      - type: archive
-        url: https://downloads.sourceforge.net/sourceforge/tcl/tcl8.6.14-src.tar.gz
-        sha256: 5880225babf7954c58d4fb0f5cf6279104ce1cd6aa9b71e9a6322540e1c4de66
-        x-checker-data:
-          type: anitya
-          project-id: 4941
-          url-template: https://downloads.sourceforge.net/sourceforge/tcl/tcl$version-src.tar.gz
-          stable-only: true
-  - name: tk
-    buildsystem: autotools
-    subdir: unix
-    build-options:
-      no-debuginfo: true
-    sources:
-      - type: archive
-        url: https://downloads.sourceforge.net/sourceforge/tcl/tk8.6.14-src.tar.gz
-        sha256: 8ffdb720f47a6ca6107eac2dd877e30b0ef7fac14f3a84ebbd0b3612cee41a94
-        x-checker-data:
-          type: anitya
-          project-id: 11426
-          url-template: https://downloads.sourceforge.net/sourceforge/tcl/tk$version-src.tar.gz
-          stable-only: true
-    post-install:
-      - ln -s /app/bin/wish8.6 /app/bin/wish
+  - mold.yaml
+  - tcl.yaml
+  - tk.yaml
   - python3-conan.yaml
-  - vcpkg.yaml
-
+  - fmt.yaml
+  - vcpkg-tool.yaml
