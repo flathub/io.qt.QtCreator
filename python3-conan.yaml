@@ -38,8 +38,8 @@ sources:
       packagetype: bdist_wheel
       type: pypi
   - type: file
-    url: https://files.pythonhosted.org/packages/65/0c/da2e95e26fbeee882eebd843a5ff57c309211dad272fa1441a89337798cc/conan-2.5.0.tar.gz
-    sha256: b280b4139251c4e232d23ae60f291605f023324de224ab82d2cf60dffcfb8fcb
+    url: https://files.pythonhosted.org/packages/f5/eb/329968b0a011fcf207bed64e07b19bebfd60865f83ebde7c16de612aff35/conan-2.6.0.tar.gz
+    sha256: 042c6255e29076b6a66483b51348238f9ebaaa8efeeaca37e99abc53d92de16c
     x-checker-data:
       name: conan
       type: pypi
@@ -74,8 +74,8 @@ sources:
       packagetype: bdist_wheel
       type: pypi
   - type: file
-    url: https://files.pythonhosted.org/packages/c1/b2/ad3cd464101435fdf642d20e0e5e782b4edaef1affdf2adfc5c75660225b/patch-ng-1.17.4.tar.gz
-    sha256: 627abc5bd723c8b481e96849b9734b10065426224d4d22cd44137004ac0d4ace
+    url: https://files.pythonhosted.org/packages/2a/f0/f61a7368ae332d9a45534068c740d4eee4a06ece6cf48af5c3eb9e4bc50e/patch-ng-1.18.0.tar.gz
+    sha256: da067628d6d5fd9dc5a55eab37951d46bd95661b7219fab364b711366abcc690
     x-checker-data:
       name: patch-ng
       type: pypi
