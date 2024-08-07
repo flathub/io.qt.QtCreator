@@ -51,7 +51,7 @@ sources:
       packagetype: bdist_wheel
       type: pypi
       versions:
-        - <=: 1.8.0
+        - <=: 1.9.0
   - type: file
     url: https://files.pythonhosted.org/packages/61/bf/fd60001b3abc5222d8eaa4a204cd8c0ae78e75adc688f33ce4bf25b7fafa/fasteners-0.19-py3-none-any.whl
     sha256: 758819cb5d94cdedf4e836988b74de396ceacb8e2794d21f82d131fd9ee77237
@@ -79,6 +79,8 @@ sources:
     x-checker-data:
       name: patch-ng
       type: pypi
+      versions:
+        - < : 1.18 
   - type: file
     url: https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl
     sha256: a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427
