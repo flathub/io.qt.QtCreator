@@ -12,8 +12,8 @@ sources:
       name: MarkupSafe
       type: pypi
   - type: file
-    url: https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz
-    sha256: bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43
+    url: https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz
+    sha256: d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e
     x-checker-data:
       name: PyYAML
       type: pypi
@@ -80,7 +80,7 @@ sources:
       name: patch-ng
       type: pypi
       versions:
-        - < : 1.18 
+        - <: 1.18
   - type: file
     url: https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl
     sha256: a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427
