@@ -12,5 +12,7 @@ sources:
       project-id: 11426
       url-template: https://downloads.sourceforge.net/sourceforge/tcl/tk$version-src.tar.gz
       stable-only: true
+      versions:
+        - <=: 9.0.0
 post-install:
   - ln -s /app/bin/wish8.6 /app/bin/wish

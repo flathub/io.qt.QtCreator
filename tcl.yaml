@@ -12,3 +12,5 @@ sources:
       project-id: 4941
       url-template: https://downloads.sourceforge.net/sourceforge/tcl/tcl$version-src.tar.gz
       stable-only: true
+      versions:
+        - <=: 9.0.0
