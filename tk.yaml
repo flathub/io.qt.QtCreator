@@ -5,8 +5,8 @@ build-options:
   no-debuginfo: true
 sources:
   - type: archive
-    url: https://downloads.sourceforge.net/sourceforge/tcl/tk9.0.0-src.tar.gz
-    sha256: f166e3c20773c82243f753cef4b091d05267cb7f87da64be88cb2ca5a2ba027e
+    url: https://downloads.sourceforge.net/sourceforge/tcl/tk8.6.15-src.tar.gz
+    sha256: 550969f35379f952b3020f3ab7b9dd5bfd11c1ef7c9b7c6a75f5c49aca793fec
     x-checker-data:
       type: anitya
       project-id: 11426
