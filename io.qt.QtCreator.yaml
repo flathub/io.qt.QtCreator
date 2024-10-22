@@ -17,6 +17,7 @@ finish-args:
   - --share=network
   - --socket=wayland
   - --socket=x11
+  - --socket=ssh-auth
   - --filesystem=host
   - --filesystem=/sys
   - --device=dri
