@@ -6,27 +6,27 @@ build-commands:
     --prefix=${FLATPAK_DEST} "conan" --no-build-isolation
 sources:
   - type: file
-    url: https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz
-    sha256: d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b
+    url: https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz
+    sha256: ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0
     x-checker-data:
       name: MarkupSafe
       type: pypi
   - type: file
-    url: https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz
-    sha256: bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43
+    url: https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz
+    sha256: d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e
     x-checker-data:
       name: PyYAML
       type: pypi
   - type: file
-    url: https://files.pythonhosted.org/packages/1c/d5/c84e1a17bf61d4df64ca866a1c9a913874b4e9bdc131ec689a0ad013fb36/certifi-2024.7.4-py3-none-any.whl
-    sha256: c198e21b1289c2ab85ee4e67bb4b4ef3ead0892059901a8d5b622f24a1101e90
+    url: https://files.pythonhosted.org/packages/12/90/3c9ff0512038035f59d279fddeb79f5f1eccd8859f06d6163c58798b9487/certifi-2024.8.30-py3-none-any.whl
+    sha256: 922820b53db7a7257ffbda3f597266d435245903d80737e34f8a45ff3e3230d8
     x-checker-data:
       name: certifi
       packagetype: bdist_wheel
       type: pypi
   - type: file
-    url: https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz
-    sha256: f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5
+    url: https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz
+    sha256: 223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e
     x-checker-data:
       name: charset-normalizer
       type: pypi
@@ -38,8 +38,8 @@ sources:
       packagetype: bdist_wheel
       type: pypi
   - type: file
-    url: https://files.pythonhosted.org/packages/65/0c/da2e95e26fbeee882eebd843a5ff57c309211dad272fa1441a89337798cc/conan-2.5.0.tar.gz
-    sha256: b280b4139251c4e232d23ae60f291605f023324de224ab82d2cf60dffcfb8fcb
+    url: https://files.pythonhosted.org/packages/ed/a3/20a33c9aaf3b4ca263ea548390a7e0acc1748c55127b776d2e73acdbb10a/conan-2.8.1.tar.gz
+    sha256: 8355da1f5294eae25fbfc2ccf066bc6dde93adca976b7e5480796b28a30782d8
     x-checker-data:
       name: conan
       type: pypi
@@ -50,6 +50,8 @@ sources:
       name: distro
       packagetype: bdist_wheel
       type: pypi
+      versions:
+        - <=: 1.9.0
   - type: file
     url: https://files.pythonhosted.org/packages/61/bf/fd60001b3abc5222d8eaa4a204cd8c0ae78e75adc688f33ce4bf25b7fafa/fasteners-0.19-py3-none-any.whl
     sha256: 758819cb5d94cdedf4e836988b74de396ceacb8e2794d21f82d131fd9ee77237
@@ -58,8 +60,8 @@ sources:
       packagetype: bdist_wheel
       type: pypi
   - type: file
-    url: https://files.pythonhosted.org/packages/e5/3e/741d8c82801c347547f8a2a06aa57dbb1992be9e948df2ea0eda2c8b79e8/idna-3.7-py3-none-any.whl
-    sha256: 82fee1fc78add43492d3a1898bfa6d8a904cc97d8427f683ed8e798d07761aa0
+    url: https://files.pythonhosted.org/packages/76/c6/c88e154df9c4e1a2a66ccf0005a88dfb2650c1dffb6f5ce603dfbd452ce3/idna-3.10-py3-none-any.whl
+    sha256: 946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3
     x-checker-data:
       name: idna
       packagetype: bdist_wheel
@@ -72,11 +74,13 @@ sources:
       packagetype: bdist_wheel
       type: pypi
   - type: file
-    url: https://files.pythonhosted.org/packages/c1/b2/ad3cd464101435fdf642d20e0e5e782b4edaef1affdf2adfc5c75660225b/patch-ng-1.17.4.tar.gz
-    sha256: 627abc5bd723c8b481e96849b9734b10065426224d4d22cd44137004ac0d4ace
+    url: https://files.pythonhosted.org/packages/2a/f0/f61a7368ae332d9a45534068c740d4eee4a06ece6cf48af5c3eb9e4bc50e/patch-ng-1.18.0.tar.gz
+    sha256: da067628d6d5fd9dc5a55eab37951d46bd95661b7219fab364b711366abcc690
     x-checker-data:
       name: patch-ng
       type: pypi
+      versions:
+        - <: 1.19
   - type: file
     url: https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl
     sha256: a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427
@@ -98,3 +102,5 @@ sources:
       name: urllib3
       packagetype: bdist_wheel
       type: pypi
+      versions:
+        - <: 2.0.0

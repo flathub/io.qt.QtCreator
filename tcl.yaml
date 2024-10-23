@@ -1,0 +1,16 @@
+name: tcl
+buildsystem: autotools
+subdir: unix
+build-options:
+  no-debuginfo: true
+sources:
+  - type: archive
+    url: https://downloads.sourceforge.net/sourceforge/tcl/tcl8.6.15-src.tar.gz
+    sha256: 861e159753f2e2fbd6ec1484103715b0be56be3357522b858d3cbb5f893ffef1
+    x-checker-data:
+      type: anitya
+      project-id: 4941
+      url-template: https://downloads.sourceforge.net/sourceforge/tcl/tcl$version-src.tar.gz
+      stable-only: true
+      versions:
+        - <=: 9.0.0
