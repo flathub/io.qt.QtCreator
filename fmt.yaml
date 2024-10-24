@@ -1,0 +1,15 @@
+name: fmt
+buildsystem: cmake-ninja
+build-options:
+  no-debuginfo: true
+sources:
+  - type: archive
+    url: https://github.com/fmtlib/fmt/archive/refs/tags/11.0.2.tar.gz
+    sha256: 6cb1e6d37bdcb756dbbe59be438790db409cdb4868c66e888d5df9f13f7c027f
+    x-checker-data:
+      type: anitya
+      project-id: 11526
+      url-template: https://github.com/fmtlib/fmt/archive/refs/tags/$version.tar.gz
+      versions:
+        - < : 12.0.0
+      stable-only: true
