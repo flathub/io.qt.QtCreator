@@ -17,10 +17,14 @@ finish-args:
   - --share=network
   - --socket=wayland
   - --socket=x11
+  - --socket=ssh-auth
   - --filesystem=host
+  - --filesystem=/sys
   - --device=dri
   - --allow=devel
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
+  - --env=VCPKG_ROOT=$HOME/.local/share/vcpkg
+  - --env=LLVM_INSTALL_DIR=/app
 build-options:
   prepend-path: /usr/lib/sdk/llvm18/bin
   prepend-ld-library-path: /usr/lib/sdk/llvm18/lib
@@ -46,76 +50,33 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt-creator/qt-creator
-        tag: v14.0.0-rc1
-        commit: 332db8de18cdc9d62d5eae9c50190d630d8dccbf
+        tag: v15.0.0-beta1
+        commit: 5b74c918e0c6efa23dfe9afab52bd1fbdacd1c54
         x-checker-data:
           type: anitya
           project-id: 4136
           tag-template: v$version
-          stable-only: false
-    post-install:
-      - "cp -a /usr/lib/sdk/llvm18/bin/* /app/bin/"
-      - "cp -a /usr/lib/sdk/llvm18/lib/* /app/lib/"
-      - "cp -a /usr/lib/sdk/llvm18/libexec/* /app/libexec/"
-      - "cp -a /usr/lib/sdk/llvm18/share/* /app/share/"
-      - "install -d /app/extensions"
-  - name: mold
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DCMAKE_PREFIX_PATH=/app
-      - -DCMAKE_BUILD_TYPE=Release
-    sources:
-      - type: git
-        url: https://github.com/rui314/mold.git
-        tag: v2.32.1
-        commit: cf1c02d097fc57113b7f9fabf1bc15f810b8b27c
-        x-checker-data:
-          type: anitya
-          project-id: 241732
-          tag-template: v$version
           stable-only: true
+    post-install:
+      - cp -a /usr/lib/sdk/llvm18/* /app
+      - install -d /app/extensions
   - name: docs
     buildsystem: simple
     sources:
       - type: archive
-        url: https://github.com/qt-creator/qt-creator/releases/download/v14.0.0/qtcreator-linux-x64-14.0.0.7z
-        sha256: 0d0c13e60eda4d93390e5d8971ef564654e89265128e7bc03fb7e7694290a694
+        url: https://github.com/qt-creator/qt-creator/releases/download/v15.0.0-beta1/qtcreator-linux-x64-15.0.0-beta1.7z
+        sha256: bfd5fcbe5a3f3723e4bc7f536fe235c577ce15d7ee2e97f1ee00cd904b812a64
         strip-components: 0
         x-checker-data:
           type: anitya
           project-id: 4136
           url-template: https://github.com/qt-creator/qt-creator/releases/download/v$version/qtcreator-linux-x64-$version.7z
-          stable-only: false
+          stable-only: true
     build-commands:
-      - "cp -r share/doc/qtcreator $FLATPAK_DEST/share/doc"
-  - name: tcl
-    buildsystem: autotools
-    subdir: unix
-    build-options:
-      no-debuginfo: true
-    sources:
-      - type: archive
-        url: https://downloads.sourceforge.net/sourceforge/tcl/tcl8.6.14-src.tar.gz
-        sha256: 5880225babf7954c58d4fb0f5cf6279104ce1cd6aa9b71e9a6322540e1c4de66
-        x-checker-data:
-          type: anitya
-          project-id: 4941
-          url-template: https://downloads.sourceforge.net/sourceforge/tcl/tcl$version-src.tar.gz
-          stable-only: true
-  - name: tk
-    buildsystem: autotools
-    subdir: unix
-    build-options:
-      no-debuginfo: true
-    sources:
-      - type: archive
-        url: https://downloads.sourceforge.net/sourceforge/tcl/tk8.6.14-src.tar.gz
-        sha256: 8ffdb720f47a6ca6107eac2dd877e30b0ef7fac14f3a84ebbd0b3612cee41a94
-        x-checker-data:
-          type: anitya
-          project-id: 11426
-          url-template: https://downloads.sourceforge.net/sourceforge/tcl/tk$version-src.tar.gz
-          stable-only: true
-    post-install:
-      - "ln -s /app/bin/wish8.6 /app/bin/wish"
+      - cp -r share/doc/qtcreator $FLATPAK_DEST/share/doc
+  - mold.yaml
+  - tcl.yaml
+  - tk.yaml
   - python3-conan.yaml
+  - fmt.yaml
+  - vcpkg-tool.yaml

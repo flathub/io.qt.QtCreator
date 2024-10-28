@@ -1,0 +1,15 @@
+name: mold
+buildsystem: cmake-ninja
+config-opts:
+  - -DCMAKE_PREFIX_PATH=/app
+  - -DCMAKE_BUILD_TYPE=Release
+sources:
+  - type: git
+    url: https://github.com/rui314/mold.git
+    tag: v2.34.1
+    commit: de65f6bd75b93eeb9f3775fc136ee79683ff35f1
+    x-checker-data:
+      type: anitya
+      project-id: 241732
+      tag-template: v$version
+      stable-only: true
