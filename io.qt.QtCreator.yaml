@@ -65,7 +65,7 @@ modules:
     sources:
       - type: archive
         url: https://github.com/qt-creator/qt-creator/releases/download/v15.0.0-beta1/qtcreator-linux-x64-15.0.0-beta1.7z
-        sha256: 7b0adc406f679bee720bd115b4516226ff57924cde69c5312cb941c87688249d
+        sha256: bfd5fcbe5a3f3723e4bc7f536fe235c577ce15d7ee2e97f1ee00cd904b812a64
         strip-components: 0
         x-checker-data:
           type: anitya
