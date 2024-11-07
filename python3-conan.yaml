@@ -38,8 +38,8 @@ sources:
       packagetype: bdist_wheel
       type: pypi
   - type: file
-    url: https://files.pythonhosted.org/packages/5d/c3/60d2a828ea2df1ba23dbe44cc0421fac04d5244ef64571d4eb7c6be1d55a/conan-2.9.1.tar.gz
-    sha256: 98e3a2366be1980100746250655fdbd1deafc6534a67220441790c40ce73361a
+    url: https://files.pythonhosted.org/packages/df/e8/59ee70187a8dca8f6898fa9d1385c980ca0d715c24eebd608ca5ae54e4ae/conan-2.9.2.tar.gz
+    sha256: 39deca86a59d4f2cfd764e9a42d211c9408a3ff56925b2c20a1def913fe5c571
     x-checker-data:
       name: conan
       type: pypi
