@@ -64,8 +64,8 @@ modules:
     buildsystem: simple
     sources:
       - type: archive
-        url: https://github.com/qt-creator/qt-creator/releases/download/v14.0.2/qtcreator-linux-x64-14.0.2.7z
-        sha256: 7b0adc406f679bee720bd115b4516226ff57924cde69c5312cb941c87688249d
+        url: https://github.com/qt-creator/qt-creator/releases/download/v15.0.0/qtcreator-linux-x64-15.0.0.7z
+        sha256: b9c0c83241cafef02867b9a85bbda07deafa5bcd849d6a32076b02f53502994c
         strip-components: 0
         x-checker-data:
           type: anitya
