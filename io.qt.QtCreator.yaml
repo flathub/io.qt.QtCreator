@@ -50,8 +50,8 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt-creator/qt-creator
-        tag: v16.0.0
-        commit: 55ce4e9c06e3651b66219dd9503f68214152e853
+        tag: v16.0.1
+        commit: f4dc189d9b7fe93b674e1f92919870ae5aac9430
         x-checker-data:
           type: anitya
           project-id: 4136
@@ -64,8 +64,8 @@ modules:
     buildsystem: simple
     sources:
       - type: archive
-        url: https://github.com/qt-creator/qt-creator/releases/download/v16.0.0/qtcreator-linux-x64-16.0.0.7z
-        sha256: b237b2856454a92c3d39b0764b34aad7dfb357b2ee7782a2fbd24c6dfa6c521b
+        url: https://github.com/qt-creator/qt-creator/releases/download/v16.0.1/qtcreator-linux-x64-16.0.1.7z
+        sha256: c6900d6dc42702b7e3ee5d3d6ac058b0cef21a0a3675f6bfdfdd0a6a3458f93e
         strip-components: 0
         x-checker-data:
           type: anitya
