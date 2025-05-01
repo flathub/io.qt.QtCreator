@@ -38,7 +38,7 @@ modules:
   - name: qt-creator
     buildsystem: cmake-ninja
     config-opts:
-      - -DCMAKE_PREFIX_PATH=/app
+      - -DSHOW_BUILD_DATE=ON
       - -DWITH_QMLDESIGNER=OFF
       - -DCLANGTOOLING_LINK_CLANG_DYLIB=ON
       - -DWITH_ONLINE_DOCS=ON
