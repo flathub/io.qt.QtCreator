@@ -73,8 +73,6 @@ modules:
     build-commands:
       - cp -r share/doc/qtcreator $FLATPAK_DEST/share/doc
   - mold.yaml
-  - tcl.yaml
-  - tk.yaml
   - python3-conan.yaml
   - fmt.yaml
   - vcpkg-tool.yaml
