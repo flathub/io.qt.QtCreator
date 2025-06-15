@@ -18,8 +18,8 @@ sources:
       name: PyYAML
       type: pypi
   - type: file
-    url: https://files.pythonhosted.org/packages/4a/7e/3db2bd1b1f9e95f7cddca6d6e75e2f2bd9f51b1246e546d88addca0106bd/certifi-2025.4.26-py3-none-any.whl
-    sha256: 30350364dfe371162649852c63336a15c70c6510c2ad5015b21c2345311805f3
+    url: https://files.pythonhosted.org/packages/84/ae/320161bd181fc06471eed047ecce67b693fd7515b16d495d8932db763426/certifi-2025.6.15-py3-none-any.whl
+    sha256: 2e0c7ce7cb5d8f8634ca55d2ba7e6ec2689a2fd6537d8dec1296a477a4910057
     x-checker-data:
       name: certifi
       packagetype: bdist_wheel
