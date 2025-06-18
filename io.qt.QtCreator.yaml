@@ -48,8 +48,8 @@ modules:
     sources:
       - type: git
         url: https://code.qt.io/qt-creator/qt-creator
-        tag: v16.0.2
-        commit: 4c84e42a0dc204dd95f057c6e482d359dc058ea4
+        tag: v17.0.0
+        commit: 4983f08c47f45e82b991294f2ebe2824973c5535
         x-checker-data:
           type: anitya
           project-id: 4136
