@@ -89,8 +89,8 @@ sources:
       packagetype: bdist_wheel
       type: pypi
   - type: file
-    url: https://files.pythonhosted.org/packages/7c/e4/56027c4a6b4ae70ca9de302488c5ca95ad4a39e190093d6c1a8ace08341b/requests-2.32.4-py3-none-any.whl
-    sha256: 27babd3cda2a6d50b30443204ee89830707d396671944c998b5975b031ac2b2c
+    url: https://files.pythonhosted.org/packages/1e/db/4254e3eabe8020b458f1a747140d32277ec7a271daf1d235b70dc0b4e6e3/requests-2.32.5-py3-none-any.whl
+    sha256: 2462f94637a34fd532264295e186976db0f5d453d1cdd31473c85a6a161affb6
     x-checker-data:
       name: requests
       packagetype: bdist_wheel
