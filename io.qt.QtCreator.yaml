@@ -76,3 +76,4 @@ modules:
   - python3-conan.yaml
   - fmt.yaml
   - vcpkg-tool.yaml
+  - fontconfig.yaml

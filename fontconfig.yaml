@@ -1,0 +1,10 @@
+name: fontconfig
+buildsystem: simple
+build-commands:
+  - install -D 63-terminus-fonts.conf /app/etc/fonts/conf.d/63-terminus-fonts.conf
+  - install -D 71-yes-bitmaps.conf /app/etc/fonts/conf.d/71-yes-bitmaps.conf
+sources:
+  - type: file
+    path: 63-terminus-fonts.conf
+  - type: file
+    path: 71-yes-bitmaps.conf
