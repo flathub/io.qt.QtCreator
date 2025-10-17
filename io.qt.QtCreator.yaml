@@ -44,6 +44,7 @@ modules:
       - -DWITH_ONLINE_DOCS=ON
       - -DBUILD_DEVELOPER_DOCS=ON
       - -DBUILD_DOCS_BY_DEFAULT=ON
+      - -DBUILD_EXECUTABLE_CMDBRIDGE=OFF
       - -Wno-dev
     sources:
       - type: git
