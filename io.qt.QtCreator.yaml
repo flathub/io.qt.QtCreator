@@ -48,7 +48,7 @@ modules:
       - -Wno-dev
     sources:
       - type: git
-        url: https://code.qt.io/qt-creator/qt-creator
+        url: https://github.com/qt-creator/qt-creator.git
         tag: v18.0.0
         commit: 86fea009e73c0c8c1e193e017358c4ac296c84bd
         x-checker-data:
