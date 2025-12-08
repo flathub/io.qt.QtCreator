@@ -34,7 +34,6 @@ build-options:
     x86_64:
       prepend-pkg-config-path: /app/lib/x86_64-linux-gnu/pkgconfig
 modules:
-  - shared-modules/libsecret/libsecret.json
   - name: qt-creator
     buildsystem: cmake-ninja
     config-opts:
