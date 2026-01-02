@@ -6,7 +6,7 @@ base-version: '6.10'
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.llvm21
-  - org.freedesktop.Sdk.Extension.node20
+  - org.freedesktop.Sdk.Extension.node22
   - org.freedesktop.Sdk.Extension.openjdk
 command: qtcreator
 rename-desktop-file: org.qt-project.qtcreator.desktop
