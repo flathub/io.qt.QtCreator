@@ -74,6 +74,7 @@ modules:
       - cp -r share/doc/qtcreator $FLATPAK_DEST/share/doc
   - mold.yaml
   - python3-conan.yaml
+  - python3-gcovr.yaml
   - fmt.yaml
   - vcpkg-tool.yaml
   - fontconfig.yaml
