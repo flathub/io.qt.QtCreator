@@ -25,7 +25,7 @@ finish-args:
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
   - --env=VCPKG_ROOT=$HOME/.local/share/vcpkg
   - --env=LLVM_INSTALL_DIR=/app
-  - --env=PATH=$PATH:/usr/lib/sdk/node22/bin
+  - --env=PATH=/app/bin:/usr/bin:/usr/lib/sdk/node22/bin
 build-options:
   prepend-path: /usr/lib/sdk/llvm21/bin
   prepend-ld-library-path: /usr/lib/sdk/llvm21/lib
