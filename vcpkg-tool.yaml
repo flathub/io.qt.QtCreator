@@ -15,8 +15,8 @@ config-opts:
 sources:
   - type: git
     url: https://github.com/microsoft/vcpkg-tool.git
-    tag: '2025-12-16'
-    commit: 44bb3ce006467fc13ba37ca099f64077b8bbf84d
+    tag: '2026-02-17'
+    commit: 77980fec0f110e52e16ab89c6ce74ebcd59dba58
     x-checker-data:
       type: anitya
       project-id: 232892
