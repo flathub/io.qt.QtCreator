@@ -25,8 +25,8 @@ sources:
       packagetype: bdist_wheel
       type: pypi
   - type: file
-    url: https://files.pythonhosted.org/packages/1d/35/02daf95b9cd686320bb622eb148792655c9412dbb9b67abb5694e5910a24/charset_normalizer-3.4.5.tar.gz
-    sha256: 95adae7b6c42a6c5b5b559b1a99149f090a57128155daeea91732c8d970d8644
+    url: https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz
+    sha256: 1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6
     x-checker-data:
       name: charset-normalizer
       type: pypi
@@ -38,8 +38,8 @@ sources:
       packagetype: bdist_wheel
       type: pypi
   - type: file
-    url: https://files.pythonhosted.org/packages/f9/84/1032763b9fae2de2d32213470f829ece7467bb32ad8b19a9dfd9c77be54d/conan-2.26.2.tar.gz
-    sha256: 28bfbbd276935623f1b304811335acb9d2b8ce3a57aa649e432d10d4f51ce055
+    url: https://files.pythonhosted.org/packages/5e/ba/119878141be5e92b0db8a8a05270a277a68222527c28b87107e0c992a680/conan-2.27.0.tar.gz
+    sha256: 41a403c68f2990ffed8b3135769dcd393748f266991f42f048c0fb267bc9d205
     x-checker-data:
       name: conan
       type: pypi
@@ -96,8 +96,8 @@ sources:
       packagetype: bdist_wheel
       type: pypi
   - type: file
-    url: https://files.pythonhosted.org/packages/1e/db/4254e3eabe8020b458f1a747140d32277ec7a271daf1d235b70dc0b4e6e3/requests-2.32.5-py3-none-any.whl
-    sha256: 2462f94637a34fd532264295e186976db0f5d453d1cdd31473c85a6a161affb6
+    url: https://files.pythonhosted.org/packages/56/5d/c814546c2333ceea4ba42262d8c4d55763003e767fa169adc693bd524478/requests-2.33.0-py3-none-any.whl
+    sha256: 3324635456fa185245e24865e810cecec7b4caf933d7eb133dcde67d48cee69b
     x-checker-data:
       name: requests
       packagetype: bdist_wheel
