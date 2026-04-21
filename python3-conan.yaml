@@ -38,8 +38,8 @@ sources:
       packagetype: bdist_wheel
       type: pypi
   - type: file
-    url: https://files.pythonhosted.org/packages/5e/ba/119878141be5e92b0db8a8a05270a277a68222527c28b87107e0c992a680/conan-2.27.0.tar.gz
-    sha256: 41a403c68f2990ffed8b3135769dcd393748f266991f42f048c0fb267bc9d205
+    url: https://files.pythonhosted.org/packages/f9/65/5be3cb2f2657c11f02e0a3a2d27a3014c8c025ed963442e580aea4269089/conan-2.27.1.tar.gz
+    sha256: 64814e66995bc341057cd051693ce13606dc3027b984a133202bc796892af967
     x-checker-data:
       name: conan
       type: pypi
@@ -60,8 +60,8 @@ sources:
       packagetype: bdist_wheel
       type: pypi
   - type: file
-    url: https://files.pythonhosted.org/packages/0e/61/66938bbb5fc52dbdf84594873d5b51fb1f7c7794e9c0f5bd885f30bc507b/idna-3.11-py3-none-any.whl
-    sha256: 771a87f49d9defaf64091e6e6fe9c18d4833f140bd19464795bc32d966ca37ea
+    url: https://files.pythonhosted.org/packages/53/b2/acc33950394b3becb2b664741a0c0889c7ef9f9ffbfa8d47eddb53a50abd/idna-3.12-py3-none-any.whl
+    sha256: 60ffaa1858fac94c9c124728c24fcde8160f3fb4a7f79aa8cdd33a9d1af60a67
     x-checker-data:
       name: idna
       packagetype: bdist_wheel
