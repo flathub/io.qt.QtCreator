@@ -1,13 +1,17 @@
 app-id: io.qt.QtCreator
-runtime: org.kde.Sdk
-runtime-version: '6.10'
-base: io.qt.qtwebengine.BaseApp
-base-version: '6.10'
-sdk: org.kde.Sdk
+runtime: org.freedesktop.Sdk
+runtime-version: '25.08'
+sdk: org.freedesktop.Sdk
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.llvm21
   - org.freedesktop.Sdk.Extension.node22
   - org.freedesktop.Sdk.Extension.openjdk
+add-extensions:
+  org.freedesktop.Sdk.Extension.llvm22:
+    version: '25.08'
+    directory: lib/sdk/llvm22
+    add-ld-path: lib
+    autodelete: false
+    no-autodownload: false
 command: qtcreator
 rename-desktop-file: org.qt-project.qtcreator.desktop
 rename-appdata-file: org.qt-project.qtcreator.appdata.xml
@@ -22,57 +26,46 @@ finish-args:
   - --filesystem=/sys
   - --device=dri
   - --allow=devel
-  - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
   - --env=VCPKG_ROOT=$HOME/.local/share/vcpkg
-  - --env=LLVM_INSTALL_DIR=/app
-  - --env=PATH=/app/bin:/usr/bin:/usr/lib/sdk/node22/bin
+  - --env=LLVM_INSTALL_DIR=/app/lib/sdk/llvm22
+  - --env=PATH=/app/bin:/app/libexec/qtcreator/clang/bin:/app/lib/sdk/llvm22/bin:/usr/bin:/usr/lib/sdk/node22/bin
 build-options:
-  prepend-path: /usr/lib/sdk/llvm21/bin
-  prepend-ld-library-path: /usr/lib/sdk/llvm21/lib
   arch:
     aarch64:
       prepend-pkg-config-path: /app/lib/aarch64-linux-gnu/pkgconfig
     x86_64:
       prepend-pkg-config-path: /app/lib/x86_64-linux-gnu/pkgconfig
 modules:
+  - krb5.yaml
   - name: qt-creator
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DSHOW_BUILD_DATE=ON
-      - -DWITH_QMLDESIGNER=OFF
-      - -DCLANGTOOLING_LINK_CLANG_DYLIB=ON
-      - -DWITH_ONLINE_DOCS=ON
-      - -DBUILD_DEVELOPER_DOCS=OFF
-      - -DBUILD_DOCS_BY_DEFAULT=OFF
-      - -DBUILD_EXECUTABLE_CMDBRIDGE=OFF
-      - -Wno-dev
-    sources:
-      - type: git
-        url: https://github.com/qt-creator/qt-creator.git
-        tag: v19.0.2
-        commit: 41c25c247e950bb4b462948281d366af029f5a8e
-        x-checker-data:
-          type: anitya
-          project-id: 4136
-          tag-template: v$version
-          stable-only: true
-    post-install:
-      - cp -a /usr/lib/sdk/llvm21/* /app
-      - install -d /app/extensions
-  - name: docs
     buildsystem: simple
     sources:
       - type: archive
-        url: https://github.com/qt-creator/qt-creator/releases/download/v19.0.2/qtcreator-linux-x64-19.0.2.7z
-        sha256: e4035aa9998c27a0f886360cd933ae42288d8c7776aaa60f537c2e01b3425b9c
+        only-arches:
+          - x86_64
+        url: https://download.qt.io/official_releases/qtcreator/19.0/19.0.2/installer_source/linux_x64/qtcreator.7z
+        sha256: da51f6ab750182b73b093cc0b5efe01cda6c9478a4361904e85619b58535ad09
         strip-components: 0
         x-checker-data:
           type: anitya
           project-id: 4136
-          url-template: https://github.com/qt-creator/qt-creator/releases/download/v$version/qtcreator-linux-x64-$version.7z
+          url-template: https://download.qt.io/official_releases/qtcreator/$version_major.$version_minor/$version/installer_source/linux_x64/qtcreator.7z
+          stable-only: true
+      - type: archive
+        only-arches:
+          - aarch64
+        url: https://download.qt.io/official_releases/qtcreator/19.0/19.0.2/installer_source/linux_arm64/qtcreator.7z
+        sha256: cddd210c7e7258a19bea986308db689cdc6225564ae87ec49c529842ad630924
+        strip-components: 0
+        x-checker-data:
+          type: anitya
+          project-id: 4136
+          url-template: https://download.qt.io/official_releases/qtcreator/$version_major.$version_minor/$version/installer_source/linux_arm64/qtcreator.7z
           stable-only: true
     build-commands:
-      - cp -r share/doc/qtcreator $FLATPAK_DEST/share/doc
+      - cp -a bin lib libexec share "$FLATPAK_DEST/"
+      - install -d "$FLATPAK_DEST/lib/sdk/llvm22"
+      - install -d "$FLATPAK_DEST/extensions"
   - mold.yaml
   - python3-conan.yaml
   - python3-gcovr.yaml
