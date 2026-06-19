@@ -43,24 +43,24 @@ modules:
       - type: archive
         only-arches:
           - x86_64
-        url: https://download.qt.io/official_releases/qtcreator/19.0/19.0.2/installer_source/linux_x64/qtcreator.7z
-        sha256: da51f6ab750182b73b093cc0b5efe01cda6c9478a4361904e85619b58535ad09
+        url: https://download.qt.io/official_releases/qtcreator/20.0/20.0.0/installer_source/linux_x64/qtcreator.7z
+        sha256: c47a0033e081df821b259ead2678b70d48a16fa21ec9fa904c1ea1e71622386d
         strip-components: 0
         x-checker-data:
           type: anitya
           project-id: 4136
-          url-template: https://download.qt.io/official_releases/qtcreator/$version_major.$version_minor/$version/installer_source/linux_x64/qtcreator.7z
+          url-template: https://download.qt.io/official_releases/qtcreator/$major.$minor/$version/installer_source/linux_x64/qtcreator.7z
           stable-only: true
       - type: archive
         only-arches:
           - aarch64
-        url: https://download.qt.io/official_releases/qtcreator/19.0/19.0.2/installer_source/linux_arm64/qtcreator.7z
-        sha256: cddd210c7e7258a19bea986308db689cdc6225564ae87ec49c529842ad630924
+        url: https://download.qt.io/official_releases/qtcreator/20.0/20.0.0/installer_source/linux_arm64/qtcreator.7z
+        sha256: 64027f037642abe58ae65a5c393b2987a83fcf841cb20e7424b768a494b458c9
         strip-components: 0
         x-checker-data:
           type: anitya
           project-id: 4136
-          url-template: https://download.qt.io/official_releases/qtcreator/$version_major.$version_minor/$version/installer_source/linux_arm64/qtcreator.7z
+          url-template: https://download.qt.io/official_releases/qtcreator/$major.$minor/$version/installer_source/linux_arm64/qtcreator.7z
           stable-only: true
     build-commands:
       - cp -a bin lib libexec share "$FLATPAK_DEST/"
