@@ -18,8 +18,8 @@ sources:
       name: PyYAML
       type: pypi
   - type: file
-    url: https://files.pythonhosted.org/packages/ef/2f/c5464532e965badff2f4c4c1a3a83f5697f0d7c407ed0cda44aaa99bb451/certifi-2026.6.17-py3-none-any.whl
-    sha256: 2227dcbaafe0d2f59279d1762ddddc37783ed4354594f194ffc31d20f41fc3db
+    url: https://files.pythonhosted.org/packages/0b/a7/71ac2cff56fec219ed242bb11b8efb69fcc4bec75db06fb7bfe35de520e6/certifi-2026.7.22-py3-none-any.whl
+    sha256: 62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775
     x-checker-data:
       name: certifi
       packagetype: bdist_wheel
@@ -38,8 +38,8 @@ sources:
       packagetype: bdist_wheel
       type: pypi
   - type: file
-    url: https://files.pythonhosted.org/packages/4e/95/589f05549953f74377d671ab8d5ba041dbeec8208e360ed00fe69c77cfda/conan-2.30.0.tar.gz
-    sha256: 8cee363744b164fc043d0b9bef8db856bd6b27a3c971d9c494441d2aa92794fa
+    url: https://files.pythonhosted.org/packages/86/dd/eb92606b645f864fd741cd1552ffcb14df8d98835d1264e001adefc6f2b3/conan-2.31.0.tar.gz
+    sha256: 2bce901a0ada11934c4654e6b182f9349df0ed9e51124e399448bc132fa6b791
     x-checker-data:
       name: conan
       type: pypi
