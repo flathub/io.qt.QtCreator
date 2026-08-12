@@ -6,8 +6,8 @@ config-opts:
 sources:
   - type: git
     url: https://github.com/rui314/mold.git
-    tag: v2.41.0
-    commit: 7c4c0addcb833120bf41cc3db7b2652694e0d814
+    tag: v2.42.0
+    commit: 441dc1d1fd3c72f41bc9d30f440431d34738def3
     x-checker-data:
       type: anitya
       project-id: 241732
