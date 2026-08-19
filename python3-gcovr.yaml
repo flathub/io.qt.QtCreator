@@ -27,8 +27,8 @@ sources:
       packagetype: bdist_wheel
       type: pypi
   - type: file
-    url: https://files.pythonhosted.org/packages/05/3b/aab6728cae887456f409b4d75e8a01856e4f04bd510de38052a47768b680/lxml-6.1.1.tar.gz
-    sha256: ba96ae44888e0185281e937633a743ea90d5a196c6000f82565ebb0580012d40
+    url: https://files.pythonhosted.org/packages/ad/a9/970b8fa0ecc4fbf1dfaed0d89bbc1fc1421b25ec26a2038c91e872dc6c8e/lxml-6.1.2.tar.gz
+    sha256: 1055241852f2b02068af4a625a5d32c087db193c12251928af2562ecd2239f18
     x-checker-data:
       name: lxml
       type: pypi
