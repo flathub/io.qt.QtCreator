@@ -13,8 +13,8 @@ sources:
       packagetype: bdist_wheel
       type: pypi
   - type: file
-    url: https://files.pythonhosted.org/packages/92/be/f722c843e7875c7cf92cf0e0c1604cddda55a70278c768c6327a78fdba79/gcovr-8.6-py3-none-any.whl
-    sha256: dbf9d87c38042752ad6f530aa8210427e22b526611bb7b7bfed0e81977d1f1ef
+    url: https://files.pythonhosted.org/packages/53/89/d70fe863ff3549aadd3eabde823796639f8d313912c990fe7dc26cba798d/gcovr-8.8-py3-none-any.whl
+    sha256: a5c3e3d4a9c8ab4a95aa8e4b072fcaec7962b1d9fb2add3f10645f649ef29545
     x-checker-data:
       name: gcovr
       packagetype: bdist_wheel
