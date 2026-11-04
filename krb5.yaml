@@ -17,10 +17,13 @@ cleanup:
   - /lib/pkgconfig
 sources:
   - type: archive
-    url: https://kerberos.org/dist/krb5/1.22/krb5-1.22.2.tar.gz
-    sha256: 3243ffbc8ea4d4ac22ddc7dd2a1dc54c57874c40648b60ff97009763554eaf13
+    url: https://github.com/krb5/krb5/archive/refs/tags/krb5-1.22.2-final.tar.gz
+    sha256: 289f5bb81d1f2f8d5eecebe56a056aeed95d35fd9bb4a7071c5dd7ad4b3fe888
     x-checker-data:
       type: anitya
-      project-id: 3909
-      url-template: https://kerberos.org/dist/krb5/$version_major.$version_minor/krb5-$version.tar.gz
+      project-id: 13287
+      url-template: https://github.com/krb5/krb5/archive/refs/tags/krb5-$version.tar.gz
       stable-only: true
+  - type: shell
+    commands:
+      - cd src && autoconf && autoheader
