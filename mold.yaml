@@ -13,3 +13,5 @@ sources:
       project-id: 241732
       tag-template: v$version
       stable-only: true
+      versions:
+        <: '3.0'
