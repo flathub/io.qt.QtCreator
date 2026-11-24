@@ -43,8 +43,8 @@ modules:
       - type: archive
         only-arches:
           - x86_64
-        url: https://download.qt.io/official_releases/qtcreator/20.0/20.0.1/installer_source/linux_x64/qtcreator.7z
-        sha256: 21ad5dced185b423ec95324d39e7d11e6ebe7ec7acb7f8891a837680a0944b07
+        url: https://download.qt.io/official_releases/qtcreator/20.0/20.0.2/installer_source/linux_x64/qtcreator.7z
+        sha256: d4227e23f72a76408c2b30cd9fa3e7c571bbfe85aad78ba98869ea4e4bdc7614
         strip-components: 0
         x-checker-data:
           type: anitya
@@ -54,8 +54,8 @@ modules:
       - type: archive
         only-arches:
           - aarch64
-        url: https://download.qt.io/official_releases/qtcreator/20.0/20.0.1/installer_source/linux_arm64/qtcreator.7z
-        sha256: fd0c1b1ae612c8f084fa9d3089c7a11ec7d83561779f23201e6a757d4efb40b2
+        url: https://download.qt.io/official_releases/qtcreator/20.0/20.0.2/installer_source/linux_arm64/qtcreator.7z
+        sha256: be0047e0ee3182e9389e9c8396363e9040ea8ca0389735f94ed13d17067001f8
         strip-components: 0
         x-checker-data:
           type: anitya
